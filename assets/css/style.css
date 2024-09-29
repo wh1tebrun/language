@@ -1,0 +1,364 @@
+/* İthal Edilen Font */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
+/* Genel Stil Ayarları */
+* {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+h2 {
+    color: #f56454;
+}
+
+/* Slider Stilleri */
+.slidecontainer {
+    display: inline-block; /* İçeriğe göre genişlik */
+    margin: 20px auto;
+    text-align: center;
+}
+
+.slidecontainer h2 {
+    margin-bottom: 10px;
+}
+
+.slider {
+    width: 100%; /* Konteynerin genişliğini kullanır */
+    max-width: 200px; /* İsteğe bağlı: Maksimum genişlik */
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: rgb(239, 57, 47);
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #dc3a3a;
+    cursor: pointer;
+}
+
+/* Başlık ve Metinler */
+.title {
+    margin-top: 1%;
+}
+
+.rule-text {
+    margin-top: 1%;
+}
+
+.text {
+    text-align: center;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.task-container {
+    margin-top: 1%;
+}
+
+/* Küçük Bayraklar */
+.small-flag {
+    width: 50px;
+    height: 30px;
+}
+
+/* Confetti Canvas */
+canvas#confetti {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+/* Buton 53 Stili (Eğer kullanılıyorsa) */
+.button-53 {
+    background-color: #3dd1e7;
+    border: none;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.75rem 1.65rem;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    max-width: 460px;
+    cursor: pointer;
+    transform: rotate(-2deg);
+    user-select: none;
+}
+
+.button-53:focus {
+    outline: none;
+}
+
+.button-53:after {
+    content: "";
+    position: absolute;
+    border: 1px solid #000;
+    bottom: 4px;
+    left: 4px;
+    width: calc(100% - 1px);
+    height: calc(100% - 1px);
+}
+
+.button-53:hover:after {
+    bottom: 2px;
+    left: 2px;
+}
+
+@media (min-width: 768px) {
+    .button-53 {
+        padding: 0.75rem 3rem;
+        font-size: 1.25rem;
+    }
+}
+
+/* Resim Stili (Eğer kullanılıyorsa) */
+img {
+    vertical-align: middle;
+    width: 300px;
+    height: 200px;
+    object-fit: fill;
+    border: 1px solid black;
+}
+
+/* Footer */
+.footer__text {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: 0;
+    font-size: 0.8rem;
+    color: black;
+}
+
+.footer__text a {
+    font-size: 0.8rem;
+    color: black;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+}
+
+.footer__text a:hover {
+    text-decoration: underline;
+}
+
+/* Stats Butonu */
+.stats-btn__again2 {
+    visibility: hidden;
+    position: absolute;
+    top: 85%;
+    left: 45%;
+    margin-bottom: 15px;
+    color: #FFF;
+    text-align: center;
+    font-family: Ubuntu;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+    height: 36px;
+    border-radius: 6px;
+    background: #3966D1;
+    border: none;
+}
+
+/* Medya Sorguları */
+@media (max-width: 649px) {
+    img {
+        width: 180px;
+        height: 150px;
+    }
+
+    .stats-btn__again2 {
+        top: 80%;
+    }
+
+    .slidecontainer {
+        width: auto;
+    }
+}
+
+@media (min-width: 650px) and (max-width: 999px) {
+    /* Orta boyutlu ekranlar için ek stil gerekebilir */
+    .stats-btn__again2 {
+        top: 85%;
+    }
+}
+
+@media (min-width: 1000px) {
+    /* Büyük ekranlar için stil ayarları */
+    .stats-btn__again2 {
+        top: 85%;
+    }
+}
+
+/* Oyun Konteyneri */
+.game-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Dikeyde ortalar */
+    align-items: center;     /* Yatayda ortalar */
+    min-height: 100vh;
+}
+
+/* Seçenek Butonları */
+.option-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.option-button {
+    flex: 1;
+    margin: 10px;
+    padding: 15px;
+    height: 50px;
+    max-width: 200px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.option-button:hover {
+    background-color: #e0e0e0;
+}
+
+.option-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Sonuç Ekranı */
+#menu {
+    display: none; /* Başlangıçta gizli */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.menu__inner {
+    background-color: #fff;
+    width: 80%;
+    max-width: 500px;
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.menu__title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.stats__items {
+    margin: 20px 0;
+}
+
+.stats__item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.stats__item-title {
+    font-weight: bold;
+}
+
+.stats-btn__inner {
+    text-align: center;
+}
+
+.stats-btn__again,
+.stats-btn__again2,
+.stats-btn__again3 {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4285f4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+.stats-btn__again:hover,
+.stats-btn__again2:hover,
+.stats-btn__again3:hover {
+    background-color: #357ae8;
+}
+
+/* Tur Sayacı */
+.round_count {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.round_count h2 {
+    font-size: 24px;
+}
+
+/* Duyarlı Tasarım */
+@media (max-width: 600px) {
+    .option-container {
+        flex-direction: column; /* Butonları dikey olarak sıralar */
+    }
+
+    .option-button {
+        max-width: none;
+        width: 100%;
+    }
+
+    .slidecontainer {
+        width: auto;
+    }
+}
