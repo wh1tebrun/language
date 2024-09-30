@@ -6,100 +6,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Russian Page</title>
     <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/result.css" />
     <link rel="icon" type="image/jpg" href="../../imgs/russian.jpg" />
 </head>
 
 <body>
 
-    <div class="title">
-        <h1>Select the correct translation!</h1>
-    </div>
-
-    <div class="rule-text">
-        <div class="text">
-            <p>You earn points for correct answers. You don't get points for wrong answers.</p>
+    <!-- Oyun içeriğini kapsayan div -->
+    <div class="game-content">
+        <div class="title">
+            <h1>Select the correct translation!</h1>
         </div>
-    </div>
 
-    <div class="slidecontainer">
-        <h2>Number of Rounds</h2>
-        <input type="range" min="5" max="48" value="12" class="slider" id="myRange">
-        <p>Value: <span id="demo"></span></p>
-    </div>
-
-    <div class="option-container">
-        <button class="option-button"></button>
-        <button class="option-button"></button>
-    </div>
-    <div class="option-container">
-        <button class="option-button"></button>
-        <button class="option-button"></button>
-    </div>
-
-    <div>
-        <h2 id="russian-word">Fransızca Kelime</h2>
-    </div>
-
-    <footer class="footer">
-        <div class="container">
-            <p class="footer__text">
-                &copy; <span id="year"></span> - Created By
-                <a href="https://github.com/wh1tebrun" target="_blank" rel="noopener noreferrer"> Ege Tekin</a>
-            </p>
+        <div class="rule-text">
+            <div class="text">
+                <p>You earn points for correct answers. You don't get points for wrong answers.</p>
+            </div>
         </div>
-    </footer>
 
+        <div class="slidecontainer">
+            <h2>Number of Rounds</h2>
+            <input type="range" min="5" max="48" value="12" class="slider" id="myRange">
+            <p>Değer: <span id="demo"></span></p>
+        </div>
+
+        <div class="option-container">
+            <button class="option-button"></button>
+            <button class="option-button"></button>
+        </div>
+        <div class="option-container">
+            <button class="option-button"></button>
+            <button class="option-button"></button>
+        </div>
+
+        <div>
+            <h2 id="russian-word">Russian Word</h2>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <p class="footer__text">
+                    &copy; <span id="year"></span> - Created By
+                    <a href="https://github.com/wh1tebrun" target="_blank" rel="noopener noreferrer"> Ege Tekin</a>
+                </p>
+            </div>
+        </footer>
+
+        <div class="round_count">
+            <h2><span id="flags-done2">0</span> / <span id="value-of-round">0</span></h2>
+        </div>
+
+        <div class="btn">
+            <div class="stats-btn__inner">
+                <button onclick="window.location.href = 'russian.html';" id="play_again_btn" class="stats-btn__again2">Play Again</button>
+                <button onclick="window.location.href = '../../index.html';" id="go_lobby_btn" class="stats-btn__again3">Go Lobby</button>
+            </div>
+        </div>
+    </div> <!-- .game-content sonu -->
+
+    <!-- Sonuç Ekranı -->
     <div id="menu" class="menu menu--stats-mode">
-        <div class="menu__inner">
-            <div class="menu__title">
-                <h1 id="title">Your Result</h1>
-            </div>
-            <div class="stats">
-                <div class="stats__inner">
-                    <div class="stats__ver stats__ver-1"></div>
-                    <div class="stats__ver stats__ver-r"></div>
-                    <div class="stats__items">
-                        <div class="stats__item">
-                            <span class="stats__item-title"> Number of Rounds </span>
-                            <span class="stats__item-value" id="flags-done">0</span>
-                            <div class="stats__hor"></div>
-                        </div>
-                        
-                        <div class="stats__item">
-                            <span class="stats__item-title"> Total Score</span>
-                            <span class="stats__item-value" id="total_score">0</span>
-                        </div>
-                        
-                        <div class="stats__item">
-                            <span class="stats__item-title"> Best Score </span>
-                            <span class="stats__item-value" id="best_score">0</span>
-                            <div class="stats__hor"></div>
-                        </div>
-                    </div>
+        <div class="menu__title">
+            <h1>Your Result</h1>
+        </div>
+        <div class="stats">
+            <div class="stats__inner">
+                <!-- İstatistikler -->
+                <div class="stats__item">
+                    <span class="stats__item-title">Rounds:</span>
+                    <span class="stats__item-value" id="flags-done">0</span>
+                </div>
+
+                <div class="stats__item">
+                    <span class="stats__item-title">Total Score:</span>
+                    <span class="stats__item-value" id="total_score">0</span>
+                </div>
+
+                <div class="stats__item">
+                    <span class="stats__item-title">Best Score:</span>
+                    <span class="stats__item-value" id="best_score">0</span>
+                </div>
+
+                <!-- Yanlış yapılan kelimeleri gösteren bölüm -->
+                <div class="stats__item">
+                    <span class="stats__item-title">Wrong Words:</span>
+                    <ul class="stats__item-value" id="wrong_words_list"></ul>
                 </div>
             </div>
-            <div class="stats-btn">
-                <div class="stats-btn__inner">
-                    <button onclick="window.location.href = 'russian.html';" id="play_again" class="stats-btn__again">Play Again</button>
-                    <button onclick="window.location.href = '../../index.html';" id="go_lobby" class="stats-btn__again">Go Lobby</button>
-                </div>
+        </div>
+        <div class="stats-btn">
+            <div class="stats-btn__inner">
+                <button onclick="window.location.href = 'russian.html';" id="play_again" class="stats-btn__again">Play Again</button>
+                <button onclick="window.location.href = '../../index.html';" id="go_lobby" class="stats-btn__again">Go Lobby</button>
             </div>
         </div>
     </div>
 
-    <div class="round_count">
-        <h2><span id="flags-done2">0</span> / <span id="value-of-round">0</span></h2>
-    </div>
-
-    <div class="btn">
-        <div class="stats-btn__inner">
-            <button onclick="window.location.href = 'russian.html';" id="play_again_btn" class="stats-btn__again2">Play Again</button>
-            <button onclick="window.location.href = '../../index.html';" id="go_lobby_btn" class="stats-btn__again3">Go Lobby</button>
-        </div>
-    </div>
-
+    <!-- Confetti Kütüphanesi -->
     <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+    <!-- russian Oyun Script'i -->
     <script src="../js/russian.js"></script>
 
 </body>

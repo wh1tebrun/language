@@ -10,17 +10,19 @@
     font-family: "Montserrat", sans-serif;
 }
 
-html {
-    scroll-behavior: smooth;
+/* Disable Scrolling on Both Axes */
+html, body {
+    overflow: hidden;        /* Prevents scrolling */
+    height: 100%;            /* Ensures full height */
+    width: 100%;             /* Ensures full width */
+    margin: 0;               /* Removes default margin */
+    padding: 0;              /* Removes default padding */
+    scroll-behavior: smooth; /* Maintains smooth scrolling behavior */
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: "Montserrat", sans-serif;
-}
-
-h1, h2 {
+/* Başlık ve Metinler */
+h1,
+h2 {
     text-align: center;
 }
 
@@ -30,7 +32,7 @@ h2 {
 
 /* Slider Stilleri */
 .slidecontainer {
-    display: inline-block; /* İçeriğe göre genişlik */
+    display: inline-block;
     margin: 20px auto;
     text-align: center;
 }
@@ -40,8 +42,8 @@ h2 {
 }
 
 .slider {
-    width: 100%; /* Konteynerin genişliğini kullanır */
-    max-width: 200px; /* İsteğe bağlı: Maksimum genişlik */
+    width: 100%;
+    max-width: 200px;
     height: 25px;
     background: #d3d3d3;
     outline: none;
@@ -239,8 +241,8 @@ img {
 .game-container {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Dikeyde ortalar */
-    align-items: center;     /* Yatayda ortalar */
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
 }
 
@@ -277,88 +279,149 @@ img {
 
 /* Sonuç Ekranı */
 #menu {
-    display: none; /* Başlangıçta gizli */
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.menu__inner {
-    background-color: #fff;
-    width: 80%;
-    max-width: 500px;
-    margin: 100px auto;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom right, #ffffff, #e0e0e0);
     padding: 20px;
-    border-radius: 10px;
+    z-index: 1000;
+    overflow: auto;
+    box-sizing: border-box;
 }
 
-.menu__title {
+/* Arkadaki öğelerin gizlenmesi */
+body.menu-active .game-content {
+    display: none;
+}
+
+/* Stats İçeriği */
+.stats {
+    width: 100%;
+    margin: 20px 0;
     text-align: center;
+}
+
+.stats__inner {
+    width: 100%;
+}
+
+/* Başlık */
+.menu__title {
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+}
+
+.menu__title h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin: 0;
+}
+
+/* Stats Öğeleri */
+.stats__item {
+    width: 100%;
     margin-bottom: 20px;
 }
 
-.stats__items {
-    margin: 20px 0;
-}
-
-.stats__item {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-}
-
 .stats__item-title {
+    display: block;
+    font-size: 1.5rem;
     font-weight: bold;
+    color: #333;
 }
 
+.stats__item-value {
+    display: block;
+    font-size: 1.2rem;
+    color: #555;
+    margin-top: 5px;
+}
+
+/* Yanlış Kelimeler için Tasarım */
+.stats__item ul {
+    padding-left: 0;
+    list-style: none;
+    background-color: #f9e2e2;
+    padding: 15px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+    margin: 10px auto 0 auto;
+    text-align: left;
+}
+
+/* Butonlar */
 .stats-btn__inner {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Dikey ortalama */
+    gap: 20px;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 30px;
 }
 
+/* Butonlar */
 .stats-btn__again,
 .stats-btn__again2,
 .stats-btn__again3 {
-    padding: 10px 20px;
-    margin: 5px;
-    font-size: 16px;
-    cursor: pointer;
+    padding: 15px 30px;
+    font-size: 1.2rem;
     background-color: #4285f4;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
 }
 
 .stats-btn__again:hover,
 .stats-btn__again2:hover,
 .stats-btn__again3:hover {
-    background-color: #357ae8;
+    background-color: #306acb;
 }
 
-/* Tur Sayacı */
-.round_count {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.round_count h2 {
-    font-size: 24px;
-}
-
-/* Duyarlı Tasarım */
+/* Medya Sorguları */
 @media (max-width: 600px) {
-    .option-container {
-        flex-direction: column; /* Butonları dikey olarak sıralar */
+    .menu__title h1 {
+        font-size: 2rem;
     }
 
-    .option-button {
-        max-width: none;
+    .stats__item-title {
+        font-size: 1.2rem;
+    }
+
+    .stats__item-value {
+        font-size: 1rem;
+    }
+
+    .stats-btn__inner {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .stats-btn__again,
+    .stats-btn__again2,
+    .stats-btn__again3 {
         width: 100%;
     }
+}
 
-    .slidecontainer {
-        width: auto;
-    }
+/* Yeni Eklenecek Stil: .btn Sınıfını Ortalamak */
+.btn {
+    display: flex;
+    justify-content: center; /* Yatayda ortalama */
+    align-items: center;     /* Dikeyde ortalama */
+    flex-direction: column;  /* Öğeleri dikey olarak hizalar */
+    width: 100%;             /* Genişliği tam yapar */
+    margin: 0 auto;          /* Ortalamak için otomatik yan boşluk */
 }

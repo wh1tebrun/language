@@ -1,39 +1,29 @@
-// flag.js
-
+// Başlangıçta tanımlanan değişkenler
 let counter = 0; // Yapılan tur sayısı
 let score = 0;   // Doğru cevap sayısı
+let wrongWords = []; // Yanlış yapılan kelimeleri tutan array
 
 function updateHighscore(newScore) {
     const oldHighscore = parseInt(localStorage.getItem('bestScore')) || 0;
-
     if (newScore > oldHighscore) {
         localStorage.setItem('bestScore', newScore);
         document.getElementById("best_score").innerText = newScore;
+    } else {
+        document.getElementById("best_score").innerText = oldHighscore;
     }
 }
 
-var minutesLabel = document.getElementById("minutes");
-var secondsLabel = document.getElementById("seconds");
 var totalSeconds = 0;
 let timePassed = setInterval(setTime, 1000);
 
 function setTime() {
-    ++totalSeconds;
-    secondsLabel.innerHTML = pad(totalSeconds % 60);
-    minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
-}
-
-function pad(val) {
-    var valString = val + "";
-    return valString.length < 2 ? "0" + valString : valString;
+    totalSeconds++;
 }
 
 function openResult() {
-    document.getElementById("menu").style.display = "block";
-}
-
-function closeResult() {
-    document.getElementById("menu").style.display = "none";
+    document.getElementById("menu").style.display = "flex"; // Sonuç ekranını göster
+    document.body.classList.add('menu-active'); // Oyun içeriğini gizlemek için sınıf ekliyoruz
+    showWrongWords(); // Yanlış kelimeleri göster
 }
 
 function randomizer(...options) {
@@ -42,11 +32,6 @@ function randomizer(...options) {
 }
 
 const jsConfetti = new JSConfetti();
-
-function getRandomArbitrary(min, max) {
-    return Math.floor(Math.random() * (max - min) + min);
-}
-
 const options = Array.from(document.getElementsByClassName("option-button"));
 
 const wordPairs = [
@@ -488,39 +473,38 @@ const flagsDone = document.getElementById("flags-done");
 const flagsDone2 = document.getElementById("flags-done2");
 const valueOfRound = document.getElementById("value-of-round");
 const totalScoreElement = document.getElementById("total_score");
-const playAgainButtons = Array.from(document.getElementsByClassName("stats-btn__again2"));
+
+let chosenOption;
+
+window.onload = () => {
+    // Slider değerini güncelle
+    output.innerHTML = slider.value;
+    valueOfRound.innerHTML = slider.value;
+
+    // İlk soruyu yükle
+    loadNextQuestion();
+
+    // En iyi skoru yükle
+    const bestScore = parseInt(localStorage.getItem('bestScore')) || 0;
+    document.getElementById("best_score").innerText = bestScore;
+};
 
 function replaceAndRemoveOption(index) {
     if (remainingWordPairs.length === 0) {
         remainingWordPairs = [...wordPairs];
     }
-
-    const rndNum = Math.floor(getRandomArbitrary(0, remainingWordPairs.length));
+    const rndNum = Math.floor(Math.random() * remainingWordPairs.length);
     const wordPair = remainingWordPairs[rndNum];
 
     options[index].textContent = wordPair.english;
     options[index].dataset.german = wordPair.german;
     options[index].dataset.english = wordPair.english;
-
     remainingWordPairs.splice(rndNum, 1);
 
     return options[index];
 }
 
-let chosenOption;
-
-window.onload = () => {
-    closeResult();
-
-    // En iyi skoru göster
-    const savedBestScore = localStorage.getItem('bestScore');
-    if (savedBestScore !== null) {
-        document.getElementById("best_score").innerText = savedBestScore;
-    } else {
-        document.getElementById("best_score").innerText = 0;
-    }
-
-    // Seçenekleri başlat
+function loadNextQuestion() {
     const option0 = replaceAndRemoveOption(0);
     const option1 = replaceAndRemoveOption(1);
     const option2 = replaceAndRemoveOption(2);
@@ -528,72 +512,56 @@ window.onload = () => {
 
     chosenOption = randomizer(option0, option1, option2, option3);
     germanWordElement.innerText = chosenOption.dataset.german;
-
-    valueOfRound.innerText = slider.value;
-    flagsDone2.innerText = counter;
-};
+}
 
 function optionClickListener(event) {
     const clickedOption = event.target;
     const selectedEnglish = clickedOption.textContent;
     const correctEnglish = chosenOption.dataset.english;
 
-    // Cevabı kontrol et
-    if (selectedEnglish === correctEnglish) {
-        score++; // Doğru cevap için puan arttır
+    if (selectedEnglish !== correctEnglish) {
+        wrongWords.push(`${chosenOption.dataset.german} - ${chosenOption.dataset.english}`); // Yanlış kelimeyi ekle
+    } else {
+        score++;
     }
 
-    counter++; // Tur sayısını arttır
-    flagsDone2.innerText = counter; // Ekranda tur sayısını güncelle
+    counter++;
+    flagsDone2.innerText = counter;
 
     if (counter >= parseInt(output.innerHTML, 10)) {
-        // Oyun bittiğinde sonuç ekranını aç
-
-        // Tüm seçenekleri devre dışı bırak
-        options.forEach((option) => {
-            option.disabled = true;
-        });
-
-        // Toplam puanı ve yapılan tur sayısını sonuç ekranında göster
+        options.forEach((option) => { option.disabled = true; });
         totalScoreElement.innerText = score;
         flagsDone.innerText = counter;
-
-        // Zamanlayıcıyı durdur
         clearInterval(timePassed);
-
-        // En iyi skoru güncelle
         updateHighscore(score);
-
-        // Sonuç ekranını aç
         openResult();
-
-        jsConfetti.addConfetti({
-            emojis: ['🌟', '🎉', '✨', '🔥'],
-        });
+        jsConfetti.addConfetti({ emojis: ['🌟', '🎉', '✨', '🔥'] });
     } else {
-        // Sonraki soruya geç
-
-        // Seçenekleri güncelle
-        const option0 = replaceAndRemoveOption(0);
-        const option1 = replaceAndRemoveOption(1);
-        const option2 = replaceAndRemoveOption(2);
-        const option3 = replaceAndRemoveOption(3);
-
-        chosenOption = randomizer(option0, option1, option2, option3);
-        germanWordElement.innerText = chosenOption.dataset.german;
-    }
-
-    if (counter >= 1) {
-        document.getElementById("myRange").disabled = true;
+        loadNextQuestion();
     }
 }
 
-// Butonlara olay dinleyicileri ekleyin
+function showWrongWords() {
+    const wrongWordsList = document.getElementById('wrong_words_list');
+    wrongWordsList.innerHTML = '';
+
+    if (wrongWords.length > 0) {
+        wrongWords.forEach(word => {
+            let li = document.createElement('li');
+            li.textContent = word;
+            wrongWordsList.appendChild(li);
+        });
+    } else {
+        let li = document.createElement('li');
+        li.textContent = "No wrong words!";
+        wrongWordsList.appendChild(li);
+    }
+}
+
 options.forEach((option) => {
     option.addEventListener("click", optionClickListener);
 });
 
-// Slider kodu
 var slider = document.getElementById("myRange");
 var output = document.getElementById("demo");
 output.innerHTML = slider.value;
