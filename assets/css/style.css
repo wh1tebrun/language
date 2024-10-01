@@ -10,16 +10,6 @@
     font-family: "Montserrat", sans-serif;
 }
 
-/* Disable Scrolling on Both Axes */
-html, body {
-    overflow: hidden;        /* Prevents scrolling */
-    height: 100%;            /* Ensures full height */
-    width: 100%;             /* Ensures full width */
-    margin: 0;               /* Removes default margin */
-    padding: 0;              /* Removes default padding */
-    scroll-behavior: smooth; /* Maintains smooth scrolling behavior */
-}
-
 /* Başlık ve Metinler */
 h1,
 h2 {
@@ -107,7 +97,7 @@ canvas#confetti {
     pointer-events: none;
 }
 
-/* Buton 53 Stili (Eğer kullanılıyorsa) */
+/* Buton 53 Stili */
 .button-53 {
     background-color: #3dd1e7;
     border: none;
@@ -121,7 +111,7 @@ canvas#confetti {
     position: relative;
     text-align: center;
     text-decoration: none;
-    max-width: 460px;
+    max-width: 100%;
     cursor: pointer;
     transform: rotate(-2deg);
     user-select: none;
@@ -146,18 +136,12 @@ canvas#confetti {
     left: 2px;
 }
 
-@media (min-width: 768px) {
-    .button-53 {
-        padding: 0.75rem 3rem;
-        font-size: 1.25rem;
-    }
-}
-
-/* Resim Stili (Eğer kullanılıyorsa) */
+/* Resim Stili */
 img {
     vertical-align: middle;
-    width: 300px;
-    height: 200px;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
     object-fit: fill;
     border: 1px solid black;
 }
@@ -165,9 +149,10 @@ img {
 /* Footer */
 .footer__text {
     position: fixed;
-    left: 50%;
-    transform: translate(-50%, -50%);
     bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
     font-size: 0.8rem;
     color: black;
 }
@@ -187,12 +172,12 @@ img {
 .stats-btn__again2 {
     visibility: hidden;
     position: absolute;
-    top: 85%;
-    left: 45%;
-    margin-bottom: 15px;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
     color: #FFF;
     text-align: center;
-    font-family: Ubuntu;
+    font-family: Ubuntu, sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -200,7 +185,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 10%;
+    padding: 0 20px;
     height: 36px;
     border-radius: 6px;
     background: #3966D1;
@@ -210,12 +195,13 @@ img {
 /* Medya Sorguları */
 @media (max-width: 649px) {
     img {
-        width: 180px;
-        height: 150px;
+        width: 100%;
+        max-width: 180px;
+        height: auto;
     }
 
     .stats-btn__again2 {
-        top: 80%;
+        bottom: 15px;
     }
 
     .slidecontainer {
@@ -224,16 +210,14 @@ img {
 }
 
 @media (min-width: 650px) and (max-width: 999px) {
-    /* Orta boyutlu ekranlar için ek stil gerekebilir */
     .stats-btn__again2 {
-        top: 85%;
+        bottom: 15px;
     }
 }
 
 @media (min-width: 1000px) {
-    /* Büyük ekranlar için stil ayarları */
     .stats-btn__again2 {
-        top: 85%;
+        bottom: 15px;
     }
 }
 
@@ -249,16 +233,17 @@ img {
 /* Seçenek Butonları */
 .option-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin: 10px;
 }
 
 .option-button {
-    flex: 1;
+    flex: 1 1 45%;
     margin: 10px;
     padding: 15px;
-    height: 50px;
+    min-width: 120px;
     max-width: 200px;
     font-size: 16px;
     cursor: pointer;
@@ -361,8 +346,9 @@ body.menu-active .game-content {
 /* Butonlar */
 .stats-btn__inner {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center; /* Dikey ortalama */
+    align-items: center;
     gap: 20px;
     width: 100%;
     max-width: 400px;
@@ -416,21 +402,19 @@ body.menu-active .game-content {
     }
 }
 
-/* Yeni Eklenecek Stil: .btn Sınıfını Ortalamak */
+/* .btn Sınıfını Ortalamak */
 .btn {
     display: flex;
-    justify-content: center; /* Yatayda ortalama */
-    align-items: center;     /* Dikeyde ortalama */
-    flex-direction: column;  /* Öğeleri dikey olarak hizalar */
-    width: 100%;             /* Genişliği tam yapar */
-    margin: 0 auto;          /* Ortalamak için otomatik yan boşluk */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
 }
 
-
-
-/* Input Container for typing questions */
+/* Input Container */
 .input-container {
-    display: none; /* Initially hidden */
+    display: none;
     text-align: center;
     margin: 20px;
 }
@@ -457,10 +441,18 @@ body.menu-active .game-content {
     background-color: #306acb;
 }
 
-/* Adjusting the display of option containers */
+/* Option Container */
 .option-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin: 10px;
+}
+
+/* HTML ve Body için Overflow Hidden Kaldırıldı */
+html, body {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
 }
