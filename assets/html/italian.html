@@ -11,10 +11,10 @@
 
 <body>
 
-    <!-- Oyun içeriğini kapsayan div -->
+    <!-- Game content container -->
     <div class="game-content">
         <div class="title">
-            <h1>Select the correct translation!</h1>
+            <h1>Exam your knowledge!</h1>
         </div>
 
         <div class="rule-text">
@@ -26,9 +26,10 @@
         <div class="slidecontainer">
             <h2>Number of Rounds</h2>
             <input type="range" min="5" max="48" value="12" class="slider" id="myRange">
-            <p>Değer: <span id="demo"></span></p>
+            <p>Value: <span id="demo"></span></p>
         </div>
 
+        <!-- Option buttons for multiple-choice questions -->
         <div class="option-container">
             <button class="option-button"></button>
             <button class="option-button"></button>
@@ -36,10 +37,16 @@
         <div class="option-container">
             <button class="option-button"></button>
             <button class="option-button"></button>
+        </div>
+
+        <!-- Input field for typing questions -->
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="Type your answer here">
+            <button id="submit-button">Submit</button>
         </div>
 
         <div>
-            <h2 id="italian-word">Italian Word</h2>
+            <h2 id="italian-word">italian Word</h2>
         </div>
 
         <footer class="footer">
@@ -61,16 +68,16 @@
                 <button onclick="window.location.href = '../../index.html';" id="go_lobby_btn" class="stats-btn__again3">Go Lobby</button>
             </div>
         </div>
-    </div> <!-- .game-content sonu -->
+    </div> <!-- End of .game-content -->
 
-    <!-- Sonuç Ekranı -->
+    <!-- Result Screen -->
     <div id="menu" class="menu menu--stats-mode">
         <div class="menu__title">
             <h1>Your Result</h1>
         </div>
         <div class="stats">
             <div class="stats__inner">
-                <!-- İstatistikler -->
+                <!-- Statistics -->
                 <div class="stats__item">
                     <span class="stats__item-title">Rounds:</span>
                     <span class="stats__item-value" id="flags-done">0</span>
@@ -86,7 +93,7 @@
                     <span class="stats__item-value" id="best_score">0</span>
                 </div>
 
-                <!-- Yanlış yapılan kelimeleri gösteren bölüm -->
+                <!-- Wrong words section -->
                 <div class="stats__item">
                     <span class="stats__item-title">Wrong Words:</span>
                     <ul class="stats__item-value" id="wrong_words_list"></ul>
@@ -101,9 +108,9 @@
         </div>
     </div>
 
-    <!-- Confetti Kütüphanesi -->
+    <!-- Confetti Library -->
     <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
-    <!-- italian Oyun Script'i -->
+    <!-- Updated italian Game Script -->
     <script src="../js/italian.js"></script>
 
 </body>

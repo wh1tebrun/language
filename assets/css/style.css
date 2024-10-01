@@ -425,3 +425,42 @@ body.menu-active .game-content {
     width: 100%;             /* Genişliği tam yapar */
     margin: 0 auto;          /* Ortalamak için otomatik yan boşluk */
 }
+
+
+
+/* Input Container for typing questions */
+.input-container {
+    display: none; /* Initially hidden */
+    text-align: center;
+    margin: 20px;
+}
+
+#user-input {
+    width: 80%;
+    max-width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+#submit-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4285f4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+#submit-button:hover {
+    background-color: #306acb;
+}
+
+/* Adjusting the display of option containers */
+.option-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}

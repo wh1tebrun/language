@@ -11,45 +11,49 @@
   <link rel="stylesheet" href="assets/css/app.css" />
   <!-- Favicon -->
   <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
-  <title>Language Quiz</title>
-  <link rel="icon" type="image/jpg" href="world.png" />
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
-  <!-- Fill content with the URL of this portfolio you'll host -->
   <meta property="og:url" content="https://language-quiz-nine.vercel.app/" />
-  <!-- Fill content with the title of your portfolio(Recommended to use what you put in <title> tag) -->
   <meta property="og:title" content="Ege Tekin | language-project" />
-  <!-- Give a short description that'll show up when you/someone shares your portfolio on different platform -->
   <meta property="og:description"
     content="A simple and fun website that you can use to practise your knowledge in 4 different languages." />
-  <!-- Add a thumbnail image in assets folder and fill the content attr with URL to that thumbnail 
-      so that a thumbnail image of your portfolio is shown while shared on other platform -->
   <meta property="og:image" content="world.png" />
 </head>
 
 <body>
   <main class="container">
     <div id="home" class="flex-center flex-column">
-      <h1 style="text-align: center;">Language Quiz</h1>
-      <a class="btn" href="assets/html/french.html">French</a>
-      <a class="btn" href="assets/html/german.html">German</a>
-      <a class="btn" href="assets/html/italian.html">Italian</a>
-      <a class="btn" href="assets/html/russian.html">Russian</a>
+      <h1>Language Quiz</h1>
+      <div class="flags-container">
+        <a class="btn" href="assets/html/french.html">
+          <img src="imgs/french.jpg" alt="French Flag" class="flag-image">
+        </a>
+        <a class="btn" href="assets/html/german.html">
+          <img src="imgs/german.jpg" alt="German Flag" class="flag-image">
+        </a>
+        <a class="btn" href="assets/html/italian.html">
+          <img src="imgs/italian.jpg" alt="Italian Flag" class="flag-image">
+        </a>
+        <a class="btn" href="assets/html/russian.html">
+          <img src="imgs/russian.jpg" alt="Russian Flag" class="flag-image">
+        </a>
+      </div>
     </div>
-
-
   </main>
 
   <footer class="footer">
     <div class="container2">
       <p class="footer__text">
         &copy; <span id="year"></span> - Created By
-        <a href="https://github.com/wh1tebrun" target="_blank" rel="noopener noreferrer"> Ege Tekin</a>
-
-
+        <a href="https://github.com/wh1tebrun" target="_blank" rel="noopener noreferrer">Ege Tekin</a>
       </p>
     </div>
   </footer>
+
+  <script>
+    // Update the year dynamically in the footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 
 </html>

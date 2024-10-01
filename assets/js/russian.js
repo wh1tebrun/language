@@ -2,6 +2,8 @@
 let counter = 0; // Yapılan tur sayısı
 let score = 0;   // Doğru cevap sayısı
 let wrongWords = []; // Yanlış yapılan kelimeleri tutan array
+let questionType;
+let chosenWordPair;
 
 function updateHighscore(newScore) {
     const oldHighscore = parseInt(localStorage.getItem('bestScore')) || 0;
@@ -504,14 +506,85 @@ function replaceAndRemoveOption(index) {
     return options[index];
 }
 
+// Updated loadNextQuestion function
 function loadNextQuestion() {
-    const option0 = replaceAndRemoveOption(0);
-    const option1 = replaceAndRemoveOption(1);
-    const option2 = replaceAndRemoveOption(2);
-    const option3 = replaceAndRemoveOption(3);
+    questionType = randomizer("multiple-choice", "type-in");
 
-    chosenOption = randomizer(option0, option1, option2, option3);
-    russianWordElement.innerText = chosenOption.dataset.russian;
+    if (questionType === "multiple-choice") {
+        // Show option buttons, hide input container
+        document.querySelectorAll('.option-container').forEach(function(element) {
+            element.style.display = 'flex';
+        });
+        document.querySelector('.input-container').style.display = 'none';
+
+        // Existing code for multiple-choice
+        const option0 = replaceAndRemoveOption(0);
+        const option1 = replaceAndRemoveOption(1);
+        const option2 = replaceAndRemoveOption(2);
+        const option3 = replaceAndRemoveOption(3);
+
+        chosenOption = randomizer(option0, option1, option2, option3);
+        russianWordElement.innerText = chosenOption.dataset.russian;
+
+    } else if (questionType === "type-in") {
+        // Hide option buttons, show input container
+        document.querySelectorAll('.option-container').forEach(function(element) {
+            element.style.display = 'none';
+        });
+        document.querySelector('.input-container').style.display = 'block';
+
+        // Select a random word pair
+        if (remainingWordPairs.length === 0) {
+            remainingWordPairs = [...wordPairs];
+        }
+        const rndNum = Math.floor(Math.random() * remainingWordPairs.length);
+        const wordPair = remainingWordPairs[rndNum];
+        remainingWordPairs.splice(rndNum, 1);
+
+        chosenWordPair = wordPair;
+
+        russianWordElement.innerText = wordPair.russian;
+
+        // Clear the input field
+        document.getElementById('user-input').value = '';
+    }
+}
+
+// Event listener for the submit button
+document.getElementById('submit-button').addEventListener('click', checkInputAnswer);
+
+// Event listener for pressing 'Enter' key in the input field
+document.getElementById('user-input').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        checkInputAnswer();
+    }
+});
+
+// Function to check the typed answer
+function checkInputAnswer() {
+    const userAnswer = document.getElementById('user-input').value.trim().toLowerCase();
+    const correctAnswer = chosenWordPair.english.toLowerCase();
+
+    if (userAnswer === correctAnswer) {
+        score++;
+    } else {
+        wrongWords.push(`${chosenWordPair.russian} - ${chosenWordPair.english}`); // Add the wrong word
+    }
+
+    counter++;
+    flagsDone2.innerText = counter;
+
+    if (counter >= parseInt(output.innerHTML, 10)) {
+        options.forEach((option) => { option.disabled = true; });
+        totalScoreElement.innerText = score;
+        flagsDone.innerText = counter;
+        clearInterval(timePassed);
+        updateHighscore(score);
+        openResult();
+        jsConfetti.addConfetti({ emojis: ['🌟', '🎉', '✨', '🔥'] });
+    } else {
+        loadNextQuestion();
+    }
 }
 
 function optionClickListener(event) {
