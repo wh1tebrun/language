@@ -15,6 +15,17 @@
     color: #000000;
 }
 
+
+/* Disable Scrolling on Both Axes */
+html, body {
+    overflow: hidden;        /* Prevents scrolling */
+    height: 100%;            /* Ensures full height */
+    width: 100%;             /* Ensures full width */
+    margin: 0;               /* Removes default margin */
+    padding: 0;              /* Removes default padding */
+    scroll-behavior: smooth; /* Maintains smooth scrolling behavior */
+}
+
 h1,
 h2,
 h3,
