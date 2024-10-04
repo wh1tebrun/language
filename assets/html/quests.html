@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags and other head content -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Egelingo | Quests</title>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <!-- Favicon -->
+    <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <a href="../../index.html">
+                <span class="logo-text">egelingo</span>
+            </a>
+        </div>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="../../index.html" id="learn-btn"><img
+                            src="https://d35aaqx5ub95lt.cloudfront.net/vendor/fbe0c187341c280e161f76fb4cbda1d7.svg"
+                            alt="Learn Icon" class="menu-icon">LEARN</a></li>
+                <li><a href="leaderboards.html"><img
+                            src="https://d35aaqx5ub95lt.cloudfront.net/vendor/d1f31f71a5b1d513184cc278d910cb33.svg"
+                            alt="Leaderboards Icon" class="menu-icon">LEADERBOARDS</a></li>
+                <li><a href="quests.html"><img
+                            src="https://d35aaqx5ub95lt.cloudfront.net/vendor/5d2ba4a4504db1b554515043e94cc7da.svg"
+                            alt="Quests Icon" class="menu-icon">QUESTS</a></li>
+                <li><a href="shop.html"><img
+                            src="https://d35aaqx5ub95lt.cloudfront.net/vendor/0e58a94dda219766d98c7796b910beee.svg"
+                            alt="Shop Icon" class="menu-icon">SHOP</a></li>
+                <li><a href="profile.html"><img
+                            src="https://d35aaqx5ub95lt.cloudfront.net/vendor/e93ac282acf802a6258c761d3e9f9888.svg"
+                            alt="Profile Icon" class="menu-icon">PROFILE</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Flags and Streak Counter -->
+    <div class="flag-and-streak">
+        <!-- Flag Menu -->
+        <div class="flag-menu">
+            <div class="selected-flag">
+                <!-- In quests.html -->
+                <img src="../../imgs/french.jpg" alt="Selected Flag" class="small-flag" id="selected-flag">
+
+            </div>
+            <div class="flag-dropdown" id="flag-dropdown">
+                <!-- Flags will be added via JavaScript -->
+            </div>
+        </div>
+        <!-- Streak Counter -->
+        <div class="streak-counter">
+            <a href="#">
+                <img src="https://d35aaqx5ub95lt.cloudfront.net/vendor/398e4298a3b39ce566050e5c041949ef.svg"
+                    alt="Streak Icon" class="streak-icon">
+                <span class="streak-number" id="streak-number">0</span>
+            </a>
+        </div>
+        <div class="streak-counter">
+            <a href="#">
+              <img src="https://d35aaqx5ub95lt.cloudfront.net/images/gems/45c14e05be9c1af1d7d0b54c6eed7eee.svg" alt="Streak Icon"
+                class="streak-icon">
+              <span class="streak-number" id="streak-number">5661</span>
+            </a>
+          </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container">
+        <h1>Quests</h1>
+        <div class="quests-container">
+            <!-- Quest 1: 30 Puan Kazan -->
+            <div class="quest-box">
+                <h2>30 Puan Kazan</h2>
+                <p>Her doğru cevap için 1 puan kazanırsınız.</p>
+                <div class="progress-bar">
+                    <div class="progress" id="points-progress" style="width: 0%;"></div>
+                </div>
+                <p><span id="current-points">0</span>/30 Puan</p>
+            </div>
+
+            <!-- Quest 2: 7 Gün Üst Üste Giriş Yap -->
+            <div class="quest-box">
+                <h2>7 Gün Üst Üste Giriş Yap</h2>
+                <p>Oyuna 7 gün boyunca aralıksız giriş yapın.</p>
+                <div class="progress-bar">
+                    <div class="progress" id="streak-progress" style="width: 0%;"></div>
+                </div>
+                <p><span id="current-streak">0</span>/7 Gün</p>
+            </div>
+
+            <!-- Quest 3: En Az 100 Kelime Öğren -->
+            <div class="quest-box">
+                <h2>En Az 100 Kelime Öğren</h2>
+                <p>En az 100 kelime öğrenin.</p>
+                <div class="progress-bar">
+                    <div class="progress" id="words-progress" style="width: 0%;"></div>
+                </div>
+                <p><span id="current-words">0</span>/100 Kelime</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container2">
+            <p class="footer__text">
+                &copy; <span id="year"></span> - Created By
+                <a href="https://github.com/wh1tebrun" target="_blank" rel="noopener noreferrer">Ege Tekin</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/index.js"></script>
+    <script src="assets/js/quests.js"></script>
+</body>
+
+</html>

@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
 <head>
+  <!-- Meta etiketler ve diğer head içeriği -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <!-- Title -->
-  <title>Language Quiz</title>
-  <!-- Custom Styles -->
-  <link rel="stylesheet" href="assets/css/app.css" />
+  <title>Egelingo | Learn</title>
+  <!-- Özel CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
   <!-- Favicon -->
-  <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="imgs/egelingo-logo.jpg" type="image/x-icon">
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://language-quiz-nine.vercel.app/" />
@@ -21,26 +20,134 @@
 </head>
 
 <body>
-  <main class="container">
-    <div id="home" class="flex-center flex-column">
-      <h1>Language Quiz</h1>
-      <div class="flags-container">
-        <a class="btn" href="assets/html/french.html">
-          <img src="imgs/french.jpg" alt="French Flag" class="flag-image">
-        </a>
-        <a class="btn" href="assets/html/german.html">
-          <img src="imgs/german.jpg" alt="German Flag" class="flag-image">
-        </a>
-        <a class="btn" href="assets/html/italian.html">
-          <img src="imgs/italian.jpg" alt="Italian Flag" class="flag-image">
-        </a>
-        <a class="btn" href="assets/html/russian.html">
-          <img src="imgs/russian.jpg" alt="Russian Flag" class="flag-image">
-        </a>
+  <!-- Yan Menü -->
+  <div class="sidebar">
+    <div class="logo">
+      <a href="index.html">
+        <span class="logo-text">egelingo</span>
+      </a>
+    </div>
+    <nav class="nav-menu">
+      <ul>
+        <li><a href="index.html" id="learn-btn"><img
+              src="https://d35aaqx5ub95lt.cloudfront.net/vendor/fbe0c187341c280e161f76fb4cbda1d7.svg" alt="Learn Icon"
+              class="menu-icon">LEARN</a></li>
+        <li><a href="assets/html/leaderboards.html"><img
+              src="https://d35aaqx5ub95lt.cloudfront.net/vendor/d1f31f71a5b1d513184cc278d910cb33.svg"
+              alt="Leaderboards Icon" class="menu-icon">LEADERBOARDS</a></li>
+        <li><a href="assets/html/quests.html"><img
+              src="https://d35aaqx5ub95lt.cloudfront.net/vendor/5d2ba4a4504db1b554515043e94cc7da.svg" alt="Quests Icon"
+              class="menu-icon">QUESTS</a></li>
+        <li><a href="assets/html/shop.html"><img
+              src="https://d35aaqx5ub95lt.cloudfront.net/vendor/0e58a94dda219766d98c7796b910beee.svg" alt="Shop Icon"
+              class="menu-icon">SHOP</a></li>
+        <li><a href="assets/html/profile.html"><img
+              src="https://d35aaqx5ub95lt.cloudfront.net/vendor/e93ac282acf802a6258c761d3e9f9888.svg" alt="Profile Icon"
+              class="menu-icon">PROFILE</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Bayraklar ve Streak Sayacı -->
+  <div class="flag-and-streak">
+    <!-- Bayrak Menüsü -->
+    <div class="flag-menu">
+      <div class="selected-flag">
+        <img src="imgs/french.jpg" alt="Selected Flag" class="small-flag" id="selected-flag">
+      </div>
+      <div class="flag-dropdown" id="flag-dropdown">
+        <!-- Bayraklar JavaScript ile eklenecek -->
       </div>
     </div>
+    <!-- Streak Sayacı -->
+    <div class="streak-counter">
+      <a href="#">
+        <img src="https://d35aaqx5ub95lt.cloudfront.net/vendor/398e4298a3b39ce566050e5c041949ef.svg" alt="Streak Icon"
+          class="streak-icon">
+        <span class="streak-number" id="streak-number">4</span>
+      </a>
+    </div>
+    <div class="streak-counter">
+      <a href="#">
+        <img src="https://d35aaqx5ub95lt.cloudfront.net/images/gems/45c14e05be9c1af1d7d0b54c6eed7eee.svg"
+          alt="Streak Icon" class="streak-icon">
+        <span class="streak-number" id="streak-number">5661</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Ana İçerik -->
+  <main class="container">
+    <!-- Learn Seçim Ekranı -->
+    <section class="learn-selection">
+      <h2>Choose a course!</h2>
+      <div class="lessons-grid">
+        <!-- Ders Kartları -->
+        <div class="lesson-card" onclick="startLesson('computerScience')">
+          <img src="https://cdn-icons-png.freepik.com/512/7086/7086302.png" alt="Lesson 1" class="lesson-image">
+          <h3>Computer Science</h3>
+        </div>
+        <div class="lesson-card" onclick="startLesson('medicine')">
+          <img src="https://cdn-icons-png.flaticon.com/512/7051/7051035.png" alt="Lesson 2" class="lesson-image">
+          <h3>Medicine</h3>
+        </div>
+        <div class="lesson-card" onclick="startLesson('law')">
+          <img src="https://cdn-icons-png.flaticon.com/512/4502/4502178.png" alt="Lesson 3" class="lesson-image">
+          <h3>Law</h3>
+        </div>
+        <!-- Daha fazla ders ekleyebilirsiniz -->
+        <div class="lesson-card" onclick="startLesson('mathematics')">
+          <img src="https://cdn-icons-png.flaticon.com/512/5029/5029158.png" alt="Lesson 1" class="lesson-image">
+          <h3>Mathematics</h3>
+        </div>
+        <!-- Ders Kartları -->
+        <div class="lesson-card" onclick="startLesson('chemistry')">
+          <img src="https://cdn-icons-png.freepik.com/512/9638/9638882.png" alt="Lesson 1" class="lesson-image">
+          <h3>Chemistry</h3>
+        </div>
+        <div class="lesson-card" onclick="startLesson('physics')">
+          <img src="https://cdn-icons-png.flaticon.com/512/8632/8632658.png" alt="Lesson 2" class="lesson-image">
+          <h3>Physics</h3>
+        </div>
+        <div class="lesson-card" onclick="startLesson('economics')">
+          <img src="https://cdn-icons-png.flaticon.com/256/6643/6643359.png" alt="Lesson 3" class="lesson-image">
+          <h3>Economics</h3>
+        </div>
+        <!-- Daha fazla ders ekleyebilirsiniz -->
+        <div class="lesson-card" onclick="startLesson('art')">
+          <img src="https://cdn-icons-png.flaticon.com/512/10053/10053855.png" alt="Lesson 1" class="lesson-image">
+          <h3>Art</h3>
+        </div>
+        <!-- Ders Kartları -->
+        <div class="lesson-card" onclick="startLesson('businessAdministration')">
+          <img src="https://cdn-icons-png.flaticon.com/512/5521/5521277.png" alt="Lesson 1" class="lesson-image">
+          <h3>Business Administration</h3>
+        </div>
+        <div class="lesson-card" onclick="startLesson('psychology')">
+          <img src="https://cdn2.iconfinder.com/data/icons/weather-365/64/weather-sun-cloud-rain-512.png" alt="Lesson 2"
+            class="lesson-image">
+          <h3>Psychology</h3>
+        </div>
+        <div class="lesson-card" onclick="startLesson('archeology')">
+          <img src="https://icons.veryicon.com/png/o/business/circular-multi-color-function-icon/health-health.png"
+            alt="Lesson 3" class="lesson-image">
+          <h3>Archeology</h3>
+        </div>
+        <!-- Daha fazla ders ekleyebilirsiniz -->
+        <div class="lesson-card" onclick="startLesson('philosophy')">
+          <img src="https://cdn-icons-png.freepik.com/256/13745/13745645.png?semt=ais_hybrid" alt="Lesson 1"
+            class="lesson-image">
+          <h3>Philosophy</h3>
+        </div>
+
+
+
+      </div>
+
+    </section>
   </main>
 
+  <!-- Footer -->
   <footer class="footer">
     <div class="container2">
       <p class="footer__text">
@@ -50,9 +157,34 @@
     </div>
   </footer>
 
+  <!-- JavaScript -->
+  <script src="assets/js/index.js"></script>
   <script>
-    // Update the year dynamically in the footer
+    // Yılın dinamik olarak güncellenmesi
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Ders seçildiğinde ilgili sayfaya yönlendirme
+    function startLesson(lessonName) {
+      const selectedFlag = document.getElementById('selected-flag'); // Doğru element referansı
+      const selectedFlagSrc = selectedFlag.src; // Seçilen bayrağın src'sini al
+
+      let currentFlag = '';
+
+      // Bayrağa göre dil seçimi yap
+      if (selectedFlagSrc.includes('french.jpg')) {
+        currentFlag = 'French';
+      } else if (selectedFlagSrc.includes('german.jpg')) {
+        currentFlag = 'German';
+      } else if (selectedFlagSrc.includes('italian.jpg')) {
+        currentFlag = 'Italian';
+      } else if (selectedFlagSrc.includes('russian.jpg')) {
+        currentFlag = 'Russian';
+      }
+
+      // Sayfaya yönlendirme
+      const lessonPage = "assets/html/" + currentFlag + "/" + lessonName + currentFlag + ".html";
+      window.location.href = lessonPage;
+    }
   </script>
 </body>
 

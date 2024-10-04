@@ -1,23 +1,189 @@
-/* İthal Edilen Font */
+/* İthal Edilen Fontlar */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
-/* Genel Stil Ayarları */
+/* Temel Ayarlar */
+:root {
+    background-color: #ffffff;
+    font-size: 62.5%;
+}
+
 * {
-    text-align: center;
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
-}
-
-/* Başlık ve Metinler */
-h1,
-h2 {
+    margin: 0;
+    padding: 0;
+    color: #000000;
     text-align: center;
 }
 
+html,
+body {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+/* Genel Metin Stilleri */
+h1,
+h2,
+h3,
+h4 {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.0rem;
+    color: #6017e7;
+    margin-bottom: 5rem;
+}
+
+h1>span {
+    font-size: 2.4rem;
+    font-weight: 500;
+}
+
 h2 {
+    font-size: 4.2rem;
     color: #7519df;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 2.8rem;
+    font-weight: 500;
+}
+
+
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Sidebar Stilleri */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px; /* Sidebar genişliği */
+    height: 100%;
+    background-color: #ffffff;
+    border-right: 1px solid #ccc;
+    padding-top: 20px;
+    z-index: 999; /* Z-index ayarlandı */
+}
+
+/* Ana İçerik */
+.container {
+    margin-left: 250px; /* Sidebar genişliği kadar boşluk bırakıldı */
+    padding: 20px;
+}
+
+.sidebar .logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar .logo-text {
+    font-family: 'Fredoka One', sans-serif;
+    font-size: 3rem;
+    color: #cc02c9;
+    text-decoration: none;
+}
+
+.sidebar .nav-menu {
+    text-align: left;
+    padding-left: 20px;
+}
+
+.sidebar .nav-menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar .nav-menu li {
+    margin: 15px 0;
+}
+
+.sidebar .nav-menu a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 2rem;
+    color: #000000;
+    transition: background-color 0.3s, color 0.3s;
+    font-family: 'Fredoka One', sans-serif;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.sidebar .nav-menu a:hover {
+    color: #6017e7;
+    background-color: #f0f0f0;
+}
+
+.menu-icon {
+    width: 48px;
+    height: 48px;
+    margin-right: 10px;
+}
+
+/* Oyun Konteyneri */
+.game-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Seçenek Butonları */
+.option-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.option-button {
+    flex: 1 1 45%;
+    margin: 10px;
+    padding: 15px;
+    min-width: 120px;
+    max-width: 200px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.option-button:hover {
+    background-color: #e0e0e0;
+}
+
+.option-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 /* Slider Stilleri */
@@ -59,42 +225,6 @@ h2 {
     height: 25px;
     background: #dc3a3a;
     cursor: pointer;
-}
-
-/* Başlık ve Metinler */
-.title {
-    margin-top: 1%;
-}
-
-.rule-text {
-    margin-top: 1%;
-}
-
-.text {
-    text-align: center;
-    display: inline-block;
-    margin: 0 auto;
-}
-
-.task-container {
-    margin-top: 1%;
-}
-
-/* Küçük Bayraklar */
-.small-flag {
-    width: 50px;
-    height: 30px;
-}
-
-/* Confetti Canvas */
-canvas#confetti {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    pointer-events: none;
 }
 
 /* Buton 53 Stili */
@@ -146,6 +276,26 @@ img {
     border: 1px solid black;
 }
 
+/* Küçük Bayraklar */
+.small-flag {
+    width: 60px;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+/* Confetti Canvas */
+canvas#confetti {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    pointer-events: none;
+}
+
 /* Footer */
 .footer__text {
     position: fixed;
@@ -153,12 +303,12 @@ img {
     left: 0;
     width: 100%;
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 1.2rem;
     color: black;
 }
 
 .footer__text a {
-    font-size: 0.8rem;
+    font-size: 1.2rem;
     color: black;
     transition: all 0.2s ease-in-out;
     text-decoration: none;
@@ -192,77 +342,7 @@ img {
     border: none;
 }
 
-/* Medya Sorguları */
-@media (max-width: 649px) {
-    img {
-        width: 100%;
-        max-width: 180px;
-        height: auto;
-    }
-
-    .stats-btn__again2 {
-        bottom: 15px;
-    }
-
-    .slidecontainer {
-        width: auto;
-    }
-}
-
-@media (min-width: 650px) and (max-width: 999px) {
-    .stats-btn__again2 {
-        bottom: 15px;
-    }
-}
-
-@media (min-width: 1000px) {
-    .stats-btn__again2 {
-        bottom: 15px;
-    }
-}
-
-/* Oyun Konteyneri */
-.game-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-
-/* Seçenek Butonları */
-.option-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
-}
-
-.option-button {
-    flex: 1 1 45%;
-    margin: 10px;
-    padding: 15px;
-    min-width: 120px;
-    max-width: 200px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.option-button:hover {
-    background-color: #e0e0e0;
-}
-
-.option-button:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
-/* Sonuç Ekranı */
+/* Menu (Sonuç Ekranı) */
 #menu {
     display: none;
     flex-direction: column;
@@ -280,7 +360,6 @@ img {
     box-sizing: border-box;
 }
 
-/* Arkadaki öğelerin gizlenmesi */
 body.menu-active .game-content {
     display: none;
 }
@@ -296,7 +375,6 @@ body.menu-active .game-content {
     width: 100%;
 }
 
-/* Başlık */
 .menu__title {
     width: 100%;
     text-align: center;
@@ -305,12 +383,11 @@ body.menu-active .game-content {
 }
 
 .menu__title h1 {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     color: #333;
     margin: 0;
 }
 
-/* Stats Öğeleri */
 .stats__item {
     width: 100%;
     margin-bottom: 20px;
@@ -330,7 +407,6 @@ body.menu-active .game-content {
     margin-top: 5px;
 }
 
-/* Yanlış Kelimeler için Tasarım */
 .stats__item ul {
     padding-left: 0;
     list-style: none;
@@ -355,7 +431,6 @@ body.menu-active .game-content {
     margin-top: 30px;
 }
 
-/* Butonlar */
 .stats-btn__again,
 .stats-btn__again2,
 .stats-btn__again3 {
@@ -374,42 +449,6 @@ body.menu-active .game-content {
 .stats-btn__again2:hover,
 .stats-btn__again3:hover {
     background-color: #306acb;
-}
-
-/* Medya Sorguları */
-@media (max-width: 600px) {
-    .menu__title h1 {
-        font-size: 2rem;
-    }
-
-    .stats__item-title {
-        font-size: 1.2rem;
-    }
-
-    .stats__item-value {
-        font-size: 1rem;
-    }
-
-    .stats-btn__inner {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .stats-btn__again,
-    .stats-btn__again2,
-    .stats-btn__again3 {
-        width: 100%;
-    }
-}
-
-/* .btn Sınıfını Ortalamak */
-.btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    margin: 0 auto;
 }
 
 /* Input Container */
@@ -435,24 +474,692 @@ body.menu-active .game-content {
     color: #fff;
     border: none;
     border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
 #submit-button:hover {
     background-color: #306acb;
 }
 
-/* Option Container */
-.option-container {
+/* Medya Sorguları */
+@media (max-width: 800px) {
+    .sidebar {
+        width: 180px;
+    }
+
+    .container {
+        width: calc(100% - 180px);
+        margin-left: 180px;
+    }
+
+    .sidebar .logo-text {
+        font-size: 2.5rem;
+    }
+
+    .sidebar .nav-menu a {
+        font-size: 1.8rem;
+    }
+
+    .streak-counter a {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .sidebar {
+        width: 150px;
+    }
+
+    .container {
+        width: calc(100% - 150px);
+        margin-left: 150px;
+    }
+
+    .sidebar .logo-text {
+        font-size: 2rem;
+    }
+
+    .sidebar .nav-menu a {
+        font-size: 1.6rem;
+    }
+
+    .streak-counter a {
+        font-size: 1.4rem;
+    }
+
+    .flag-dropdown img {
+        width: 50px;
+        height: 35px;
+    }
+
+    img {
+        width: 100%;
+        max-width: 180px;
+        height: auto;
+    }
+
+    .stats-btn__again2 {
+        bottom: 15px;
+    }
+
+    .slidecontainer {
+        width: auto;
+    }
+
+    .menu__title h1 {
+        font-size: 2rem;
+    }
+
+    .stats__item-title {
+        font-size: 1.2rem;
+    }
+
+    .stats__item-value {
+        font-size: 1rem;
+    }
+
+    .stats-btn__inner {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .stats-btn__again,
+    .stats-btn__again2,
+    .stats-btn__again3 {
+        width: 100%;
+    }
+
+    .badge {
+        width: 80px;
+        height: 80px;
+    }
+
+    .profile-streak {
+        flex-direction: column;
+    }
+
+    .profile-streak .streak-icon {
+        margin-bottom: 10px;
+    }
+}
+
+@media (min-width: 650px) and (max-width: 999px) {
+    .stats-btn__again2 {
+        bottom: 15px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .stats-btn__again2 {
+        bottom: 15px;
+    }
+}
+
+/* Flags and Streak Counter */
+.flag-and-streak {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+}
+
+.flag-menu {
+    position: relative;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.flag-menu .selected-flag {
+    cursor: pointer;
+}
+
+.flag-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 5px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+}
+
+.flag-menu:hover .flag-dropdown {
+    display: block;
+}
+
+.flag-dropdown a {
+    display: block;
+    padding: 5px 10px;
+}
+
+.flag-dropdown a:hover {
+    background-color: #f0f0f0;
+}
+
+.flag-dropdown img {
+    width: 60px;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.streak-counter a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000000;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px;
+}
+
+.streak-counter a:hover {
+    background-color: #f0f0f0;
+}
+
+.streak-icon {
+    width: 48px;
+    height: 48px;
+    margin-right: 5px;
+}
+
+/* Günlük Streak */
+.profile-streak {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.profile-streak .streak-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.profile-streak .streak-number {
+    font-size: 1.5rem;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+/* Sahip Olunan Badge'ler Bölümü */
+.owned-badges {
+    text-align: center;
+}
+
+.owned-badges h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Badges Container */
+.badges-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    margin: 10px;
+    gap: 20px;
 }
 
-/* HTML ve Body için Overflow Hidden Kaldırıldı */
-html, body {
+.badge {
+    width: 100px;
+    height: 100px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.badge:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.badge-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+/* Questler Sayfası */
+.quests-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.quest-box {
+    width: 80%;
+    max-width: 600px;
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.quest-box h2 {
+    font-size: 2.4rem;
+    margin-bottom: 10px;
+}
+
+.quest-box p {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+.progress {
+    height: 100%;
+    background-color: #4caf50;
+    width: 0%;
+}
+
+/* Shop Items Container */
+.shop-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.shop-item {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.shop-item:hover {
+    transform: scale(1.02);
+}
+
+.item-logo {
+    flex-shrink: 0;
+    margin-right: 20px;
+}
+
+.badge-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.item-details {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.item-name {
+    font-size: 2rem;
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.item-description {
+    font-size: 1.5rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+.buy-button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.buy-button:hover {
+    background-color: #45a049;
+}
+
+.item-price {
+    font-size: 1rem;
+    color: #333;
+    margin-top: 5px;
+}
+
+/* Responsive Tasarım */
+@media (max-width: 600px) {
+    .shop-items {
+        padding: 20px 10px;
+    }
+
+    .shop-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .item-logo {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .badge-logo {
+        width: 60px;
+        height: 60px;
+    }
+
+    .item-name {
+        font-size: 1.2rem;
+    }
+
+    .item-description {
+        font-size: 0.9rem;
+    }
+
+    .buy-button {
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .profile-streak {
+        flex-direction: column;
+    }
+
+    .profile-streak .streak-icon {
+        margin-bottom: 10px;
+    }
+
+    .badge {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* Diğer Medya Sorguları */
+@media (max-width: 800px) {
+    /* Daha önceki ayarlar */
+}
+
+/* Genel İstatistik Öğeleri Stili */
+.statistics-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    /* Öğeler arasındaki boşluk */
+}
+
+/* Statistics Bölümü için 2x2 Grid */
+.statistics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* Achievements Bölümü için Dikey Liste */
+.achievements-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Stat Item Genel Stili */
+.stat-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* İkon ve Metin Arası Boşluk */
+.stat-item img.stat-icon {
+    margin-right: 10px;
+    width: 40px;
+    /* İkon boyutunu ayarlayabilirsiniz */
+    height: 40px;
+}
+
+/* Metin Düzenlemeleri */
+.stat-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.stat-value {
+    font-size: 2.4em;
+    color: #333;
+}
+
+/* Statistics ve Achievements Başlıkları için Stil */
+.statistics h2,
+.achievements h2 {
+    font-size: 1.5em;
+    /* Başlıkların boyutunu küçültün */
+    color: rgba(85, 85, 85, 0.7);
+    /* Renk opaklığını artırın (daha şeffaf) */
+    text-align: left;
+    /* Başlıkları sola hizalayın */
+    margin-bottom: 15px;
+    /* Başlık ile içerik arasına boşluk ekleyin */
+    margin-top: 15px;
+}
+
+/* Başlıkların Konumlandırılması */
+.statistics,
+.achievements {
+    padding-left: 10px;
+    /* İçeriği biraz sola kaydırmak için */
+}
+
+
+
+.footer__text {
     margin: 0;
-    padding: 0;
-    scroll-behavior: smooth;
+    color: #555;
+}
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+    .statistics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .achievements-list {
+        gap: 15px;
+    }
+
+    .stat-item {
+        padding: 10px;
+    }
+
+    .stat-item img.stat-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .stat-value {
+        font-size: 1em;
+    }
+
+    /* Responsive Başlık Stili */
+    .statistics h2,
+    .achievements h2 {
+        font-size: 1.3em;
+    }
+}
+
+
+
+/* Leaderboard Stilleri */
+.leaderboard {
+    margin-top: 20px;
+    overflow-x: auto;
+    /* Küçük ekranlarda yatay kaydırma sağlar */
+}
+
+.leaderboard table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+    /* Tablo küçüldüğünde kaydırma için minimum genişlik */
+}
+
+.leaderboard th,
+.leaderboard td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.leaderboard th {
+    background-color: #f4f4f4;
+    color: #333;
+    font-weight: bold;
+}
+
+.leaderboard tr:hover {
+    background-color: #f1f1f1;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+    .leaderboard table {
+        min-width: 100%;
+    }
+
+    .leaderboard th,
+    .leaderboard td {
+        padding: 10px 12px;
+    }
+
+    .user-avatar {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* Learn Selection Styles */
+.learn-selection {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.learn-selection h2 {
+    font-size: 28px;
+    color: #333333;
+    margin-bottom: 30px;
+}
+
+.lessons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.lesson-card {
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    padding: 20px;
+}
+
+.lesson-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.lesson-image {
+    width: 100%;
+    height: 30px;
+    width: 30px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.lesson-card h3 {
+    font-size: 20px;
+    color: #555555;
+}
+
+.btn {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* This ensures the parent container takes up the full viewport height */
+    width: 100%;
+    /* Ensures full-width */
+
+}
+
+.progress-container {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 25px;
+    margin: 60px 0; /* Üst ve alt için boşluk (buradaki 20px değeri ile oynayarak ayarlayabilirsin) */
+    height: 20px;
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 800px;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background-color: #76c7c0;
+    border-radius: 25px;
 }

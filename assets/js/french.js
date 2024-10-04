@@ -34,7 +34,7 @@ function randomizer(...options) {
 }
 
 const jsConfetti = new JSConfetti();
-const options = Array.from(document.getElementsByClassName("option-button"));
+const optionsButtons = Array.from(document.getElementsByClassName("option-button"));
 
 const wordPairs = [
     { french: "bonjour", english: "hello" },
@@ -481,6 +481,8 @@ let chosenOption;
 
 window.onload = () => {
     // Slider değerini güncelle
+    const slider = document.getElementById("myRange");
+    const output = document.getElementById("demo");
     output.innerHTML = slider.value;
     valueOfRound.innerHTML = slider.value;
 
@@ -499,12 +501,12 @@ function replaceAndRemoveOption(index) {
     const rndNum = Math.floor(Math.random() * remainingWordPairs.length);
     const wordPair = remainingWordPairs[rndNum];
 
-    options[index].textContent = wordPair.english;
-    options[index].dataset.french = wordPair.french;
-    options[index].dataset.english = wordPair.english;
+    optionsButtons[index].textContent = wordPair.english;
+    optionsButtons[index].dataset.french = wordPair.french;
+    optionsButtons[index].dataset.english = wordPair.english;
     remainingWordPairs.splice(rndNum, 1);
 
-    return options[index];
+    return optionsButtons[index];
 }
 
 // Updated loadNextQuestion function
@@ -575,8 +577,8 @@ function checkInputAnswer() {
     counter++;
     flagsDone2.innerText = counter;
 
-    if (counter >= parseInt(output.innerHTML, 10)) {
-        options.forEach((option) => { option.disabled = true; });
+    if (counter >= parseInt(document.getElementById("demo").innerHTML, 10)) {
+        optionsButtons.forEach((option) => { option.disabled = true; });
         totalScoreElement.innerText = score;
         flagsDone.innerText = counter;
         clearInterval(timePassed);
@@ -586,8 +588,13 @@ function checkInputAnswer() {
     } else {
         loadNextQuestion();
     }
+
+    // Günlük streaki artır (isteğe bağlı)
+    // Eğer her doğru cevapta streaki artırmak istiyorsanız, aşağıdaki satırı ekleyebilirsiniz:
+    // if (userAnswer === correctAnswer) { dayStreak += 1; }
 }
 
+// Function to handle option button clicks
 function optionClickListener(event) {
     const clickedOption = event.target;
     const selectedEnglish = clickedOption.textContent;
@@ -602,8 +609,8 @@ function optionClickListener(event) {
     counter++;
     flagsDone2.innerText = counter;
 
-    if (counter >= parseInt(output.innerHTML, 10)) {
-        options.forEach((option) => { option.disabled = true; });
+    if (counter >= parseInt(document.getElementById("demo").innerHTML, 10)) {
+        optionsButtons.forEach((option) => { option.disabled = true; });
         totalScoreElement.innerText = score;
         flagsDone.innerText = counter;
         clearInterval(timePassed);
@@ -613,6 +620,9 @@ function optionClickListener(event) {
     } else {
         loadNextQuestion();
     }
+
+    // Günlük streaki artır (isteğe bağlı)
+    // if (selectedEnglish === correctEnglish) { dayStreak += 1; }
 }
 
 function showWrongWords() {
@@ -632,7 +642,7 @@ function showWrongWords() {
     }
 }
 
-options.forEach((option) => {
+optionsButtons.forEach((option) => {
     option.addEventListener("click", optionClickListener);
 });
 
@@ -645,3 +655,14 @@ slider.oninput = function () {
     output.innerHTML = this.value;
     valueOfRound.innerHTML = slider.value;
 };
+
+// Kullanıcının doğru cevap sayısını takip eden bir değişkeniniz varsa (örneğin 'score')
+let totalPoints = parseInt(localStorage.getItem('totalPoints')) || 0;
+totalPoints += score; // 'score', bu oturumda kazanılan puanları temsil eder
+localStorage.setItem('totalPoints', totalPoints);
+
+// Kullanıcının öğrendiği yeni kelimeleri takip ediyorsanız (örneğin 'newWordsLearned')
+// Bu değişken tanımlı olmadığı için yorum satırı haline getirildi
+// let wordsLearned = parseInt(localStorage.getItem('wordsLearned')) || 0;
+// wordsLearned += newWordsLearned; // 'newWordsLearned', bu oturumda öğrenilen yeni kelimeleri temsil eder
+// localStorage.setItem('wordsLearned', wordsLearned);

@@ -1,9 +1,10 @@
 // Başlangıçta tanımlanan değişkenler
-let counter = 0; // Yapılan tur sayısı
-let score = 0;   // Doğru cevap sayısı
+let counter = 0; // Yapılan doğru cevap sayısı
+let score = 0;   // Doğru cevap sayısı (12 tane soruyu doğru yaparsa bitiyor)
 let wrongWords = []; // Yanlış yapılan kelimeleri tutan array
 let questionType;
 let chosenWordPair;
+const totalRounds = 12; // Sabit 12 soru
 
 function updateHighscore(newScore) {
     const oldHighscore = parseInt(localStorage.getItem('bestScore')) || 0;
@@ -473,51 +474,29 @@ let remainingWordPairs = [...wordPairs];
 const germanWordElement = document.getElementById("german-word");
 const flagsDone = document.getElementById("flags-done");
 const flagsDone2 = document.getElementById("flags-done2");
-const valueOfRound = document.getElementById("value-of-round");
 const totalScoreElement = document.getElementById("total_score");
 
 let chosenOption;
+let gameStarted = false; // Oyun başladığında true olacak
 
+// Sayfa yüklendiğinde ilk soruyu yükle
 window.onload = () => {
-    // Slider değerini güncelle
-    output.innerHTML = slider.value;
-    valueOfRound.innerHTML = slider.value;
-
-    // İlk soruyu yükle
     loadNextQuestion();
-
-    // En iyi skoru yükle
     const bestScore = parseInt(localStorage.getItem('bestScore')) || 0;
     document.getElementById("best_score").innerText = bestScore;
+    document.getElementById("myRange").style.display = "none"; // Slider'ı tamamen gizle
 };
 
-function replaceAndRemoveOption(index) {
-    if (remainingWordPairs.length === 0) {
-        remainingWordPairs = [...wordPairs];
-    }
-    const rndNum = Math.floor(Math.random() * remainingWordPairs.length);
-    const wordPair = remainingWordPairs[rndNum];
-
-    options[index].textContent = wordPair.english;
-    options[index].dataset.german = wordPair.german;
-    options[index].dataset.english = wordPair.english;
-    remainingWordPairs.splice(rndNum, 1);
-
-    return options[index];
-}
-
-// Updated loadNextQuestion function
+// Yeni soruyu yükleme fonksiyonu
 function loadNextQuestion() {
     questionType = randomizer("multiple-choice", "type-in");
 
     if (questionType === "multiple-choice") {
-        // Show option buttons, hide input container
-        document.querySelectorAll('.option-container').forEach(function(element) {
+        document.querySelectorAll('.option-container').forEach(element => {
             element.style.display = 'flex';
         });
         document.querySelector('.input-container').style.display = 'none';
 
-        // Existing code for multiple-choice
         const option0 = replaceAndRemoveOption(0);
         const option1 = replaceAndRemoveOption(1);
         const option2 = replaceAndRemoveOption(2);
@@ -527,13 +506,11 @@ function loadNextQuestion() {
         germanWordElement.innerText = chosenOption.dataset.german;
 
     } else if (questionType === "type-in") {
-        // Hide option buttons, show input container
-        document.querySelectorAll('.option-container').forEach(function(element) {
+        document.querySelectorAll('.option-container').forEach(element => {
             element.style.display = 'none';
         });
         document.querySelector('.input-container').style.display = 'block';
 
-        // Select a random word pair
         if (remainingWordPairs.length === 0) {
             remainingWordPairs = [...wordPairs];
         }
@@ -542,78 +519,88 @@ function loadNextQuestion() {
         remainingWordPairs.splice(rndNum, 1);
 
         chosenWordPair = wordPair;
-
         germanWordElement.innerText = wordPair.german;
 
-        // Clear the input field
-        document.getElementById('user-input').value = '';
+        document.getElementById('user-input').value = ''; // Input'u temizle
     }
 }
 
-// Event listener for the submit button
-document.getElementById('submit-button').addEventListener('click', checkInputAnswer);
+// Fonksiyon doğru cevap verildiğinde ilerleme çubuğunu günceller
+function updateProgressBar() {
+    const progressBar = document.getElementById("progress-bar");
+    const progressPercentage = (counter / totalRounds) * 100;
+    progressBar.style.width = progressPercentage + "%";
+}
 
-// Event listener for pressing 'Enter' key in the input field
-document.getElementById('user-input').addEventListener('keydown', function(event) {
-    if (event.key === 'Enter') {
-        checkInputAnswer();
-    }
-});
-
-// Function to check the typed answer
+// Cevap doğruysa ilerleme çubuğu ilerler
 function checkInputAnswer() {
     const userAnswer = document.getElementById('user-input').value.trim().toLowerCase();
     const correctAnswer = chosenWordPair.english.toLowerCase();
 
     if (userAnswer === correctAnswer) {
         score++;
+        counter++;  // İlerleme sadece doğru cevapta
+        updateProgressBar();
     } else {
-        wrongWords.push(`${chosenWordPair.german} - ${chosenWordPair.english}`); // Add the wrong word
+        wrongWords.push(`${chosenWordPair.german} - ${chosenWordPair.english}`);
     }
 
-    counter++;
     flagsDone2.innerText = counter;
 
-    if (counter >= parseInt(output.innerHTML, 10)) {
-        options.forEach((option) => { option.disabled = true; });
-        totalScoreElement.innerText = score;
-        flagsDone.innerText = counter;
-        clearInterval(timePassed);
-        updateHighscore(score);
-        openResult();
-        jsConfetti.addConfetti({ emojis: ['🌟', '🎉', '✨', '🔥'] });
+    if (score >= totalRounds) {
+        finishGame();
     } else {
         loadNextQuestion();
     }
 }
 
+// "Enter" tuşuyla cevap göndermek için
+document.getElementById('user-input').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        checkInputAnswer();  // Enter tuşuna basıldığında cevap gönder
+    }
+});
+
+// Submit butonuna tıklandığında cevap göndermek için
+document.getElementById('submit-button').addEventListener('click', function() {
+    checkInputAnswer();  // Submit butonuna basıldığında cevap gönder
+});
+
+// Seçeneklere tıklayınca cevap kontrolü
 function optionClickListener(event) {
     const clickedOption = event.target;
     const selectedEnglish = clickedOption.textContent;
     const correctEnglish = chosenOption.dataset.english;
 
     if (selectedEnglish !== correctEnglish) {
-        wrongWords.push(`${chosenOption.dataset.german} - ${chosenOption.dataset.english}`); // Yanlış kelimeyi ekle
+        wrongWords.push(`${chosenOption.dataset.german} - ${chosenOption.dataset.english}`);
     } else {
         score++;
+        counter++;  // İlerleme sadece doğru cevapta
+        updateProgressBar();
     }
 
-    counter++;
     flagsDone2.innerText = counter;
 
-    if (counter >= parseInt(output.innerHTML, 10)) {
-        options.forEach((option) => { option.disabled = true; });
-        totalScoreElement.innerText = score;
-        flagsDone.innerText = counter;
-        clearInterval(timePassed);
-        updateHighscore(score);
-        openResult();
-        jsConfetti.addConfetti({ emojis: ['🌟', '🎉', '✨', '🔥'] });
+    if (score >= totalRounds) {
+        finishGame();
     } else {
         loadNextQuestion();
     }
 }
 
+// Oyunu bitir ve sonuçları göster
+function finishGame() {
+    options.forEach(option => { option.disabled = true; });
+    totalScoreElement.innerText = score;
+    flagsDone.innerText = counter;
+    clearInterval(timePassed);
+    updateHighscore(score);
+    openResult();
+    jsConfetti.addConfetti({ emojis: ['🌟', '🎉', '✨', '🔥'] });
+}
+
+// Yanlış kelimeleri sonuç ekranında göster
 function showWrongWords() {
     const wrongWordsList = document.getElementById('wrong_words_list');
     wrongWordsList.innerHTML = '';
@@ -631,16 +618,22 @@ function showWrongWords() {
     }
 }
 
-options.forEach((option) => {
+// Tıklama olaylarını seçenek düğmelerine ekle
+options.forEach(option => {
     option.addEventListener("click", optionClickListener);
 });
 
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
-output.innerHTML = slider.value;
-valueOfRound.innerHTML = slider.value;
+function replaceAndRemoveOption(index) {
+    if (remainingWordPairs.length === 0) {
+        remainingWordPairs = [...wordPairs];
+    }
+    const rndNum = Math.floor(Math.random() * remainingWordPairs.length);
+    const wordPair = remainingWordPairs[rndNum];
 
-slider.oninput = function () {
-    output.innerHTML = this.value;
-    valueOfRound.innerHTML = slider.value;
-};
+    options[index].textContent = wordPair.english;
+    options[index].dataset.german = wordPair.german;
+    options[index].dataset.english = wordPair.english;
+    remainingWordPairs.splice(rndNum, 1);
+
+    return options[index];
+}

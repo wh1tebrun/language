@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Meta tags and other head content -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Egelingo | Profile</title>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../css/style.css" />
+  <!-- Favicon -->
+  <link rel="icon" href="imgs/egelingo-logo.jpg" type="image/x-icon">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://language-quiz-nine.vercel.app/profile.html" />
+  <meta property="og:title" content="Ege Tekin | Egelingo Profile" />
+  <meta property="og:description" content="View your badges and daily streak on your Egelingo profile." />
+  <meta property="og:image" content="world.png" />
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="logo">
+      <a href="../../index.html">
+        <span class="logo-text">egelingo</span>
+      </a>
+    </div>
+    <nav class="nav-menu">
+      <ul>
+        <li><a href="../../index.html" id="learn-btn"><img src="https://d35aaqx5ub95lt.cloudfront.net/vendor/fbe0c187341c280e161f76fb4cbda1d7.svg" alt="Learn Icon" class="menu-icon">LEARN</a></li>
+        <li><a href="leaderboards.html"><img src="https://d35aaqx5ub95lt.cloudfront.net/vendor/d1f31f71a5b1d513184cc278d910cb33.svg" alt="Leaderboards Icon" class="menu-icon">LEADERBOARDS</a></li>
+        <li><a href="quests.html"><img src="https://d35aaqx5ub95lt.cloudfront.net/vendor/5d2ba4a4504db1b554515043e94cc7da.svg" alt="Quests Icon" class="menu-icon">QUESTS</a></li>
+        <li><a href="shop.html"><img src="https://d35aaqx5ub95lt.cloudfront.net/vendor/0e58a94dda219766d98c7796b910beee.svg" alt="Shop Icon" class="menu-icon">SHOP</a></li>
+        <li><a href="profile.html"><img src="https://d35aaqx5ub95lt.cloudfront.net/vendor/e93ac282acf802a6258c761d3e9f9888.svg" alt="Profile Icon" class="menu-icon">PROFILE</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Flags and Streak Counter -->
+  <div class="flag-and-streak">
+    <!-- Flag Menu -->
+    <div class="flag-menu">
+      <div class="selected-flag">
+        <img src="../../imgs/french.jpg" alt="Selected Flag" class="small-flag" id="selected-flag">
+      </div>
+      <div class="flag-dropdown" id="flag-dropdown">
+        <!-- Flags will be added via JavaScript -->
+      </div>
+    </div>
+    <!-- Streak Counter -->
+    <div class="streak-counter">
+      <a href="#">
+        <img src="https://d35aaqx5ub95lt.cloudfront.net/vendor/398e4298a3b39ce566050e5c041949ef.svg" alt="Streak Icon" class="streak-icon">
+        <span class="streak-number" id="streak-number">0</span>
+      </a>
+    </div>
+
+    <div class="streak-counter">
+      <a href="#">
+        <img src="https://d35aaqx5ub95lt.cloudfront.net/images/gems/45c14e05be9c1af1d7d0b54c6eed7eee.svg" alt="Streak Icon"
+          class="streak-icon">
+        <span class="streak-number" id="streak-number">5661</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="container">
+    <h1>Profile</h1>
+
+    <!-- Statistics Section -->
+    <div class="statistics">
+      <h2>Statistics</h2>
+      <div class="statistics-items statistics-grid">
+        <!-- Stat Item -->
+        <div class="stat-item">
+          <img src="https://d35aaqx5ub95lt.cloudfront.net/vendor/398e4298a3b39ce566050e5c041949ef.svg" alt="Streak Icon" class="stat-icon">
+          <div class="stat-info">
+            <span class="stat-label">Daily Streak</span>
+            <span class="stat-value" id="daily-streak">0</span>
+          </div>
+        </div>
+        <!-- Total XP -->
+        <div class="stat-item">
+          <img src="https://d35aaqx5ub95lt.cloudfront.net/images/profile/01ce3a817dd01842581c3d18debcbc46.svg" alt="XP Icon" class="stat-icon">
+          <div class="stat-info">
+            <span class="stat-label">Total XP</span>
+            <span class="stat-value" id="total-xp">0</span>
+          </div>
+        </div>
+        <!-- Current League -->
+        <div class="stat-item">
+          <img src="https://d35aaqx5ub95lt.cloudfront.net/images/leagues/192181672ada150becd83a74a4266ae9.svg" alt="League Icon" class="stat-icon">
+          <div class="stat-info">
+            <span class="stat-label">Current League</span>
+            <span class="stat-value" id="current-league">Bronze</span>
+          </div>
+        </div>
+        <!-- Account Creation Date -->
+        <div class="stat-item">
+          <img src="https://d35aaqx5ub95lt.cloudfront.net/images/profile/3f97ae337724f7edb6dfbef23cd3a6e7.svg" alt="Calendar Icon" class="stat-icon">
+          <div class="stat-info">
+            <span class="stat-label">Account Created</span>
+            <span class="stat-value" id="account-created">01 Jan 2024</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Achievements Section -->
+    <div class="achievements">
+      <h2>Achievements</h2>
+      <div class="statistics-items achievements-list">
+        <!-- Achievement Item -->
+        <div class="stat-item">
+          <img src="https://d35aaqx5ub95lt.cloudfront.net/vendor/398e4298a3b39ce566050e5c041949ef.svg" alt="Streak Icon" class="stat-icon">
+          <div class="stat-info">
+            <span class="stat-label">Daily Streak</span>
+            <span class="stat-value" id="daily-streak">0</span>
+          </div>
+          
+        </div>
+        
+        <!-- Diğer achievement-item öğeleri -->
+
+        <div class="stat-item">
+          <img src="https://d35aaqx5ub95lt.cloudfront.net/vendor/398e4298a3b39ce566050e5c041949ef.svg" alt="Streak Icon" class="stat-icon">
+          <div class="stat-info">
+            <span class="stat-label">Daily Streak</span>
+            <span class="stat-value" id="daily-streak">0</span>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container2">
+      <p class="footer__text">
+        &copy; <span id="year"></span> - Created By
+        <a href="https://github.com/wh1tebrun" target="_blank" rel="noopener noreferrer">Ege Tekin</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- JavaScript to update the year dynamically and handle flag switching -->
+  <script src="assets/js/index.js"></script>
+  <script src="assets/js/profile.js"></script>
+</body>
+
+</html>

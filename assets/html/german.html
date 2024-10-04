@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>German Page</title>
+    <title>Egelingo | German</title>
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="icon" type="image/jpg" href="../../imgs/german.jpg" />
 </head>
@@ -13,21 +13,11 @@
 
     <!-- Game content container -->
     <div class="game-content">
-        <div class="title">
-            <h1>Exam your knowledge!</h1>
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
         </div>
 
-        <div class="rule-text">
-            <div class="text">
-                <p>You earn points for correct answers. You don't get points for wrong answers.</p>
-            </div>
-        </div>
 
-        <div class="slidecontainer">
-            <h2>Number of Rounds</h2>
-            <input type="range" min="5" max="48" value="12" class="slider" id="myRange">
-            <p>Value: <span id="demo"></span></p>
-        </div>
 
         <!-- Option buttons for multiple-choice questions -->
         <div class="option-container">
@@ -46,7 +36,7 @@
         </div>
 
         <div>
-            <h2 id="german-word">german Word</h2>
+            <h2 id="german-word">German Word</h2>
         </div>
 
         <footer class="footer">
@@ -112,6 +102,7 @@
     <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
     <!-- Updated german Game Script -->
     <script src="../js/german.js"></script>
+    <script src="../js/index.js"></script>
 
 </body>
 

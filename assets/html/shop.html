@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Meta tags and other head content -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Egelingo | Shop</title>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../css/style.css" />
+  <!-- Favicon -->
+  <link rel="icon" href="imgs/egelingo-logo.jpg" type="image/x-icon">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://language-quiz-nine.vercel.app/shop.html" />
+  <meta property="og:title" content="Ege Tekin | Egelingo Shop" />
+  <meta property="og:description"
+    content="Purchase badges to enhance your Egelingo experience." />
+  <meta property="og:image" content="world.png" />
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="logo">
+      <a href="../../index.html">
+        <span class="logo-text">egelingo</span>
+      </a>
+    </div>
+    <nav class="nav-menu">
+      <ul>
+        <li><a href="../../index.html" id="learn-btn"><img
+              src="https://d35aaqx5ub95lt.cloudfront.net/vendor/fbe0c187341c280e161f76fb4cbda1d7.svg" alt="Learn Icon"
+              class="menu-icon">LEARN</a></li>
+        <li><a href="leaderboards.html"><img
+              src="https://d35aaqx5ub95lt.cloudfront.net/vendor/d1f31f71a5b1d513184cc278d910cb33.svg"
+              alt="Leaderboards Icon" class="menu-icon">LEADERBOARDS</a></li>
+        <li><a href="quests.html"><img
+              src="https://d35aaqx5ub95lt.cloudfront.net/vendor/5d2ba4a4504db1b554515043e94cc7da.svg" alt="Quests Icon"
+              class="menu-icon">QUESTS</a></li>
+        <li><a href="shop.html"><img
+              src="https://d35aaqx5ub95lt.cloudfront.net/vendor/0e58a94dda219766d98c7796b910beee.svg" alt="Shop Icon"
+              class="menu-icon">SHOP</a></li>
+        <li><a href="profile.html"><img
+              src="https://d35aaqx5ub95lt.cloudfront.net/vendor/e93ac282acf802a6258c761d3e9f9888.svg" alt="Profile Icon"
+              class="menu-icon">PROFILE</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Flags and Streak Counter -->
+  <div class="flag-and-streak">
+    <!-- Flag Menu -->
+    <div class="flag-menu">
+      <div class="selected-flag">
+        <img src="../../imgs/french.jpg" alt="Selected Flag" class="small-flag" id="selected-flag">
+      </div>
+      <div class="flag-dropdown" id="flag-dropdown">
+        <!-- Flags will be added via JavaScript -->
+      </div>
+    </div>
+    <!-- Streak Counter -->
+    <div class="streak-counter">
+      <a href="#">
+        <img src="https://d35aaqx5ub95lt.cloudfront.net/vendor/398e4298a3b39ce566050e5c041949ef.svg" alt="Streak Icon"
+          class="streak-icon">
+        <span class="streak-number" id="streak-number">0</span>
+      </a>
+    </div>
+    <div class="streak-counter">
+      <a href="#">
+        <img src="https://d35aaqx5ub95lt.cloudfront.net/images/gems/45c14e05be9c1af1d7d0b54c6eed7eee.svg" alt="Streak Icon"
+          class="streak-icon">
+        <span class="streak-number" id="streak-number">5661</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="container">
+    <h1>Shop</h1>
+    <!-- Shop Items -->
+    <div class="shop-items">
+      <!-- Badge 1 -->
+      <div class="shop-item">
+        <div class="item-logo">
+          <img src="../../imgs/streak-freeze.png" alt="Badge 1 Logo" class="badge-logo">
+        </div>
+        <div class="item-details">
+          <h3 class="item-name">Streak Freeze</h3>
+          <p class="item-description">Show off your mastery in multiple languages with this exclusive badge.</p>
+        </div>
+      </div>
+      <!-- Badge 2 -->
+      <div class="shop-item">
+        <div class="item-logo">
+          <img src="../../imgs/double-or-nothing.png" alt="Badge 2 Logo" class="badge-logo">
+        </div>
+        <div class="item-details">
+          <h3 class="item-name">Double or Nothing</h3>
+          <p class="item-description">Celebrate your dedication with a badge for maintaining a long daily streak.</p>
+        </div>
+      </div>
+    
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container2">
+      <p class="footer__text">
+        &copy; <span id="year"></span> - Created By
+        <a href="https://github.com/wh1tebrun" target="_blank" rel="noopener noreferrer">Ege Tekin</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- JavaScript to update the year dynamically and handle flag switching -->
+  <script src="assets/js/index.js"></script>
+</body>
+
+</html>
