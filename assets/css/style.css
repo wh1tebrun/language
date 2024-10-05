@@ -342,7 +342,6 @@ canvas#confetti {
     border: none;
 }
 
-/* Menu (Sonuç Ekranı) */
 #menu {
     display: none;
     flex-direction: column;
@@ -356,8 +355,23 @@ canvas#confetti {
     background: linear-gradient(to bottom right, #ffffff, #e0e0e0);
     padding: 20px;
     z-index: 1000;
-    overflow: auto;
+    overflow: auto; /* Kaydırma etkinleştirildi */
     box-sizing: border-box;
+}
+
+/* Yanlış kelimelerin listelendiği kutuya overflow ve max-height ekliyoruz */
+.stats__item ul {
+    padding-left: 0;
+    list-style: none;
+    background-color: #f9e2e2;
+    padding: 15px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+    margin: 10px auto 0 auto;
+    text-align: left;
+    overflow-y: auto; /* Y ekseninde kaydırma etkinleştirildi */
+    max-height: 300px; /* Maksimum yükseklik ayarlandı */
 }
 
 body.menu-active .game-content {
