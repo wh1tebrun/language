@@ -802,6 +802,7 @@ body.menu-active .game-content {
     padding: 20px;
     margin-bottom: 20px;
     text-align: center;
+    margin-top: 50px;
 }
 
 .quest-box h2 {
@@ -839,6 +840,7 @@ body.menu-active .game-content {
     padding: 40px 20px;
     max-width: 800px;
     margin: 0 auto;
+    margin-top: 50px;
 }
 
 .shop-item {
@@ -911,8 +913,13 @@ body.menu-active .game-content {
 
 /* Responsive Tasarım */
 @media (max-width: 600px) {
+
+    .quests-container{
+        display: flex;
+        align-items: flex-end;
+    }
     .shop-items {
-        padding: 20px 10px;
+       margin-left: 70px;
     }
 
     .shop-item {
@@ -1031,7 +1038,7 @@ body.menu-active .game-content {
     /* Başlıkları sola hizalayın */
     margin-bottom: 15px;
     /* Başlık ile içerik arasına boşluk ekleyin */
-    margin-top: 15px;
+    margin-top: 35px;
 }
 
 /* Başlıkların Konumlandırılması */
@@ -1082,7 +1089,7 @@ body.menu-active .game-content {
 
 /* Leaderboard Stilleri */
 .leaderboard {
-    margin-top: 20px;
+    margin-top: 80px;
     overflow-x: auto;
     /* Küçük ekranlarda yatay kaydırma sağlar */
 }

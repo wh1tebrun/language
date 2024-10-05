@@ -27,29 +27,49 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function updateDropdown() {
         flagDropdown.innerHTML = '';
+        
         flags.forEach(function (flag) {
             if (flag !== currentFlag) {
                 const a = document.createElement('a');
                 a.href = '#';
                 a.dataset.flag = flag;
+                
                 const img = document.createElement('img');
-                img.src = `imgs/${flag}.jpg`;
+                // Use absolute path by adding a leading slash
+                img.src = `/imgs/${flag}.jpg`;
                 img.alt = `${flag.charAt(0).toUpperCase() + flag.slice(1)} Flag`;
                 img.classList.add('small-flag');
+                
                 a.appendChild(img);
                 flagDropdown.appendChild(a);
-
+    
                 // Flag selection event listener
                 a.addEventListener('click', function (e) {
                     e.preventDefault();
                     currentFlag = flag;
-                    selectedFlag.src = `imgs/${flag}.jpg`;
-                    localStorage.setItem('currentFlag', currentFlag); // Bayrağı localStorage'a kaydet
+                    selectedFlag.src = `/imgs/${flag}.jpg`; // Use absolute path here
+                    localStorage.setItem('currentFlag', currentFlag); // Save the flag to localStorage
                     updateDropdown();
                 });
             }
         });
     }
+    
+    // Initialize flags and currentFlag appropriately
+    document.addEventListener('DOMContentLoaded', function() {
+        const flagDropdown = document.getElementById('flagDropdown');
+        const selectedFlag = document.getElementById('selectedFlag');
+        
+        // Example flags array
+        const flags = ['usa', 'canada', 'mexico']; // Replace with your actual flags
+        
+        // Retrieve currentFlag from localStorage or set a default
+        let currentFlag = localStorage.getItem('currentFlag') || 'usa';
+        selectedFlag.src = `/imgs/${currentFlag}.jpg`;
+    
+        updateDropdown();
+    });
+    
 
     updateDropdown();
 
