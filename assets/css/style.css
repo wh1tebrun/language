@@ -966,8 +966,14 @@ body.menu-active .game-content {
 }
 
 /* Diğer Medya Sorguları */
-@media (max-width: 800px) {
-    /* Daha önceki ayarlar */
+@media (max-width: 600px) {
+    .statistics-items{
+        margin-left: 70px;
+    }
+
+    .statistics h2{
+        margin-left: 70px;
+    }
 }
 
 /* Genel İstatistik Öğeleri Stili */
@@ -1132,6 +1138,9 @@ body.menu-active .game-content {
 
 /* Responsive Tasarım */
 @media (max-width: 768px) {
+    .leaderboard{
+        margin-left: 20px;
+    }
     .leaderboard table {
         min-width: 100%;
     }
