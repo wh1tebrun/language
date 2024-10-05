@@ -974,10 +974,14 @@ body.menu-active .game-content {
     .statistics h2{
         margin-left: 70px;
     }
+    .achievements h2{
+        margin-left: 70px;
+    }
 }
 
 /* Genel İstatistik Öğeleri Stili */
 .statistics-items {
+
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -1044,7 +1048,7 @@ body.menu-active .game-content {
     /* Başlıkları sola hizalayın */
     margin-bottom: 15px;
     /* Başlık ile içerik arasına boşluk ekleyin */
-    margin-top: 35px;
+    margin-top: 75px;
 }
 
 /* Başlıkların Konumlandırılması */
