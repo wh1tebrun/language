@@ -81,17 +81,20 @@ h3 {
     position: fixed;
     top: 0;
     left: 0;
-    width: 250px; /* Sidebar genişliği */
+    width: 250px;
+    /* Sidebar genişliği */
     height: 100%;
     background-color: #ffffff;
     border-right: 1px solid #ccc;
     padding-top: 20px;
-    z-index: 999; /* Z-index ayarlandı */
+    z-index: 999;
+    /* Z-index ayarlandı */
 }
 
 /* Ana İçerik */
 .container {
-    margin-left: 250px; /* Sidebar genişliği kadar boşluk bırakıldı */
+    margin-left: 250px;
+    /* Sidebar genişliği kadar boşluk bırakıldı */
     padding: 20px;
 }
 
@@ -355,7 +358,8 @@ canvas#confetti {
     background: linear-gradient(to bottom right, #ffffff, #e0e0e0);
     padding: 20px;
     z-index: 1000;
-    overflow: auto; /* Kaydırma etkinleştirildi */
+    overflow: auto;
+    /* Kaydırma etkinleştirildi */
     box-sizing: border-box;
 }
 
@@ -370,8 +374,10 @@ canvas#confetti {
     max-width: 500px;
     margin: 10px auto 0 auto;
     text-align: left;
-    overflow-y: auto; /* Y ekseninde kaydırma etkinleştirildi */
-    max-height: 300px; /* Maksimum yükseklik ayarlandı */
+    overflow-y: auto;
+    /* Y ekseninde kaydırma etkinleştirildi */
+    max-height: 300px;
+    /* Maksimum yükseklik ayarlandı */
 }
 
 body.menu-active .game-content {
@@ -501,8 +507,19 @@ body.menu-active .game-content {
         width: 180px;
     }
 
+    .sidebar .nav-menu a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        font-size: 2rem;
+        color: #ff000000;
+        transition: background-color 0.3s, color 0.3s;
+        font-family: 'Fredoka One', sans-serif;
+        padding: 0px;
+        border-radius: 5px;
+    }
+
     .container {
-        width: calc(100% - 180px);
         margin-left: 180px;
     }
 
@@ -519,23 +536,27 @@ body.menu-active .game-content {
     }
 }
 
+/* Fix Sidebar for Smaller Screens */
 @media (max-width: 600px) {
     .sidebar {
-        width: 150px;
+        position: absolute;
+        width: 80px;
+        padding-top: 10px;
     }
 
     .container {
-        width: calc(100% - 150px);
-        margin-left: 150px;
+        margin-left: 0;
+        padding: 10px;
     }
 
     .sidebar .logo-text {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     .sidebar .nav-menu a {
-        font-size: 1.6rem;
+        font-size: 1.2rem;
     }
+
 
     .streak-counter a {
         font-size: 1.4rem;
@@ -550,6 +571,24 @@ body.menu-active .game-content {
         width: 100%;
         max-width: 180px;
         height: auto;
+    }
+    .streak-icon{
+        max-width: 40px;
+        max-height: 30px;
+
+    }
+    .lesson-card{
+        margin-left: auto;
+        width: 70%;
+    }
+   
+    h2{
+        margin-top: 20px;
+        text-align: right;
+    }
+    .small-flag{
+        max-width: 40px;
+        max-height: 30px;
     }
 
     .stats-btn__again2 {
@@ -1162,7 +1201,8 @@ body.menu-active .game-content {
     width: 100%;
     background-color: #e0e0e0;
     border-radius: 25px;
-    margin: 60px 0; /* Üst ve alt için boşluk (buradaki 20px değeri ile oynayarak ayarlayabilirsin) */
+    margin: 60px 0;
+    /* Üst ve alt için boşluk (buradaki 20px değeri ile oynayarak ayarlayabilirsin) */
     height: 20px;
     position: relative;
     top: 0;

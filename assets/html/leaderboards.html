@@ -149,6 +149,17 @@
   <!-- JavaScript to update the year dynamically and handle flag switching -->
   <script src="assets/js/index.js"></script>
   <script src="assets/js/leaderboards.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const selectedFlag = document.getElementById('selected-flag');
+        
+        // LocalStorage'dan seçili bayrağı al
+        let currentFlag = localStorage.getItem('currentFlag') || 'french';
+        
+        // Seçili bayrağı güncelle
+        selectedFlag.src = `../../imgs/${currentFlag}.jpg`;
+    });
+    </script>
 </body>
 
 </html>
