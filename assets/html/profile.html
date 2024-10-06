@@ -9,7 +9,7 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="../css/style.css" />
   <!-- Favicon -->
-  <link rel="icon" href="imgs/egelingo-logo.jpg" type="image/x-icon">
+  <link rel="icon" href="../imgs/egelingo-logo.jpg" type="image/x-icon">
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://language-quiz-nine.vercel.app/profile.html" />
@@ -37,7 +37,7 @@
     </nav>
   </div>
 
-  <!-- Flags and Streak Counter -->
+  <!-- Flags and Counters -->
   <div class="flag-and-streak">
     <!-- Flag Menu -->
     <div class="flag-menu">
@@ -56,7 +56,8 @@
       </a>
     </div>
 
-    <div class="streak-counter">
+    <!-- Gems Counter -->
+   <div class="streak-counter">
       <a href="#">
         <img src="https://d35aaqx5ub95lt.cloudfront.net/images/gems/45c14e05be9c1af1d7d0b54c6eed7eee.svg" alt="Streak Icon"
           class="streak-icon">
@@ -67,13 +68,12 @@
 
   <!-- Main Content -->
   <main class="container">
-    
 
     <!-- Statistics Section -->
     <div class="statistics">
       <h2>Statistics</h2>
       <div class="statistics-items statistics-grid">
-        <!-- Stat Item -->
+        <!-- Daily Streak -->
         <div class="stat-item">
           <img src="https://d35aaqx5ub95lt.cloudfront.net/vendor/398e4298a3b39ce566050e5c041949ef.svg" alt="Streak Icon" class="stat-icon">
           <div class="stat-info">
@@ -105,6 +105,14 @@
             <span class="stat-value" id="account-created">01 Jan 2024</span>
           </div>
         </div>
+        <!-- Lessons Completed -->
+        <div class="stat-item">
+          <img src="https://d35aaqx5ub95lt.cloudfront.net/vendor/398e4298a3b39ce566050e5c041949ef.svg" alt="Lessons Icon" class="stat-icon">
+          <div class="stat-info">
+            <span class="stat-label">Lessons Completed</span>
+            <span class="stat-value" id="lessons-completed">0</span>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -112,26 +120,34 @@
     <div class="achievements">
       <h2>Achievements</h2>
       <div class="statistics-items achievements-list">
-        <!-- Achievement Item -->
+        <!-- Achievement Item: Daily Streak -->
         <div class="stat-item">
-          <img src="https://preview.redd.it/streak-flame-animation-gone-v0-jfo7a90zbo6c1.jpeg?auto=webp&s=d57b1d077dc1d6bbdf60979c1a8911093f61af99" alt="Streak Icon" class="stat-icon">
+          <img src="https://d35aaqx5ub95lt.cloudfront.net/vendor/398e4298a3b39ce566050e5c041949ef.svg" alt="Streak Achievement Icon" class="stat-icon">
           <div class="stat-info">
             <span class="stat-label">Daily Streak</span>
-            <span class="stat-value" id="daily-streak">0</span>
+            <span class="stat-value" id="achievement-daily-streak">0</span>
           </div>
-          
         </div>
-        
-        <!-- Diğer achievement-item öğeleri -->
 
+        <!-- Achievement Item: XP Milestone -->
         <div class="stat-item">
-          <img src="https://d35aaqx5ub95lt.cloudfront.net/vendor/398e4298a3b39ce566050e5c041949ef.svg" alt="Streak Icon" class="stat-icon">
+          <img src="https://d35aaqx5ub95lt.cloudfront.net/vendor/398e4298a3b39ce566050e5c041949ef.svg" alt="XP Achievement Icon" class="stat-icon">
           <div class="stat-info">
-            <span class="stat-label">Daily Streak</span>
-            <span class="stat-value" id="daily-streak">0</span>
+            <span class="stat-label">XP Milestone</span>
+            <span class="stat-value" id="achievement-xp-milestone">0</span>
           </div>
-          
         </div>
+
+        <!-- Achievement Item: Lessons Completed -->
+        <div class="stat-item">
+          <img src="https://d35aaqx5ub95lt.cloudfront.net/vendor/398e4298a3b39ce566050e5c041949ef.svg" alt="Lessons Achievement Icon" class="stat-icon">
+          <div class="stat-info">
+            <span class="stat-label">Lessons Completed</span>
+            <span class="stat-value" id="achievement-lessons-completed">0</span>
+          </div>
+        </div>
+
+        <!-- Add more achievement items as needed, ensuring unique IDs -->
       </div>
     </div>
   </main>
@@ -151,15 +167,15 @@
   <script src="../js/profile.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const selectedFlag = document.getElementById('selected-flag');
-        
-        // LocalStorage'dan seçili bayrağı al
-        let currentFlag = localStorage.getItem('currentFlag') || 'french';
-        
-        // Seçili bayrağı güncelle
-        selectedFlag.src = `../../imgs/${currentFlag}.jpg`;
+      const selectedFlag = document.getElementById('selected-flag');
+
+      // Retrieve selected flag from localStorage
+      let currentFlag = localStorage.getItem('currentFlag') || 'french';
+
+      // Update selected flag image
+      selectedFlag.src = `../../imgs/${currentFlag}.jpg`;
     });
-    </script>
+  </script>
 </body>
 
 </html>

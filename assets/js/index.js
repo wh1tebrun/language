@@ -36,6 +36,21 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('completedLessons', '0');
     }
 
+    // Initialize gems if not set
+    if (localStorage.getItem('gems') === null) {
+        localStorage.setItem('gems', '0');
+    }
+
+    // -----------------------------
+    // Initialize accountCreated date if not set
+    // -----------------------------
+    if (!localStorage.getItem('accountCreated')) {
+        const today = new Date();
+        const options = { year: 'numeric', month: 'short', day: '2-digit' };
+        const accountCreatedDate = today.toLocaleDateString('en-US', options);
+        localStorage.setItem('accountCreated', accountCreatedDate);
+    }
+
     // -----------------------------
     // Update Dropdown with Flags
     // -----------------------------

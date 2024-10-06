@@ -74,34 +74,40 @@
     <!-- Main Content -->
     <main class="container">
         <div class="quests-container">
-            <!-- Quest 1: 30 Puan Kazan -->
-            <div class="quest-box">
+            <!-- Quest 1: Earn XP -->
+            <div class="quest-box" data-quest="earnXP">
                 <h2>Sage</h2>
-                <p>Earn 30 XP</p>
+                <p>Earn <span class="required-amount">30 XP</span></p>
                 <div class="progress-bar">
                     <div class="progress" id="points-progress" style="width: 0%;"></div>
                 </div>
-                <p><span id="current-points">0</span>/30 Puan</p>
+                <p>Step <span id="current-step-earnXP">1</span>/10</p>
+                <p><span id="current-points">0</span>/<span id="required-points">30</span> XP</p>
+                <button class="complete-quest-btn">Complete Quest</button>
             </div>
 
-            <!-- Quest 2: 7 Gün Üst Üste Giriş Yap -->
-            <div class="quest-box">
+            <!-- Quest 2: Daily Streak -->
+            <div class="quest-box" data-quest="dailyStreak">
                 <h2>Wildfire</h2>
-                <p>Reach a 7 day streak</p>
+                <p>Reach a <span class="required-amount">7 Gün</span> streak</p>
                 <div class="progress-bar">
                     <div class="progress" id="streak-progress" style="width: 0%;"></div>
                 </div>
-                <p><span id="current-streak">0</span>/7 Gün</p>
+                <p>Step <span id="current-step-dailyStreak">1</span>/10</p>
+                <p><span id="current-streak">0</span>/<span id="required-streak">7</span> Gün</p>
+                <button class="complete-quest-btn">Complete Quest</button>
             </div>
 
-            <!-- Quest 3: En Az 100 Ders Tamamla -->
-            <div class="quest-box">
+            <!-- Quest 3: Complete Lessons -->
+            <div class="quest-box" data-quest="completeLessons">
                 <h2>Sharpshooter</h2>
-                <p>Complete 100 lessons</p>
+                <p>Complete <span class="required-amount">100 Ders</span></p>
                 <div class="progress-bar">
                     <div class="progress" id="lessons-progress" style="width: 0%;"></div>
                 </div>
-                <p><span id="current-lessons">0</span>/100 Ders</p>
+                <p>Step <span id="current-step-completeLessons">1</span>/10</p>
+                <p><span id="current-lessons">0</span>/<span id="required-lessons">100</span> Ders</p>
+                <button class="complete-quest-btn">Complete Quest</button>
             </div>
         </div>
     </main>
