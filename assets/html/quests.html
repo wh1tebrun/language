@@ -9,7 +9,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/style.css" />
     <!-- Favicon -->
-    <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../imgs/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -48,7 +48,6 @@
             <div class="selected-flag">
                 <!-- In quests.html -->
                 <img src="../../imgs/french.jpg" alt="Selected Flag" class="small-flag" id="selected-flag">
-
             </div>
             <div class="flag-dropdown" id="flag-dropdown">
                 <!-- Flags will be added via JavaScript -->
@@ -62,23 +61,23 @@
                 <span class="streak-number" id="streak-number">0</span>
             </a>
         </div>
+        <!-- Gems Counter -->
         <div class="streak-counter">
             <a href="#">
-              <img src="https://d35aaqx5ub95lt.cloudfront.net/images/gems/45c14e05be9c1af1d7d0b54c6eed7eee.svg" alt="Streak Icon"
-                class="streak-icon">
-              <span class="streak-number" id="streak-number">5661</span>
+                <img src="https://d35aaqx5ub95lt.cloudfront.net/images/gems/45c14e05be9c1af1d7d0b54c6eed7eee.svg" alt="Gems Icon"
+                    class="streak-icon">
+                <span class="streak-number" id="gems-number">0</span>
             </a>
-          </div>
+        </div>
     </div>
 
     <!-- Main Content -->
     <main class="container">
-        
         <div class="quests-container">
             <!-- Quest 1: 30 Puan Kazan -->
             <div class="quest-box">
-                <h2>30 Puan Kazan</h2>
-                <p>Her doğru cevap için 1 puan kazanırsınız.</p>
+                <h2>Sage</h2>
+                <p>Earn 30 XP</p>
                 <div class="progress-bar">
                     <div class="progress" id="points-progress" style="width: 0%;"></div>
                 </div>
@@ -87,22 +86,22 @@
 
             <!-- Quest 2: 7 Gün Üst Üste Giriş Yap -->
             <div class="quest-box">
-                <h2>7 Gün Üst Üste Giriş Yap</h2>
-                <p>Oyuna 7 gün boyunca aralıksız giriş yapın.</p>
+                <h2>Wildfire</h2>
+                <p>Reach a 7 day streak</p>
                 <div class="progress-bar">
                     <div class="progress" id="streak-progress" style="width: 0%;"></div>
                 </div>
                 <p><span id="current-streak">0</span>/7 Gün</p>
             </div>
 
-            <!-- Quest 3: En Az 100 Kelime Öğren -->
+            <!-- Quest 3: En Az 100 Ders Tamamla -->
             <div class="quest-box">
-                <h2>En Az 100 Kelime Öğren</h2>
-                <p>En az 100 kelime öğrenin.</p>
+                <h2>Sharpshooter</h2>
+                <p>Complete 100 lessons</p>
                 <div class="progress-bar">
-                    <div class="progress" id="words-progress" style="width: 0%;"></div>
+                    <div class="progress" id="lessons-progress" style="width: 0%;"></div>
                 </div>
-                <p><span id="current-words">0</span>/100 Kelime</p>
+                <p><span id="current-lessons">0</span>/100 Ders</p>
             </div>
         </div>
     </main>
@@ -123,14 +122,14 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const selectedFlag = document.getElementById('selected-flag');
-            
+
             // LocalStorage'dan seçili bayrağı al
-            let currentFlag = localStorage.getItem('currentFlag') || "None";
-            
+            let currentFlag = localStorage.getItem('currentFlag') || "french";
+
             // Seçili bayrağı güncelle
             selectedFlag.src = `../../imgs/${currentFlag}.jpg`;
         });
-        </script>
+    </script>
 </body>
 
 </html>

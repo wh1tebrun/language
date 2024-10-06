@@ -1,82 +1,91 @@
+// index.js
+
 document.addEventListener('DOMContentLoaded', function () {
+    // -----------------------------
+    // Flag Selection Elements
+    // -----------------------------
     const selectedFlag = document.getElementById('selected-flag');
     const learnButton = document.getElementById('learn-btn');
     const flagDropdown = document.getElementById('flag-dropdown');
-    const flags = ['french', 'german', 'italian', 'russian'];
+    const flags = ['french', 'german', 'italian', 'russian']; // Add or remove flags as needed
 
-    // Set the initial selected flag from localStorage or default to 'french'
+    // Initialize currentFlag from localStorage or default to 'french'
     let currentFlag = localStorage.getItem('currentFlag') || 'french';
+    selectedFlag.src = `../../imgs/${currentFlag}.jpg`; // Adjust path as necessary
 
-    // Update the selected flag image
-    selectedFlag.src = `imgs/${currentFlag}.jpg`;
+    // -----------------------------
+    // Initialize Points and Scores
+    // -----------------------------
+    // Initialize totalPoints if not set
+    if (localStorage.getItem('totalPoints') === null) {
+        localStorage.setItem('totalPoints', '0');
+    }
 
-    // learnButton.addEventListener('click', function (e) {
-    //     e.preventDefault();
-    //     let currentFlagSrc = selectedFlag.src;
+    // Initialize bestScore if not set
+    if (localStorage.getItem('bestScore') === null) {
+        localStorage.setItem('bestScore', '0');
+    }
 
-    //     if (currentFlagSrc.includes('french.jpg')) {
-    //         window.location.href = 'assets/html/french.html';
-    //     } else if (currentFlagSrc.includes('german.jpg')) {
-    //         window.location.href = 'assets/html/german.html';
-    //     } else if (currentFlagSrc.includes('italian.jpg')) {
-    //         window.location.href = 'assets/html/italian.html';
-    //     } else if (currentFlagSrc.includes('russian.jpg')) {
-    //         window.location.href = 'assets/html/russian.html';
-    //     }
-    // });
+    // Initialize flagsCompleted if not set
+    if (localStorage.getItem('flagsCompleted') === null) {
+        localStorage.setItem('flagsCompleted', '0');
+    }
 
+    // Initialize completedLessons if not set (replacing wordsLearned)
+    if (localStorage.getItem('completedLessons') === null) {
+        localStorage.setItem('completedLessons', '0');
+    }
+
+    // -----------------------------
+    // Update Dropdown with Flags
+    // -----------------------------
     function updateDropdown() {
         flagDropdown.innerHTML = '';
-        
+
         flags.forEach(function (flag) {
             if (flag !== currentFlag) {
                 const a = document.createElement('a');
                 a.href = '#';
                 a.dataset.flag = flag;
-                
+
                 const img = document.createElement('img');
-                // Use absolute path by adding a leading slash
-                img.src = `/imgs/${flag}.jpg`;
-                img.alt = `${flag.charAt(0).toUpperCase() + flag.slice(1)} Flag`;
+                img.src = `../../imgs/${flag}.jpg`; // Adjust path as necessary
+                img.alt = `${capitalizeFirstLetter(flag)} Flag`;
                 img.classList.add('small-flag');
-                
+
                 a.appendChild(img);
                 flagDropdown.appendChild(a);
-    
+
                 // Flag selection event listener
                 a.addEventListener('click', function (e) {
                     e.preventDefault();
                     currentFlag = flag;
-                    selectedFlag.src = `/imgs/${flag}.jpg`; // Use absolute path here
-                    localStorage.setItem('currentFlag', currentFlag); // Save the flag to localStorage
+                    selectedFlag.src = `../../imgs/${flag}.jpg`; // Adjust path as necessary
+                    localStorage.setItem('currentFlag', currentFlag);
                     updateDropdown();
                 });
             }
         });
     }
-    
-    // Initialize flags and currentFlag appropriately
-    document.addEventListener('DOMContentLoaded', function() {
-        const flagDropdown = document.getElementById('flagDropdown');
-        const selectedFlag = document.getElementById('selectedFlag');
-        
-        // Example flags array
-        const flags = ['usa', 'canada', 'mexico']; // Replace with your actual flags
-        
-        // Retrieve currentFlag from localStorage or set a default
-        let currentFlag = localStorage.getItem('currentFlag') || 'usa';
-        selectedFlag.src = `/imgs/${currentFlag}.jpg`;
-    
-        updateDropdown();
-    });
-    
+
+    // Helper function to capitalize the first letter
+    function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
 
     updateDropdown();
 
-    // Updates the year in the footer dynamically
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // -----------------------------
+    // Update the Year in the Footer
+    // -----------------------------
+    const yearElement = document.getElementById('year');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
 
-    // Günlük Giriş Serisi İşlemleri
+    // -----------------------------
+    // Daily Streak Management
+    // -----------------------------
     let lastVisit = localStorage.getItem('lastVisit');
     let dayStreak = parseInt(localStorage.getItem('dayStreak')) || 0;
     let today = new Date().setHours(0, 0, 0, 0);
@@ -88,41 +97,71 @@ document.addEventListener('DOMContentLoaded', function () {
         if (diffDays === 1) {
             dayStreak += 1;
         } else if (diffDays > 1) {
-            dayStreak = 0; // Eğer bir günden fazla geçmişse seriyi sıfırla
+            dayStreak = 1; // Reset to 1 instead of 0 to count today
         }
-        // Eğer diffDays === 0 ise aynı gün içinde tekrar giriş yapıldı, seriyi artırma
+        // If diffDays === 0, do not change the streak
     } else {
-        dayStreak = 1; // İlk ziyaret
+        dayStreak = 1; // First visit
     }
 
     localStorage.setItem('lastVisit', today);
     localStorage.setItem('dayStreak', dayStreak);
 
-    // Streak numarasını güncelle
-    document.getElementById('streak-number').textContent = dayStreak;
-
-    // Eğer quests.html'deysek, oradaki streak bilgisini güncelle
-    if (window.location.pathname.endsWith('quests.html')) {
-        // Puan ve kelime öğrenme görevlerini de güncelle
-        let totalPoints = parseInt(localStorage.getItem('totalPoints')) || 0;
-        let wordsLearned = parseInt(localStorage.getItem('wordsLearned')) || 0;
-
-        // Puan görevini güncelle
-        let pointsProgress = document.getElementById('points-progress');
-        let currentPoints = document.getElementById('current-points');
-        currentPoints.textContent = totalPoints;
-        pointsProgress.style.width = Math.min((totalPoints / 30) * 100, 100) + '%';
-
-        // Kelime öğrenme görevini güncelle
-        let wordsProgress = document.getElementById('words-progress');
-        let currentWords = document.getElementById('current-words');
-        currentWords.textContent = wordsLearned;
-        wordsProgress.style.width = Math.min((wordsLearned / 100) * 100, 100) + '%';
-
-        // Günlük giriş serisini güncelle
-        let currentStreak = document.getElementById('current-streak');
-        let streakProgress = document.getElementById('streak-progress');
-        currentStreak.textContent = dayStreak;
-        streakProgress.style.width = Math.min((dayStreak / 7) * 100, 100) + '%';
+    // Update streak number in UI
+    const streakNumber = document.querySelector('#streak-number');
+    if (streakNumber) {
+        streakNumber.textContent = dayStreak;
     }
+
+    // -----------------------------
+    // Quests Page: Update Progress
+    // -----------------------------
+    if (window.location.pathname.endsWith('quests.html')) {
+        // Retrieve stored values
+        let totalPoints = parseInt(localStorage.getItem('totalPoints')) || 0;
+        let completedLessons = parseInt(localStorage.getItem('completedLessons')) || 0; // Updated
+        let bestScore = parseInt(localStorage.getItem('bestScore')) || 0;
+        let flagsCompleted = parseInt(localStorage.getItem('flagsCompleted')) || 0;
+        let dayStreak = parseInt(localStorage.getItem('dayStreak')) || 0;
+
+        // Update Points Progress
+        const pointsProgress = document.getElementById('points-progress');
+        const currentPoints = document.getElementById('current-points');
+        if (currentPoints) currentPoints.textContent = totalPoints;
+        if (pointsProgress) pointsProgress.style.width = `${Math.min((totalPoints / 30) * 100, 100)}%`;
+
+        // Update Completed Lessons Progress (replacing Words Learned)
+        const lessonsProgress = document.getElementById('lessons-progress');
+        const currentLessons = document.getElementById('current-lessons');
+        if (currentLessons) currentLessons.textContent = completedLessons;
+        if (lessonsProgress) lessonsProgress.style.width = `${Math.min((completedLessons / 100) * 100, 100)}%`; // Adjust max as needed
+
+        // Update Streak Progress
+        const currentStreak = document.getElementById('current-streak');
+        const streakProgress = document.getElementById('streak-progress');
+        if (currentStreak) currentStreak.textContent = dayStreak;
+        if (streakProgress) streakProgress.style.width = `${Math.min((dayStreak / 7) * 100, 100)}%`;
+    }
+
+    // -----------------------------
+    // Learn Button Event Listener (Optional)
+    // -----------------------------
+    /*
+    Uncomment and modify this section if you want to enable the Learn button navigation.
+
+    learnButton.addEventListener('click', function (e) {
+        e.preventDefault();
+        let currentFlagSrc = selectedFlag.src;
+
+        if (currentFlagSrc.includes('french.jpg')) {
+            window.location.href = 'assets/html/french.html';
+        } else if (currentFlagSrc.includes('german.jpg')) {
+            window.location.href = 'assets/html/german.html';
+        } else if (currentFlagSrc.includes('italian.jpg')) {
+            window.location.href = 'assets/html/italian.html';
+        } else if (currentFlagSrc.includes('russian.jpg')) {
+            window.location.href = 'assets/html/russian.html';
+        }
+    });
+    */
 });

@@ -1,3 +1,5 @@
+// archeologyfrench.js
+
 // Başlangıçta tanımlanan değişkenler
 let counter = 0; // Yapılan doğru cevap sayısı
 let score = 0;   // Doğru cevap sayısı (12 tane soruyu doğru yaparsa bitiyor)
@@ -35,7 +37,7 @@ function randomizer(...options) {
 }
 
 const jsConfetti = new JSConfetti();
-const options = Array.from(document.getElementsByClassName("option-button"));
+const optionButtons = Array.from(document.getElementsByClassName("option-button"));
 
 const wordPairs = [
     { french: "la médecine", english: "medicine" },
@@ -105,8 +107,14 @@ let gameStarted = false; // Oyun başladığında true olacak
 window.onload = () => {
     loadNextQuestion();
     const bestScore = parseInt(localStorage.getItem('bestScore')) || 0;
-    document.getElementById("best_score").innerText = bestScore;
-    document.getElementById("myRange").style.display = "none"; // Slider'ı tamamen gizle
+    const bestScoreElement = document.getElementById("best_score");
+    if (bestScoreElement) {
+        bestScoreElement.innerText = bestScore;
+    }
+    const myRange = document.getElementById("myRange");
+    if (myRange) {
+        myRange.style.display = "none"; // Slider'ı tamamen gizle
+    }
 };
 
 // Yeni soruyu yükleme fonksiyonu
@@ -119,12 +127,14 @@ function loadNextQuestion() {
         });
         document.querySelector('.input-container').style.display = 'none';
 
-        const option0 = replaceAndRemoveOption(0);
-        const option1 = replaceAndRemoveOption(1);
-        const option2 = replaceAndRemoveOption(2);
-        const option3 = replaceAndRemoveOption(3);
+        // Replace and remove options for multiple-choice
+        replaceAndRemoveOption(0);
+        replaceAndRemoveOption(1);
+        replaceAndRemoveOption(2);
+        replaceAndRemoveOption(3);
 
-        chosenOption = randomizer(option0, option1, option2, option3);
+        // Choose a random option to display the french word
+        chosenOption = randomizer(...optionButtons);
         frenchWordElement.innerText = chosenOption.dataset.french;
 
     } else if (questionType === "type-in") {
@@ -191,8 +201,8 @@ document.getElementById('submit-button').addEventListener('click', function() {
 // Seçeneklere tıklayınca cevap kontrolü
 function optionClickListener(event) {
     const clickedOption = event.target;
-    const selectedEnglish = clickedOption.textContent;
-    const correctEnglish = chosenOption.dataset.english;
+    const selectedEnglish = clickedOption.textContent.trim().toLowerCase();
+    const correctEnglish = chosenOption.dataset.english.toLowerCase();
 
     if (selectedEnglish !== correctEnglish) {
         wrongWords.push(`${chosenOption.dataset.french} - ${chosenOption.dataset.english}`);
@@ -213,12 +223,43 @@ function optionClickListener(event) {
 
 // Oyunu bitir ve sonuçları göster
 function finishGame() {
-    options.forEach(option => { option.disabled = true; });
+    // Disable all option buttons
+    optionButtons.forEach(option => { option.disabled = true; });
+
+    // Update the total score displayed in the result screen
     totalScoreElement.innerText = score;
     flagsDone.innerText = counter;
+
+    // Update totalPoints in localStorage
+    try {
+        let totalPoints = parseInt(localStorage.getItem('totalPoints')) || 0;
+        totalPoints += score; // Add current score to totalPoints
+        localStorage.setItem('totalPoints', totalPoints); // Save back to localStorage
+        console.log(`Updated totalPoints: ${totalPoints}`);
+    } catch (error) {
+        console.error("Error updating totalPoints in localStorage:", error);
+    }
+
+    // Increment completedLessons in localStorage
+    try {
+        let completedLessons = parseInt(localStorage.getItem('completedLessons')) || 0;
+        completedLessons += 1; // Increment by 1 for each completed lesson
+        localStorage.setItem('completedLessons', completedLessons);
+        console.log(`Updated completedLessons: ${completedLessons}`);
+    } catch (error) {
+        console.error("Error updating completedLessons in localStorage:", error);
+    }
+
+    // Stop the timer
     clearInterval(timePassed);
+
+    // Update the best score if necessary
     updateHighscore(score);
+
+    // Display the result screen
     openResult();
+
+    // Add confetti for celebration
     jsConfetti.addConfetti({ emojis: ['🌟', '🎉', '✨', '🔥'] });
 }
 
@@ -238,13 +279,28 @@ function showWrongWords() {
         li.textContent = "No wrong words!";
         wrongWordsList.appendChild(li);
     }
+
+    // Additionally, update totalPoints in the result screen
+    const totalPointsElement = document.getElementById('total_points');
+    if (totalPointsElement) {
+        const totalPoints = parseInt(localStorage.getItem('totalPoints')) || 0;
+        totalPointsElement.textContent = totalPoints;
+    }
+
+    // Update completedLessons in the result screen (if needed)
+    const completedLessonsElement = document.getElementById('completed_lessons');
+    if (completedLessonsElement) {
+        const completedLessons = parseInt(localStorage.getItem('completedLessons')) || 0;
+        completedLessonsElement.textContent = completedLessons;
+    }
 }
 
 // Tıklama olaylarını seçenek düğmelerine ekle
-options.forEach(option => {
+optionButtons.forEach(option => {
     option.addEventListener("click", optionClickListener);
 });
 
+// Replace and remove option for multiple-choice
 function replaceAndRemoveOption(index) {
     if (remainingWordPairs.length === 0) {
         remainingWordPairs = [...wordPairs];
@@ -252,10 +308,11 @@ function replaceAndRemoveOption(index) {
     const rndNum = Math.floor(Math.random() * remainingWordPairs.length);
     const wordPair = remainingWordPairs[rndNum];
 
-    options[index].textContent = wordPair.english;
-    options[index].dataset.french = wordPair.french;
-    options[index].dataset.english = wordPair.english;
+    const optionButton = optionButtons[index];
+    optionButton.textContent = wordPair.english;
+    optionButton.dataset.french = wordPair.french;
+    optionButton.dataset.english = wordPair.english;
     remainingWordPairs.splice(rndNum, 1);
 
-    return options[index];
+    return optionButton;
 }
