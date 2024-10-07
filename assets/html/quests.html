@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="../css/style.css" />
     <!-- Favicon -->
     <link rel="icon" href="../../imgs/egelingo-logo.jpg" type="image/x-icon">
-    
 </head>
 
 <body>
@@ -65,8 +64,8 @@
         <!-- Gems Counter -->
         <div class="streak-counter">
             <a href="#">
-                <img src="https://d35aaqx5ub95lt.cloudfront.net/images/gems/45c14e05be9c1af1d7d0b54c6eed7eee.svg" alt="Gems Icon"
-                    class="streak-icon">
+                <img src="https://d35aaqx5ub95lt.cloudfront.net/images/gems/45c14e05be9c1af1d7d0b54c6eed7eee.svg"
+                    alt="Gems Icon" class="streak-icon">
                 <span class="streak-number" id="gems-number">0</span>
             </a>
         </div>
@@ -78,37 +77,52 @@
             <!-- Quest 1: Earn XP -->
             <div class="quest-box" data-quest="earnXP">
                 <h2>Sage</h2>
-                <p>Earn <span class="required-amount">30 XP</span></p>
+                <p>Earn <span class="required-amount" id="required-amount-earnXP">30 XP</span></p>
+
+                <!-- Achievement Steps -->
+                <div class="achievement-steps" id="achievement-steps-earnXP">
+                    <!-- Steps will be dynamically generated -->
+                </div>
+
                 <div class="progress-bar">
                     <div class="progress" id="points-progress" style="width: 0%;"></div>
                 </div>
                 <p>Level <span id="current-step-earnXP">1</span>/10</p>
                 <p><span id="current-points">0</span>/<span id="required-points">30</span> XP</p>
-                
             </div>
 
             <!-- Quest 2: Daily Streak -->
             <div class="quest-box" data-quest="dailyStreak">
                 <h2>Wildfire</h2>
-                <p>Reach a <span class="required-amount">7 day</span> streak</p>
+                <p>Reach a <span class="required-amount" id="required-amount-dailyStreak">7 days</span> streak</p>
+
+                <!-- Achievement Steps -->
+                <div class="achievement-steps" id="achievement-steps-dailyStreak">
+                    <!-- Steps will be dynamically generated -->
+                </div>
+
                 <div class="progress-bar">
                     <div class="progress" id="streak-progress" style="width: 0%;"></div>
                 </div>
                 <p>Level <span id="current-step-dailyStreak">1</span>/10</p>
                 <p><span id="current-streak">0</span>/<span id="required-streak">7</span> Days</p>
-                
             </div>
 
             <!-- Quest 3: Complete Lessons -->
             <div class="quest-box" data-quest="completeLessons">
                 <h2>Sharpshooter</h2>
-                <p>Complete <span class="required-amount">100 Ders</span></p>
+                <p>Complete <span class="required-amount" id="required-amount-completeLessons">100 Lessons</span></p>
+
+                <!-- Achievement Steps -->
+                <div class="achievement-steps" id="achievement-steps-completeLessons">
+                    <!-- Steps will be dynamically generated -->
+                </div>
+
                 <div class="progress-bar">
                     <div class="progress" id="lessons-progress" style="width: 0%;"></div>
                 </div>
                 <p>Level <span id="current-step-completeLessons">1</span>/10</p>
                 <p><span id="current-lessons">0</span>/<span id="required-lessons">100</span> Lessons</p>
-                
             </div>
         </div>
     </main>
@@ -130,10 +144,10 @@
         document.addEventListener('DOMContentLoaded', function () {
             const selectedFlag = document.getElementById('selected-flag');
 
-            // LocalStorage'dan seçili bayrağı al
+            // Get selected flag from LocalStorage
             let currentFlag = localStorage.getItem('currentFlag') || "french";
 
-            // Seçili bayrağı güncelle
+            // Update selected flag
             selectedFlag.src = `../../imgs/${currentFlag}.jpg`;
         });
     </script>

@@ -4,17 +4,23 @@ const questDefinitions = {
     earnXP: {
         base: 30,
         multiplier: 2,
-        steps: 10
+        steps: 10,
+        unit: 'XP',
+        actionText: 'Earn'
     },
     dailyStreak: {
         base: 7,
         multiplier: 1.5,
-        steps: 10
+        steps: 10,
+        unit: 'day',
+        actionText: 'Reach a'
     },
     completeLessons: {
         base: 100,
         multiplier: 1.2,
-        steps: 10
+        steps: 10,
+        unit: 'Lesson',
+        actionText: 'Complete'
     }
 };
 
@@ -33,8 +39,8 @@ const colorLevels = [
 
 document.addEventListener('DOMContentLoaded', function () {
     initializeQuests();
+    generateAchievementSteps(); // Generate steps on page load
     updateUI();
-    // Removed setupCompleteButtons();
 });
 
 // Initialize quests in localStorage if not present
@@ -74,6 +80,29 @@ function calculateRequiredAmount(questType, step) {
     return Math.floor(quest.base * Math.pow(quest.multiplier, step - 1));
 }
 
+// Generate achievement steps for each quest
+function generateAchievementSteps() {
+    const quests = getQuests();
+
+    Object.keys(quests).forEach(questType => {
+        const questDefinition = questDefinitions[questType];
+        const stepsContainer = document.getElementById(`achievement-steps-${questType}`);
+
+        if (stepsContainer) {
+            // Clear existing steps
+            stepsContainer.innerHTML = '';
+
+            // Generate steps
+            for (let i = 1; i <= questDefinition.steps; i++) {
+                const stepElement = document.createElement('div');
+                stepElement.classList.add('achievement-step');
+                stepElement.dataset.step = i;
+                stepsContainer.appendChild(stepElement);
+            }
+        }
+    });
+}
+
 // Update the UI for all quests
 function updateUI() {
     const quests = getQuests();
@@ -89,12 +118,16 @@ function updateUI() {
 
     // Update Colors
     updateQuestColors(quests);
+
+    // Update Achievement Steps
+    updateAchievementSteps(quests);
 }
 
 // Update individual quest UI
 function updateQuestUI(questType) {
     const quests = getQuests();
     const quest = quests[questType];
+    const questDefinition = questDefinitions[questType];
 
     // Map questType to element IDs
     const progressIds = {
@@ -124,6 +157,7 @@ function updateQuestUI(questType) {
     const requiredElement = document.getElementById(requiredId);
     const questBox = document.querySelector(`.quest-box[data-quest="${questType}"]`);
     const stepElement = questBox.querySelector(`#current-step-${questType}`);
+    const requiredAmountElement = document.getElementById(`required-amount-${questType}`);
 
     const requiredAmount = calculateRequiredAmount(questType, quest.currentStep);
     const currentAmount = getCurrentAmount(questType);
@@ -148,6 +182,19 @@ function updateQuestUI(questType) {
     if (stepElement) {
         stepElement.textContent = quest.currentStep;
     }
+
+    // Update required amount in the quest description
+    if (requiredAmountElement) {
+        let unit = questDefinition.unit;
+        // Pluralize the unit if required amount is not 1
+        if (requiredAmount !== 1) {
+            unit += 's';
+        }
+        requiredAmountElement.textContent = `${requiredAmount} ${unit}`;
+    }
+
+    // Update Achievement Steps after updating quest UI
+    updateAchievementStepsForQuest(questType, quest.currentStep);
 
     // Check if quest is completed and can be advanced
     if (currentAmount >= requiredAmount && quest.currentStep < questDefinitions[questType].steps) {
@@ -191,6 +238,33 @@ function updateQuestColors(quests) {
     });
 }
 
+// Update achievement steps for all quests
+function updateAchievementSteps(quests) {
+    Object.keys(quests).forEach(questType => {
+        const quest = quests[questType];
+        updateAchievementStepsForQuest(questType, quest.currentStep);
+    });
+}
+
+// Update achievement steps for a specific quest
+function updateAchievementStepsForQuest(questType, currentStep) {
+    const stepsContainer = document.getElementById(`achievement-steps-${questType}`);
+
+    if (stepsContainer) {
+        const stepElements = stepsContainer.querySelectorAll('.achievement-step');
+
+        stepElements.forEach(stepElement => {
+            const stepNumber = parseInt(stepElement.dataset.step);
+
+            if (stepNumber <= currentStep) {
+                stepElement.classList.add('active');
+            } else {
+                stepElement.classList.remove('active');
+            }
+        });
+    }
+}
+
 // Handle quest completion
 function completeQuest(questType) {
     const quests = getQuests();
@@ -205,7 +279,6 @@ function completeQuest(questType) {
             quest.colorLevel += 1;
             // Optionally, add rewards or gems here
 
-            // Increase requiredAmount for next iteration
             // currentAmount remains the same
         } else {
             break;

@@ -1,99 +1,183 @@
 // profile.js
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Retrieve data from localStorage or set default values
-  const dailyStreak = parseInt(localStorage.getItem('dayStreak')) || 0;
-  const totalXP = parseInt(localStorage.getItem('totalPoints')) || 0;
-  const currentLeague = getCurrentLeague(totalXP); // Function to determine league based on XP
-  const accountCreated = localStorage.getItem('accountCreated') || 'N/A'; // Updated to handle missing date
-  const completedLessons = parseInt(localStorage.getItem('completedLessons')) || 0;
-  const gems = parseInt(localStorage.getItem('gems')) || 0; // Assuming gems are tracked
-
-  // Update statistics
-  document.getElementById('daily-streak').textContent = dailyStreak;
-  document.getElementById('total-xp').textContent = totalXP;
-  document.getElementById('current-league').textContent = currentLeague;
-  document.getElementById('account-created').textContent = accountCreated;
-  document.getElementById('lessons-completed').textContent = completedLessons;
-  document.getElementById('gems-number').textContent = gems;
-
-  // Update achievements
-  updateAchievements(dailyStreak, totalXP, completedLessons);
-
-  // Update year (if exists)
-  const yearSpan = document.getElementById('year');
-  if (yearSpan) {
-    const currentYear = new Date().getFullYear();
-    yearSpan.textContent = currentYear;
-  }
+document.addEventListener('DOMContentLoaded', function () {
+  displayProfileStatistics();
+  displayQuestAchievements();
+  updateYear(); // To update the footer year
+  updateSelectedFlag(); // To update the selected flag
 });
 
-/**
- * Determines the current league based on total XP.
- * Adjust the thresholds as per your game's requirements.
- * @param {number} xp - Total XP earned by the user.
- * @returns {string} - Current league name.
- */
-function getCurrentLeague(xp) {
-  // Define an array of leagues in ascending order
-  const leagues = [
-    { name: 'Iron', minXp: 0 },
-    { name: 'Bronze', minXp: 500 },
-    { name: 'Silver', minXp: 1000 },
-    { name: 'Gold', minXp: 1500 },
-    { name: 'Platinum', minXp: 2000 },
-    { name: 'Diamond', minXp: 2500 },
-    { name: 'Master', minXp: 3000 },
-    { name: 'Grandmaster', minXp: 3500 },
-    { name: 'Challenger', minXp: 4000 }
-  ];
+// Function to display profile statistics
+function displayProfileStatistics() {
+  const dailyStreakElement = document.getElementById('daily-streak');
+  const totalXpElement = document.getElementById('total-xp');
+  const currentLeagueElement = document.getElementById('current-league');
+  const accountCreatedElement = document.getElementById('account-created');
+  const lessonsCompletedElement = document.getElementById('lessons-completed');
 
-  // Define the number of divisions per league (only for leagues that have divisions)
-  const divisions = ['IV', 'III', 'II', 'I'];
+  // Retrieve data from localStorage
+  const dayStreak = localStorage.getItem('dayStreak') || 0;
+  const totalPoints = parseInt(localStorage.getItem('totalPoints')) || 0;
+  const completedLessons = localStorage.getItem('completedLessons') || 0;
+  const accountCreated = localStorage.getItem('accountCreated') || 'None';
 
-  // Iterate through the leagues from highest to lowest to find the appropriate league
-  for (let i = leagues.length - 1; i >= 0; i--) {
-    if (xp >= leagues[i].minXp) {
-      // For leagues below Master, include divisions
-      if (i < leagues.length - 3) { // Assuming Master, Grandmaster, Challenger have no divisions
-        // Determine the division based on XP within the league
-        const leagueXpRange = leagues[i + 1] ? leagues[i + 1].minXp - leagues[i].minXp : Infinity;
-        const xpIntoLeague = xp - leagues[i].minXp;
-        const divisionSize = leagueXpRange / divisions.length;
-        const divisionIndex = Math.min(
-          Math.floor(xpIntoLeague / divisionSize),
-          divisions.length - 1
-        );
-        return `${leagues[i].name} ${divisions[divisionIndex]}`;
-      } else {
-        // For Master, Grandmaster, Challenger, no divisions
-        return leagues[i].name;
-      }
+  // Calculate currentLeague based on totalPoints
+  const currentLeague = calculateLeague(totalPoints);
+  // Update 'currentLeague' in localStorage
+  localStorage.setItem('currentLeague', currentLeague);
+
+  // Update DOM elements safely
+  if (dailyStreakElement) dailyStreakElement.textContent = dayStreak;
+  if (totalXpElement) totalXpElement.textContent = totalPoints;
+  if (currentLeagueElement) currentLeagueElement.textContent = currentLeague;
+  if (accountCreatedElement) accountCreatedElement.textContent = accountCreated;
+  if (lessonsCompletedElement) lessonsCompletedElement.textContent = completedLessons;
+
+  // Update league icon
+  const leagueIconElement = document.getElementById('league-icon');
+  if (leagueIconElement) {
+    leagueIconElement.src = getLeagueIcon(currentLeague);
+    leagueIconElement.alt = `${currentLeague} League Icon`;
+  }
+}
+
+// Function to calculate the league based on total XP
+function calculateLeague(totalPoints) {
+  if (totalPoints >= 2000) {
+    return 'Diamond';
+  } else if (totalPoints >= 1000) {
+    return 'Platinum';
+  } else if (totalPoints >= 500) {
+    return 'Gold';
+  } else if (totalPoints >= 100) {
+    return 'Silver';
+  } else {
+    return 'Bronze';
+  }
+}
+
+// Function to get the league icon URL based on the league name
+function getLeagueIcon(leagueName) {
+  const leagueIcons = {
+    'Bronze': 'https://d35aaqx5ub95lt.cloudfront.net/images/leagues/192181672ada150becd83a74a4266ae9.svg',
+    'Silver': 'https://d35aaqx5ub95lt.cloudfront.net/images/leagues/02dc8693ec424b149aaf1e99b6a9d2d7.svg',
+    'Gold': 'https://d35aaqx5ub95lt.cloudfront.net/images/leagues/b2631ae0ab27c090be57ef2c24210a7b.svg',
+    'Platinum': 'https://d35aaqx5ub95lt.cloudfront.net/images/leagues/7cc98c9777e81b5c4e2711b6e88cc6c4.svg',
+    'Diamond': 'https://d35aaqx5ub95lt.cloudfront.net/images/leagues/8a12c93104a8941f3f21e9ec105d1e24.svg'
+  };
+  return leagueIcons[leagueName] || leagueIcons['Bronze'];
+}
+
+// Function to display quest achievements
+function displayQuestAchievements() {
+  const achievementsContainer = document.querySelector('.achievements-list');
+
+  // Check if achievementsContainer exists
+  if (!achievementsContainer) {
+    console.error('Achievements container not found');
+    return;
+  }
+
+  // Retrieve quest data from localStorage
+  let questsData = localStorage.getItem('quests');
+  let quests = {};
+
+  if (questsData) {
+    try {
+      quests = JSON.parse(questsData);
+    } catch (e) {
+      console.error('Error parsing quests data:', e);
+      quests = {};
     }
   }
 
-  // Fallback if XP is below the lowest league
-  return 'Unranked';
+  // Quest definitions (should match quests.js)
+  const questDefinitions = {
+    earnXP: {
+      name: 'Sage',
+      icon: 'https://d35aaqx5ub95lt.cloudfront.net/images/achievements/81de42c0e611eab4e9d6e957cdeb5aa9.svg',
+      steps: 10
+    },
+    dailyStreak: {
+      name: 'Wildfire',
+      icon: 'https://d35aaqx5ub95lt.cloudfront.net/images/achievements/37b96c87c67b8b2fd5a6a70913791c7d.svg',
+      steps: 10
+    },
+    completeLessons: {
+      name: 'Sharpshooter',
+      icon: 'https://d35aaqx5ub95lt.cloudfront.net/images/achievements/5e43d70f52ec81e1439fb048ef5cda50.svg',
+      steps: 10
+    }
+  };
+
+  // Clear existing achievements
+  achievementsContainer.innerHTML = '';
+
+  // Loop through each quest and display the achievement
+  Object.keys(questDefinitions).forEach(questType => {
+    const questDef = questDefinitions[questType];
+    const quest = quests[questType];
+
+    // If the quest data exists
+    if (quest) {
+      const currentStep = quest.currentStep || 1;
+      const totalSteps = questDef.steps;
+
+      // Create achievement item
+      const achievementItem = document.createElement('div');
+      achievementItem.classList.add('stat-item');
+
+      // Create icon element
+      const iconElement = document.createElement('img');
+      iconElement.src = questDef.icon;
+      iconElement.alt = `${questDef.name} Achievement Icon`;
+      iconElement.classList.add('stat-icon');
+
+      // Create info container
+      const infoContainer = document.createElement('div');
+      infoContainer.classList.add('stat-info');
+
+      // Create label
+      const labelElement = document.createElement('span');
+      labelElement.classList.add('stat-label');
+      labelElement.textContent = questDef.name;
+
+      // Create value
+      const valueElement = document.createElement('span');
+      valueElement.classList.add('stat-value');
+      valueElement.textContent = `Level ${currentStep}/${totalSteps}`;
+
+      // Append elements
+      infoContainer.appendChild(labelElement);
+      infoContainer.appendChild(valueElement);
+      achievementItem.appendChild(iconElement);
+      achievementItem.appendChild(infoContainer);
+      achievementsContainer.appendChild(achievementItem);
+    } else {
+      // If quest data doesn't exist, you may choose to display it differently or skip it
+      console.warn(`Quest data for ${questType} not found`);
+    }
+  });
 }
-/**
- * Updates the achievements section based on user data.
- * You can expand this function to include more achievements.
- * @param {number} streak - Current daily streak.
- * @param {number} xp - Total XP earned.
- * @param {number} lessons - Total lessons completed.
- */
-function updateAchievements(streak, xp, lessons) {
-  // Example: Update Daily Streak Achievement
-  const streakAchievement = document.getElementById('achievement-daily-streak');
-  streakAchievement.textContent = streak;
 
-  // Example: Update XP Milestone Achievement
-  const xpMilestoneAchievement = document.getElementById('achievement-xp-milestone');
-  xpMilestoneAchievement.textContent = xp;
+// Function to update the footer year
+function updateYear() {
+  const yearElement = document.getElementById('year');
+  const currentYear = new Date().getFullYear();
+  if (yearElement) {
+    yearElement.textContent = currentYear;
+  }
+}
 
-  // Example: Update Lessons Completed Achievement
-  const lessonsAchievement = document.getElementById('achievement-lessons-completed');
-  lessonsAchievement.textContent = lessons;
+// Function to update the selected flag
+function updateSelectedFlag() {
+  const selectedFlag = document.getElementById('selected-flag');
 
-  // Add more achievement updates as needed
+  // Retrieve selected flag from localStorage
+  let currentFlag = localStorage.getItem('currentFlag') || 'french';
+
+  // Update selected flag image
+  if (selectedFlag) {
+    selectedFlag.src = `../../imgs/${currentFlag}.jpg`;
+  }
 }
