@@ -57,6 +57,10 @@ h3 {
 }
 
 
+.quest-icon{
+    width: 15%;
+}
+
 
 .flex-column {
     display: flex;
