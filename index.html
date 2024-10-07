@@ -2,11 +2,11 @@
 <html lang="tr">
 
 <head>
-  <!-- Meta etiketler ve diğer head içeriği -->
+  <!-- Meta tags and other head content -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Egelingo | Learn</title>
-  <!-- Özel CSS -->
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="assets/css/style.css" />
   <!-- Favicon -->
   <link rel="icon" href="imgs/egelingo-logo.jpg" type="image/x-icon">
@@ -20,7 +20,7 @@
 </head>
 
 <body>
-  <!-- Yan Menü -->
+  <!-- Sidebar -->
   <div class="sidebar">
     <div class="logo">
       <a href="index.html">
@@ -48,18 +48,18 @@
     </nav>
   </div>
 
-  <!-- Bayraklar ve Streak Sayacı -->
+  <!-- Flag and Streak Counter -->
   <div class="flag-and-streak">
-    <!-- Bayrak Menüsü -->
+    <!-- Flag Menu -->
     <div class="flag-menu">
       <div class="selected-flag">
         <img src="imgs/french.jpg" alt="Selected Flag" class="small-flag" id="selected-flag">
       </div>
       <div class="flag-dropdown" id="flag-dropdown">
-        <!-- Bayraklar JavaScript ile eklenecek -->
+        <!-- Flags will be added via JavaScript -->
       </div>
     </div>
-    <!-- Streak Sayacı -->
+    <!-- Streak Counter -->
     <div class="streak-counter">
       <a href="#">
         <img src="https://d35aaqx5ub95lt.cloudfront.net/vendor/398e4298a3b39ce566050e5c041949ef.svg" alt="Streak Icon"
@@ -67,22 +67,23 @@
         <span class="streak-number" id="streak-number">0</span>
       </a>
     </div>
+    <!-- Gem Counter -->
     <div class="streak-counter">
       <a href="#">
         <img src="https://d35aaqx5ub95lt.cloudfront.net/images/gems/45c14e05be9c1af1d7d0b54c6eed7eee.svg"
-          alt="Streak Icon" class="streak-icon">
-        <span class="streak-number" id="streak-number">0</span>
+          alt="Gem Icon" class="streak-icon">
+        <span class="streak-number" id="gem-number">0</span>
       </a>
     </div>
   </div>
 
-  <!-- Ana İçerik -->
+  <!-- Main Content -->
   <main class="container">
-    <!-- Learn Seçim Ekranı -->
+    <!-- Learn Selection Screen -->
     <section class="learn-selection">
       <h2 class="ege-h2">Choose a course!</h2>
       <div class="lessons-grid">
-        <!-- Ders Kartları -->
+        <!-- Lesson Cards -->
         <div class="lesson-card" onclick="startLesson('computerScience')">
           <img src="https://cdn-icons-png.flaticon.com/512/4109/4109591.png" alt="Lesson 1" class="lesson-image">
           <h3>Computer Science</h3>
@@ -95,55 +96,44 @@
           <img src="https://cdn-icons-png.flaticon.com/512/1208/1208147.png" alt="Lesson 3" class="lesson-image">
           <h3>Law</h3>
         </div>
-        <!-- Daha fazla ders ekleyebilirsiniz -->
+        <!-- Additional lessons -->
         <div class="lesson-card" onclick="startLesson('mathematics')">
-          <img src="https://cdn-icons-png.flaticon.com/512/4720/4720458.png" alt="Lesson 1" class="lesson-image">
+          <img src="https://cdn-icons-png.flaticon.com/512/4720/4720458.png" alt="Lesson 4" class="lesson-image">
           <h3>Mathematics</h3>
         </div>
-        <!-- Ders Kartları -->
         <div class="lesson-card" onclick="startLesson('chemistry')">
-          <img src="https://cdn-icons-png.flaticon.com/512/8540/8540907.png" alt="Lesson 1" class="lesson-image">
+          <img src="https://cdn-icons-png.flaticon.com/512/8540/8540907.png" alt="Lesson 5" class="lesson-image">
           <h3>Chemistry</h3>
         </div>
         <div class="lesson-card" onclick="startLesson('physics')">
-          <img src="https://cdn-icons-png.flaticon.com/512/7614/7614875.png" alt="Lesson 2" class="lesson-image">
+          <img src="https://cdn-icons-png.flaticon.com/512/7614/7614875.png" alt="Lesson 6" class="lesson-image">
           <h3>Physics</h3>
         </div>
         <div class="lesson-card" onclick="startLesson('economics')">
-          <img src="https://cdn-icons-png.flaticon.com/512/4634/4634988.png" alt="Lesson 3" class="lesson-image">
+          <img src="https://cdn-icons-png.flaticon.com/512/4634/4634988.png" alt="Lesson 7" class="lesson-image">
           <h3>Economics</h3>
         </div>
-        <!-- Daha fazla ders ekleyebilirsiniz -->
         <div class="lesson-card" onclick="startLesson('art')">
-          <img src="https://cdn-icons-png.flaticon.com/512/4893/4893176.png" alt="Lesson 1" class="lesson-image">
+          <img src="https://cdn-icons-png.flaticon.com/512/4893/4893176.png" alt="Lesson 8" class="lesson-image">
           <h3>Art</h3>
         </div>
-        <!-- Ders Kartları -->
         <div class="lesson-card" onclick="startLesson('businessAdministration')">
-          <img src="https://static.thenounproject.com/png/1333607-200.png" alt="Lesson 1" class="lesson-image">
+          <img src="https://static.thenounproject.com/png/1333607-200.png" alt="Lesson 9" class="lesson-image">
           <h3>Business Administration</h3>
         </div>
         <div class="lesson-card" onclick="startLesson('psychology')">
-          <img src="https://cdn-icons-png.flaticon.com/512/7936/7936351.png" alt="Lesson 2"
-            class="lesson-image">
+          <img src="https://cdn-icons-png.flaticon.com/512/7936/7936351.png" alt="Lesson 10" class="lesson-image">
           <h3>Psychology</h3>
         </div>
         <div class="lesson-card" onclick="startLesson('archeology')">
-          <img src="https://cdn-icons-png.flaticon.com/512/6739/6739537.png"
-            alt="Lesson 3" class="lesson-image">
+          <img src="https://cdn-icons-png.flaticon.com/512/6739/6739537.png" alt="Lesson 11" class="lesson-image">
           <h3>Archeology</h3>
         </div>
-        <!-- Daha fazla ders ekleyebilirsiniz -->
         <div class="lesson-card" onclick="startLesson('philosophy')">
-          <img src="https://cdn-icons-png.freepik.com/512/8554/8554485.png" alt="Lesson 1"
-            class="lesson-image">
+          <img src="https://cdn-icons-png.flaticon.com/512/8554/8554485.png" alt="Lesson 12" class="lesson-image">
           <h3>Philosophy</h3>
         </div>
-
-
-
       </div>
-
     </section>
   </main>
 
@@ -158,19 +148,20 @@
   </footer>
 
   <!-- JavaScript -->
+  <script src="assets/js/quests.js"></script>
   <script src="assets/js/index.js"></script>
   <script>
-    // Yılın dinamik olarak güncellenmesi
+    // Update the year dynamically
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Ders seçildiğinde ilgili sayfaya yönlendirme
+    // Lesson selection logic
     function startLesson(lessonName) {
-      const selectedFlag = document.getElementById('selected-flag'); // Doğru element referansı
-      const selectedFlagSrc = selectedFlag.src; // Seçilen bayrağın src'sini al
+      const selectedFlag = document.getElementById('selected-flag');
+      const selectedFlagSrc = selectedFlag.src;
 
       let currentFlag = '';
 
-      // Bayrağa göre dil seçimi yap
+      // Language selection based on the flag
       if (selectedFlagSrc.includes('french.jpg')) {
         currentFlag = 'French';
       } else if (selectedFlagSrc.includes('german.jpg')) {
@@ -181,7 +172,7 @@
         currentFlag = 'Russian';
       }
 
-      // Sayfaya yönlendirme
+      // Redirect to the lesson page
       const lessonPage = "assets/html/" + currentFlag.toLowerCase() + "/" + lessonName + currentFlag + ".html";
       window.location.href = lessonPage;
     }

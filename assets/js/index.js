@@ -51,6 +51,8 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('accountCreated', accountCreatedDate);
     }
 
+
+
     // -----------------------------
     // Update Dropdown with Flags
     // -----------------------------
@@ -103,6 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // -----------------------------
     let lastVisit = localStorage.getItem('lastVisit');
     let dayStreak = parseInt(localStorage.getItem('dayStreak')) || 0;
+    let gemCount = parseInt(localStorage.getItem('gems')) || 0;
     let today = new Date().setHours(0, 0, 0, 0);
 
     if (lastVisit) {
@@ -126,6 +129,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const streakNumber = document.querySelector('#streak-number');
     if (streakNumber) {
         streakNumber.textContent = dayStreak;
+    }
+
+    const gemNumber = document.querySelector('#gem-number');
+    if (gemNumber) {
+        gemNumber.textContent = gemCount;
     }
 
     // -----------------------------

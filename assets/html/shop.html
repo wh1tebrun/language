@@ -14,8 +14,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://language-quiz-nine.vercel.app/shop.html" />
   <meta property="og:title" content="Ege Tekin | Egelingo Shop" />
-  <meta property="og:description"
-    content="Purchase badges to enhance your Egelingo experience." />
+  <meta property="og:description" content="Purchase badges to enhance your Egelingo experience." />
   <meta property="og:image" content="world.png" />
 </head>
 
@@ -69,16 +68,16 @@
     </div>
     <div class="streak-counter">
       <a href="#">
-        <img src="https://d35aaqx5ub95lt.cloudfront.net/images/gems/45c14e05be9c1af1d7d0b54c6eed7eee.svg" alt="Streak Icon"
+        <img src="https://d35aaqx5ub95lt.cloudfront.net/images/gems/45c14e05be9c1af1d7d0b54c6eed7eee.svg" alt="Gem Icon"
           class="streak-icon">
-        <span class="streak-number" id="streak-number">0</span>
+        <span class="streak-number" id="gem-number">0</span>
       </a>
     </div>
   </div>
 
   <!-- Main Content -->
   <main class="container">
-    
+
     <!-- Shop Items -->
     <div class="shop-items">
       <!-- Badge 1 -->
@@ -89,6 +88,8 @@
         <div class="item-details">
           <h3 class="item-name">Streak Freeze</h3>
           <p class="item-description">Show off your mastery in multiple languages with this exclusive badge.</p>
+          <p class="item-price">Price: <span class="price-amount">50</span> gems</p>
+          <button class="buy-button" data-item="streak-freeze">Buy</button>
         </div>
       </div>
       <!-- Badge 2 -->
@@ -99,9 +100,10 @@
         <div class="item-details">
           <h3 class="item-name">Double or Nothing</h3>
           <p class="item-description">Celebrate your dedication with a badge for maintaining a long daily streak.</p>
+          <p class="item-price">Price: <span class="price-amount">100</span> gems</p>
+          <button class="buy-button" data-item="double-or-nothing">Buy</button>
         </div>
       </div>
-    
     </div>
   </main>
 
@@ -115,19 +117,20 @@
     </div>
   </footer>
 
-  <!-- JavaScript to update the year dynamically and handle flag switching -->
+  <!-- Include JavaScript files -->
   <script src="../js/index.js"></script>
+  <script src="../js/shop.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const selectedFlag = document.getElementById('selected-flag');
-        
-        // LocalStorage'dan seçili bayrağı al
-        let currentFlag = localStorage.getItem('currentFlag') || 'french';
-        
-        // Seçili bayrağı güncelle
-        selectedFlag.src = `../../imgs/${currentFlag}.jpg`;
+      const selectedFlag = document.getElementById('selected-flag');
+
+      // Get the selected flag from localStorage
+      let currentFlag = localStorage.getItem('currentFlag') || 'french';
+
+      // Update the selected flag
+      selectedFlag.src = `../../imgs/${currentFlag}.jpg`;
     });
-    </script>
+  </script>
 </body>
 
 </html>

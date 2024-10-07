@@ -6,21 +6,24 @@ const questDefinitions = {
         multiplier: 2,
         steps: 10,
         unit: 'XP',
-        actionText: 'Earn'
+        actionText: 'Earn',
+        gemReward: 100 // Gems rewarded per step
     },
     dailyStreak: {
         base: 7,
         multiplier: 1.5,
         steps: 10,
         unit: 'day',
-        actionText: 'Reach a'
+        actionText: 'Reach a',
+        gemReward: 150 // Gems rewarded per step
     },
     completeLessons: {
         base: 100,
         multiplier: 1.2,
         steps: 10,
         unit: 'Lesson',
-        actionText: 'Complete'
+        actionText: 'Complete',
+        gemReward: 200 // Gems rewarded per step
     }
 };
 
@@ -43,8 +46,13 @@ document.addEventListener('DOMContentLoaded', function () {
     updateUI();
 });
 
-// Initialize quests in localStorage if not present
+// Initialize quests and gems in localStorage if not present
 function initializeQuests() {
+    // Initialize gems if not present
+    if (!localStorage.getItem('gems')) {
+        setGems(0);
+    }
+
     if (!localStorage.getItem('quests')) {
         const quests = {
             earnXP: {
@@ -62,6 +70,15 @@ function initializeQuests() {
         };
         localStorage.setItem('quests', JSON.stringify(quests));
     }
+}
+
+// Functions to get and set gems in localStorage
+function getGems() {
+    return parseInt(localStorage.getItem('gems')) || 0;
+}
+
+function setGems(gems) {
+    localStorage.setItem('gems', gems);
 }
 
 // Get quest data from localStorage
@@ -121,6 +138,9 @@ function updateUI() {
 
     // Update Achievement Steps
     updateAchievementSteps(quests);
+
+    // Update gem count display
+    updateGemCount();
 }
 
 // Update individual quest UI
@@ -197,7 +217,7 @@ function updateQuestUI(questType) {
     updateAchievementStepsForQuest(questType, quest.currentStep);
 
     // Check if quest is completed and can be advanced
-    if (currentAmount >= requiredAmount && quest.currentStep < questDefinitions[questType].steps) {
+    if (currentAmount >= requiredAmount && quest.currentStep <= questDefinitions[questType].steps) {
         return true;
     } else {
         return false;
@@ -256,7 +276,7 @@ function updateAchievementStepsForQuest(questType, currentStep) {
         stepElements.forEach(stepElement => {
             const stepNumber = parseInt(stepElement.dataset.step);
 
-            if (stepNumber <= currentStep) {
+            if (stepNumber <= currentStep - 1) {
                 stepElement.classList.add('active');
             } else {
                 stepElement.classList.remove('active');
@@ -265,21 +285,40 @@ function updateAchievementStepsForQuest(questType, currentStep) {
     }
 }
 
+// Update the gem count display
+function updateGemCount() {
+    const gemCountElement = document.getElementById('gem-count');
+    if (gemCountElement) {
+        gemCountElement.textContent = getGems();
+    }
+}
+
 // Handle quest completion
 function completeQuest(questType) {
     const quests = getQuests();
     const quest = quests[questType];
+    const questDef = questDefinitions[questType];
     let currentAmount = getCurrentAmount(questType);
 
-    while (quest.currentStep < questDefinitions[questType].steps) {
+    while (quest.currentStep <= questDef.steps) {
         const requiredAmount = calculateRequiredAmount(questType, quest.currentStep);
 
         if (currentAmount >= requiredAmount) {
+            // Increment quest step and color level
             quest.currentStep += 1;
             quest.colorLevel += 1;
-            // Optionally, add rewards or gems here
 
-            // currentAmount remains the same
+            // Add gem rewards
+            let gems = getGems();
+            const gemsReward = questDef.gemReward;
+            gems += gemsReward;
+            setGems(gems);
+
+            // Optionally, display a message or update UI to reflect new gem count
+            console.log(`You earned ${gemsReward} gems! Total gems: ${gems}`);
+
+            // Update currentAmount if it decreases per step (if applicable)
+            // currentAmount -= requiredAmount; // Uncomment if your logic requires it
         } else {
             break;
         }
