@@ -479,7 +479,7 @@ body.menu-active .game-content {
 }
 
 #user-input {
-    width: 80%;
+    width: 60%;
     max-width: 300px;
     padding: 10px;
     font-size: 16px;
@@ -488,12 +488,12 @@ body.menu-active .game-content {
 
 #submit-button {
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 19px;
     cursor: pointer;
     background-color: #4285f4;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     transition: background-color 0.3s ease;
 }
 
@@ -619,7 +619,10 @@ body.menu-active .game-content {
     .stats-btn__again,
     .stats-btn__again2,
     .stats-btn__again3 {
-        width: 100%;
+        width: 50%;
+    }
+    .progress-container{
+        width: 60%;
     }
 
     .badge {
@@ -1218,7 +1221,6 @@ body.menu-active .game-content {
 }
 
 .progress-container {
-    width: 100%;
     background-color: #e0e0e0;
     border-radius: 25px;
     margin: 60px 0;
