@@ -504,7 +504,8 @@ body.menu-active .game-content {
 /* Medya Sorguları */
 @media (max-width: 800px) {
     .sidebar {
-        width: 180px;
+        width: auto;
+        height: auto;
     }
 
     .sidebar .nav-menu a {
