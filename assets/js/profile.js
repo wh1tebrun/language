@@ -43,13 +43,13 @@ function displayProfileStatistics() {
 
 // Function to calculate the league based on total XP
 function calculateLeague(totalPoints) {
-  if (totalPoints >= 2000) {
+  if (totalPoints >= 20000) {
     return 'Diamond';
-  } else if (totalPoints >= 1000) {
+  } else if (totalPoints >= 10000) {
     return 'Platinum';
-  } else if (totalPoints >= 500) {
+  } else if (totalPoints >= 5000) {
     return 'Gold';
-  } else if (totalPoints >= 100) {
+  } else if (totalPoints >= 1000) {
     return 'Silver';
   } else {
     return 'Bronze';
@@ -59,11 +59,11 @@ function calculateLeague(totalPoints) {
 // Function to get the league icon URL based on the league name
 function getLeagueIcon(leagueName) {
   const leagueIcons = {
-    'Bronze': 'https://d35aaqx5ub95lt.cloudfront.net/images/leagues/192181672ada150becd83a74a4266ae9.svg',
-    'Silver': 'https://d35aaqx5ub95lt.cloudfront.net/images/leagues/02dc8693ec424b149aaf1e99b6a9d2d7.svg',
-    'Gold': 'https://d35aaqx5ub95lt.cloudfront.net/images/leagues/b2631ae0ab27c090be57ef2c24210a7b.svg',
-    'Platinum': 'https://d35aaqx5ub95lt.cloudfront.net/images/leagues/7cc98c9777e81b5c4e2711b6e88cc6c4.svg',
-    'Diamond': 'https://d35aaqx5ub95lt.cloudfront.net/images/leagues/8a12c93104a8941f3f21e9ec105d1e24.svg'
+    'Bronze': 'https://cdn-icons-png.flaticon.com/512/11881/11881951.png',
+    'Silver': 'https://cdn-icons-png.flaticon.com/512/11881/11881953.png',
+    'Gold': 'https://cdn-icons-png.flaticon.com/512/11881/11881958.png',
+    'Platinum': 'https://cdn-icons-png.flaticon.com/512/5579/5579803.png',
+    'Diamond': 'https://cdn-icons-png.flaticon.com/512/1021/1021211.png'
   };
   return leagueIcons[leagueName] || leagueIcons['Bronze'];
 }
@@ -95,17 +95,17 @@ function displayQuestAchievements() {
   const questDefinitions = {
     earnXP: {
       name: 'Sage',
-      icon: 'https://d35aaqx5ub95lt.cloudfront.net/images/achievements/81de42c0e611eab4e9d6e957cdeb5aa9.svg',
+      icon: '../../imgs/sage.png',
       steps: 10
     },
     dailyStreak: {
       name: 'Wildfire',
-      icon: 'https://d35aaqx5ub95lt.cloudfront.net/images/achievements/37b96c87c67b8b2fd5a6a70913791c7d.svg',
+      icon: '../../imgs/wildfire.png',
       steps: 10
     },
     completeLessons: {
       name: 'Sharpshooter',
-      icon: 'https://d35aaqx5ub95lt.cloudfront.net/images/achievements/5e43d70f52ec81e1439fb048ef5cda50.svg',
+      icon: '../../imgs/sharpshooter.png',
       steps: 10
     }
   };
