@@ -121,7 +121,7 @@ function displayQuestAchievements() {
 
     // If the quest data exists
     if (quest) {
-      const currentStep = quest.currentStep || 0;
+      const currentStep = quest.currentStep || 1;
       const totalSteps = questDef.steps;
 
       // Create achievement item
@@ -146,7 +146,7 @@ function displayQuestAchievements() {
       // Create value
       const valueElement = document.createElement('span');
       valueElement.classList.add('stat-value');
-      valueElement.textContent = `Level ${currentStep}/${totalSteps}`;
+      valueElement.textContent = `Level ${currentStep - 1}/${totalSteps}`;
 
       // Append elements
       infoContainer.appendChild(labelElement);
@@ -189,19 +189,19 @@ function displayPurchasedItems() {
     itemElement.classList.add('stat-item');
 
     // Customize based on your item details
-    if (item === 'streak-freeze') {
+    if (item === 'ege-cup') {
       itemElement.innerHTML = `
-        <img src="../../imgs/streak-freeze.png" alt="Streak Freeze" class="stat-icon">
+        <img src="../../imgs/trophie.png" alt="Ege Cup" class="stat-icon">
         <div class="stat-info">
-          <span class="stat-label">Streak Freeze</span>
+          <span class="stat-label">Ege Cup</span>
           <span class="stat-value">Purchased</span>
         </div>
       `;
-    } else if (item === 'double-or-nothing') {
+    } else if (item === 'kiss-of-ege') {
       itemElement.innerHTML = `
-        <img src="../../imgs/double-or-nothing.png" alt="Double or Nothing" class="stat-icon">
+        <img src="../../imgs/kiss.png" alt="Kiss of Ege" class="stat-icon">
         <div class="stat-info">
-          <span class="stat-label">Double or Nothing</span>
+          <span class="stat-label">Kiss of Ege</span>
           <span class="stat-value">Purchased</span>
         </div>
       `;
