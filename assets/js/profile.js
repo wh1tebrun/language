@@ -121,7 +121,7 @@ function displayQuestAchievements() {
 
     // If the quest data exists
     if (quest) {
-      const currentStep = quest.currentStep || 1;
+      const currentStep = quest.currentStep || 0;
       const totalSteps = questDef.steps;
 
       // Create achievement item

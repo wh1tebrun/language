@@ -56,15 +56,15 @@ function initializeQuests() {
     if (!localStorage.getItem('quests')) {
         const quests = {
             earnXP: {
-                currentStep: 1,
+                currentStep: 0,
                 colorLevel: 1
             },
             dailyStreak: {
-                currentStep: 1,
+                currentStep: 0,
                 colorLevel: 1
             },
             completeLessons: {
-                currentStep: 1,
+                currentStep: 0,
                 colorLevel: 1
             }
         };
@@ -207,7 +207,7 @@ function updateQuestUI(questType) {
     if (requiredAmountElement) {
         let unit = questDefinition.unit;
         // Pluralize the unit if required amount is not 1
-        if (requiredAmount !== 1) {
+        if (unit == "Lesson" && requiredAmount !== 1) {
             unit += 's';
         }
         requiredAmountElement.textContent = `${requiredAmount} ${unit}`;
@@ -307,6 +307,8 @@ function completeQuest(questType) {
             // Increment quest step and color level
             quest.currentStep += 1;
             quest.colorLevel += 1;
+
+
 
             // Add gem rewards
             let gems = getGems();

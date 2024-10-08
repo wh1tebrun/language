@@ -122,18 +122,5 @@ document.addEventListener('DOMContentLoaded', function () {
         leaderboardBody.appendChild(tr);
     });
 
-    // Function to determine league based on XP
-    function determineLeague(xp) {
-        if (xp >= 15000) {
-            return 'Diamond';
-        } else if (xp >= 10000) {
-            return 'Gold';
-        } else if (xp >= 5000) {
-            return 'Silver';
-        } else if (xp >= 1000) {
-            return 'Bronze';
-        } else {
-            return 'Starter';
-        }
-    }
+
 });
