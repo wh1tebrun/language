@@ -3,6 +3,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   displayProfileStatistics();
   displayQuestAchievements();
+  displayPurchasedItems(); // New function to display purchased items
   updateYear(); // To update the footer year
   updateSelectedFlag(); // To update the selected flag
 });
@@ -157,6 +158,57 @@ function displayQuestAchievements() {
       // If quest data doesn't exist, you may choose to display it differently or skip it
       console.warn(`Quest data for ${questType} not found`);
     }
+  });
+}
+
+// Function to display purchased items
+function displayPurchasedItems() {
+  const purchasedItemsContainer = document.getElementById('purchased-items');
+
+  // Check if the container exists
+  if (!purchasedItemsContainer) {
+    console.error('Purchased items container not found');
+    return;
+  }
+
+  // Retrieve purchased items from localStorage
+  let purchasedItems = JSON.parse(localStorage.getItem('purchasedItems')) || [];
+
+  // Clear any existing content
+  purchasedItemsContainer.innerHTML = '';
+
+  // Display a message if no items are purchased
+  if (purchasedItems.length === 0) {
+    purchasedItemsContainer.textContent = 'You have not purchased any items yet.';
+    return;
+  }
+
+  // Loop through purchased items and display them
+  purchasedItems.forEach(function (item) {
+    const itemElement = document.createElement('div');
+    itemElement.classList.add('stat-item');
+
+    // Customize based on your item details
+    if (item === 'streak-freeze') {
+      itemElement.innerHTML = `
+        <img src="../../imgs/streak-freeze.png" alt="Streak Freeze" class="stat-icon">
+        <div class="stat-info">
+          <span class="stat-label">Streak Freeze</span>
+          <span class="stat-value">Purchased</span>
+        </div>
+      `;
+    } else if (item === 'double-or-nothing') {
+      itemElement.innerHTML = `
+        <img src="../../imgs/double-or-nothing.png" alt="Double or Nothing" class="stat-icon">
+        <div class="stat-info">
+          <span class="stat-label">Double or Nothing</span>
+          <span class="stat-value">Purchased</span>
+        </div>
+      `;
+    }
+    // Add more items as needed
+
+    purchasedItemsContainer.appendChild(itemElement);
   });
 }
 
