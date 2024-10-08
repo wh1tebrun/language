@@ -205,8 +205,39 @@ function displayPurchasedItems() {
           <span class="stat-value">Purchased</span>
         </div>
       `;
-    }
+      
+    } 
     // Add more items as needed
+    else if (item === 'statue-of-ege') {
+      itemElement.innerHTML = `
+        <img src="../../imgs/statue.png" alt="Statue of Ege" class="stat-icon">
+        <div class="stat-info">
+          <span class="stat-label">Statue of Ege</span>
+          <span class="stat-value">Purchased</span>
+        </div>
+      `;
+      
+    } 
+    else if (item === 'shield-of-ege') {
+      itemElement.innerHTML = `
+        <img src="../../imgs/shield.png" alt="Shield of Ege" class="stat-icon">
+        <div class="stat-info">
+          <span class="stat-label">Shield of Ege</span>
+          <span class="stat-value">Purchased</span>
+        </div>
+      `;
+      
+    } 
+    else if (item === 'spear-of-ege') {
+      itemElement.innerHTML = `
+        <img src="../../imgs/spear.png" alt="Spear of Ege" class="stat-icon">
+        <div class="stat-info">
+          <span class="stat-label">Spear of Ege</span>
+          <span class="stat-value">Purchased</span>
+        </div>
+      `;
+      
+    } 
 
     purchasedItemsContainer.appendChild(itemElement);
   });
