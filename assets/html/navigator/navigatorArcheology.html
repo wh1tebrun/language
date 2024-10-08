@@ -20,6 +20,15 @@
       height: 2000px;
     }
 
+    .unit-title {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+    }
+
     .button {
       position: absolute;
       width: 100px;
@@ -46,126 +55,179 @@
       cursor: not-allowed;
     }
 
-    /* Positioning the buttons at angles */
-    .button:nth-child(1) {
+    /* Positioning Unit Titles */
+    .unit-title[data-unit="1"] {
+      top: 0px;
+    }
+
+    .unit-title[data-unit="2"] {
+      top: 407px;
+    }
+
+    .unit-title[data-unit="3"] {
+      top: 810px;
+    }
+
+    .unit-title[data-unit="4"] {
+      top: 1220px;
+    }
+
+    .unit-title[data-unit="5"] {
+      top: 1610px;
+    }
+
+    /* Positioning the buttons */
+    .button[data-exercise="1"] {
       top: 50px;
       left: 50%;
     }
 
-    .button:nth-child(2) {
+    .button[data-exercise="2"] {
       top: 150px;
       left: 45%;
     }
 
-    .button:nth-child(3) {
+    .button[data-exercise="3"] {
       top: 250px;
       left: 40%;
     }
 
-    .button:nth-child(4) {
-      top: 350px;
+    .button[data-exercise="4"] {
+      top: 335px;
+      left: 35%;
+    }
+
+    .button[data-exercise="5"] {
+      top: 450px;
+      left: 40%;
+    }
+
+    .button[data-exercise="6"] {
+      top: 550px;
       left: 45%;
     }
 
-    .button:nth-child(5) {
-      top: 450px;
-      left: 50%;
-    }
-
-    .button:nth-child(6) {
-      top: 550px;
-      left: 55%;
-    }
-
-    .button:nth-child(7) {
+    .button[data-exercise="7"] {
       top: 650px;
       left: 50%;
     }
 
-    .button:nth-child(8) {
-      top: 750px;
+    .button[data-exercise="8"] {
+      top: 735px;
       left: 45%;
     }
 
-    .button:nth-child(9) {
+    .button[data-exercise="9"] {
       top: 850px;
       left: 40%;
     }
 
-    .button:nth-child(10) {
+    .button[data-exercise="10"] {
       top: 950px;
       left: 45%;
     }
 
-    .button:nth-child(11) {
+    .button[data-exercise="11"] {
       top: 1050px;
       left: 50%;
     }
 
-    .button:nth-child(12) {
+    .button[data-exercise="12"] {
       top: 1150px;
       left: 55%;
     }
 
-    .button:nth-child(13) {
-      top: 1250px;
+    .button[data-exercise="13"] {
+      top: 1270px;
       left: 60%;
     }
 
-    .button:nth-child(14) {
+    .button[data-exercise="14"] {
       top: 1350px;
       left: 55%;
     }
 
-    .button:nth-child(15) {
+    .button[data-exercise="15"] {
       top: 1450px;
       left: 50%;
     }
 
-    .button:nth-child(16) {
-      top: 1550px;
+    .button[data-exercise="16"] {
+      top: 1530px;
       left: 45%;
     }
 
-    .button:nth-child(17) {
-      top: 1650px;
+    .button[data-exercise="17"] {
+      top: 1670px;
       left: 40%;
     }
 
-    .button:nth-child(18) {
+    .button[data-exercise="18"] {
       top: 1750px;
       left: 35%;
     }
 
-    .button:nth-child(19) {
+    .button[data-exercise="19"] {
       top: 1850px;
       left: 40%;
+    }
+
+    .button[data-exercise="20"] {
+      top: 1950px;
+      left: 45%;
     }
   </style>
 </head>
 
 <body>
   <div class="container">
+    <!-- Unit Titles -->
+    <h2 class="unit-title" data-unit="1">
+      ---------------------------------------------------------------------------------- Introduction
+      -----------------------------------------------------------------------</h2>
+    <h2 class="unit-title" data-unit="2">
+      ---------------------------------------------------------------------------------- Beginner
+      ---------------------------------------------------------------------------</h2>
+    <h2 class="unit-title" data-unit="3">
+      ---------------------------------------------------------------------------------- Intermediate
+      -----------------------------------------------------------------------</h2>
+    <h2 class="unit-title" data-unit="4">
+      ---------------------------------------------------------------------------------- Advanced
+      ---------------------------------------------------------------------------</h2>
+    <h2 class="unit-title" data-unit="5">
+      ---------------------------------------------------------------------------------- Mastery
+      ----------------------------------------------------------------------------</h2>
+
     <!-- Buttons -->
+    <!-- First Unit -->
     <button class="button" data-exercise="1">1</button>
     <button class="button" data-exercise="2">2</button>
     <button class="button" data-exercise="3">3</button>
     <button class="button" data-exercise="4">4</button>
+
+    <!-- Second Unit -->
     <button class="button" data-exercise="5">5</button>
     <button class="button" data-exercise="6">6</button>
     <button class="button" data-exercise="7">7</button>
     <button class="button" data-exercise="8">8</button>
+
+    <!-- Third Unit -->
     <button class="button" data-exercise="9">9</button>
     <button class="button" data-exercise="10">10</button>
     <button class="button" data-exercise="11">11</button>
     <button class="button" data-exercise="12">12</button>
+
+    <!-- Fourth Unit -->
     <button class="button" data-exercise="13">13</button>
     <button class="button" data-exercise="14">14</button>
     <button class="button" data-exercise="15">15</button>
     <button class="button" data-exercise="16">16</button>
+
+    <!-- Fifth Unit -->
     <button class="button" data-exercise="17">17</button>
     <button class="button" data-exercise="18">18</button>
     <button class="button" data-exercise="19">19</button>
+    <button class="button" data-exercise="20">20</button>
   </div>
 
   <script>
@@ -180,13 +242,16 @@
     document.addEventListener('DOMContentLoaded', function () {
       const buttons = document.querySelectorAll('.button');
 
-      // Load completion status from localStorage or initialize it
-      let completedExercises = JSON.parse(localStorage.getItem('completedExercises')) || [];
+      // Define the storage key using the current subject
+      let subjectKey = 'completedExercises' + currentSubject;
+
+      // Load completion status for the current subject
+      let completedExercises = JSON.parse(localStorage.getItem(subjectKey)) || [];
 
       // Update button states based on completion status
       function updateButtonStates() {
-        buttons.forEach((button, index) => {
-          const exerciseNumber = index + 1;
+        buttons.forEach((button) => {
+          const exerciseNumber = parseInt(button.getAttribute('data-exercise'));
           if (exerciseNumber === 1 || completedExercises.includes(exerciseNumber - 1)) {
             button.disabled = false;
           } else {
@@ -199,21 +264,21 @@
       updateButtonStates();
 
       // Add click event listeners to buttons
-      buttons.forEach((button, index) => {
+      buttons.forEach((button) => {
         button.addEventListener('click', function () {
-          const exerciseNumber = index + 1;
+          const exerciseNumber = parseInt(button.getAttribute('data-exercise'));
 
           // Mark the exercise as completed
           if (!completedExercises.includes(exerciseNumber)) {
             completedExercises.push(exerciseNumber);
-            localStorage.setItem('completedExercises', JSON.stringify(completedExercises));
+            localStorage.setItem(subjectKey, JSON.stringify(completedExercises));
           }
 
           // Update button states
           updateButtonStates();
 
           // Navigate to the exercise page
-          window.location.href = currentFlag + "/" + currentSubject + capitalizeFirstLetter(currentFlag) + exerciseNumber + ".html";
+          window.location.href = "../" + currentFlag + "/" + currentSubject + "/" + capitalizeFirstLetter(currentFlag) + exerciseNumber + ".html";
         });
       });
     });
