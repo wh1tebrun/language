@@ -1,0 +1,66 @@
+[
+    {
+        "french": "anthropologie",
+        "english": "anthropology"
+    },
+    {
+        "french": "recherche",
+        "english": "research"
+    },
+    {
+        "french": "analyse",
+        "english": "analysis"
+    },
+    {
+        "french": "restauration",
+        "english": "restoration"
+    },
+    {
+        "french": "chronologie",
+        "english": "chronology"
+    },
+    {
+        "french": "artefact",
+        "english": "artifact"
+    },
+    {
+        "french": "géomètre",
+        "english": "surveyor"
+    },
+    {
+        "french": "photogrammétrie",
+        "english": "photogrammetry"
+    },
+    {
+        "french": "cartographie",
+        "english": "mapping"
+    },
+    {
+        "french": "géophysique",
+        "english": "geophysics"
+    },
+    {
+        "french": "géotechnique",
+        "english": "geotechnical"
+    },
+    {
+        "french": "géochronologie",
+        "english": "geochronology"
+    },
+    {
+        "french": "géomorphologie",
+        "english": "geomorphology"
+    },
+    {
+        "french": "paléoenvironnement",
+        "english": "paleoenvironment"
+    },
+    {
+        "french": "taphonomie",
+        "english": "taphonomy"
+    },
+    {
+        "french": "biostratigraphie",
+        "english": "biostratigraphy"
+    }
+]

@@ -1,0 +1,82 @@
+[
+    {
+        "french": "stœchiométrie",
+        "english": "stoichiometry"
+    },
+    {
+        "french": "réaction exothermique",
+        "english": "exothermic reaction"
+    },
+    {
+        "french": "réaction endothermique",
+        "english": "endothermic reaction"
+    },
+    {
+        "french": "gaz parfait",
+        "english": "ideal gas"
+    },
+    {
+        "french": "loi des gaz",
+        "english": "gas laws"
+    },
+    {
+        "french": "pression",
+        "english": "pressure"
+    },
+    {
+        "french": "volume",
+        "english": "volume"
+    },
+    {
+        "french": "température",
+        "english": "temperature"
+    },
+    {
+        "french": "constante des gaz",
+        "english": "gas constant"
+    },
+    {
+        "french": "loi de Boyle",
+        "english": "Boyle's law"
+    },
+    {
+        "french": "loi de Charles",
+        "english": "Charles's law"
+    },
+    {
+        "french": "loi d'Avogadro",
+        "english": "Avogadro's law"
+    },
+    {
+        "french": "loi de Dalton",
+        "english": "Dalton's law"
+    },
+    {
+        "french": "molarité",
+        "english": "molarity"
+    },
+    {
+        "french": "molalité",
+        "english": "molality"
+    },
+    {
+        "french": "normalité",
+        "english": "normality"
+    },
+    {
+        "french": "solution saturée",
+        "english": "saturated solution"
+    },
+    {
+        "french": "solution insaturée",
+        "english": "unsaturated solution"
+    },
+    {
+        "french": "solution supersaturée",
+        "english": "supersaturated solution"
+    },
+    {
+        "french": "réaction de précipitation",
+        "english": "precipitation reaction"
+    }
+]

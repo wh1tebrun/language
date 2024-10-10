@@ -1,0 +1,82 @@
+[
+    {
+        "french": "erlenmeyer",
+        "english": "Erlenmeyer flask"
+    },
+    {
+        "french": "tube à essai",
+        "english": "test tube"
+    },
+    {
+        "french": "pipette",
+        "english": "pipette"
+    },
+    {
+        "french": "burette",
+        "english": "burette"
+    },
+    {
+        "french": "échafaudage",
+        "english": "scaffolding"
+    },
+    {
+        "french": "support de tuyau",
+        "english": "pipe stand"
+    },
+    {
+        "french": "agitateurn",
+        "english": "stirrer"
+    },
+    {
+        "french": "agitateur magnétique",
+        "english": "magnetic stirrer"
+    },
+    {
+        "french": "thermomètre",
+        "english": "thermometer"
+    },
+    {
+        "french": "pH-mètre",
+        "english": "pH meter"
+    },
+    {
+        "french": "spectromètre",
+        "english": "spectrometer"
+    },
+    {
+        "french": "chromatographe",
+        "english": "chromatograph"
+    },
+    {
+        "french": "fournitures de laboratoire",
+        "english": "laboratory supplies"
+    },
+    {
+        "french": "sécurité chimique",
+        "english": "chemical safety"
+    },
+    {
+        "french": "gaz à effet de serre",
+        "english": "greenhouse gas"
+    },
+    {
+        "french": "polluant",
+        "english": "pollutant"
+    },
+    {
+        "french": "toxique",
+        "english": "toxic"
+    },
+    {
+        "french": "réactif chimique",
+        "english": "chemical reagent"
+    },
+    {
+        "french": "analyse qualitative",
+        "english": "qualitative analysis"
+    },
+    {
+        "french": "analyse quantitative",
+        "english": "quantitative analysis"
+    }
+]

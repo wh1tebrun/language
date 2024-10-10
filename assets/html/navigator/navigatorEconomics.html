@@ -3,38 +3,78 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Navigator</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      height: 2000px;
-      overflow-x: hidden;
       background-color: #f0f0f0;
     }
 
     .container {
-      position: relative;
       width: 100%;
-      height: 2000px;
+      max-width: 800px;
+      /* Optional: to limit the width on larger screens */
+      margin: 0 auto;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .home-button {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background-color: #007BFF;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      color: white;
+      font-size: 18px;
+      outline: none;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    .home-button:hover {
+      background-color: #0056b3;
+    }
+
+    .unit {
+      margin-bottom: 40px;
     }
 
     .unit-title {
-      position: absolute;
-      width: 100%;
+      display: flex;
+      align-items: center;
       text-align: center;
       font-size: 24px;
       font-weight: bold;
       color: #333;
     }
 
+    .unit-title::before,
+    .unit-title::after {
+      content: "";
+      flex: 1;
+      border-bottom: 1px solid #333;
+      margin: 0 10px;
+    }
+
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
     .button {
-      position: absolute;
-      width: 100px;
-      height: 100px;
+      margin: 10px;
+      width: 80px;
+      height: 80px;
       background-color: #58CC02;
-      /* Duolingo green */
       border: none;
       border-radius: 50%;
       cursor: pointer;
@@ -46,188 +86,74 @@
 
     .button:hover:enabled {
       background-color: #45A200;
-      /* Darker green on hover */
     }
 
     .button:disabled {
       background-color: #A0A0A0;
-      /* Gray color for disabled buttons */
       cursor: not-allowed;
-    }
-
-    /* Positioning Unit Titles */
-    .unit-title[data-unit="1"] {
-      top: 0px;
-    }
-
-    .unit-title[data-unit="2"] {
-      top: 407px;
-    }
-
-    .unit-title[data-unit="3"] {
-      top: 810px;
-    }
-
-    .unit-title[data-unit="4"] {
-      top: 1220px;
-    }
-
-    .unit-title[data-unit="5"] {
-      top: 1610px;
-    }
-
-    /* Positioning the buttons */
-    .button[data-exercise="1"] {
-      top: 50px;
-      left: 50%;
-    }
-
-    .button[data-exercise="2"] {
-      top: 150px;
-      left: 45%;
-    }
-
-    .button[data-exercise="3"] {
-      top: 250px;
-      left: 40%;
-    }
-
-    .button[data-exercise="4"] {
-      top: 335px;
-      left: 35%;
-    }
-
-    .button[data-exercise="5"] {
-      top: 450px;
-      left: 40%;
-    }
-
-    .button[data-exercise="6"] {
-      top: 550px;
-      left: 45%;
-    }
-
-    .button[data-exercise="7"] {
-      top: 650px;
-      left: 50%;
-    }
-
-    .button[data-exercise="8"] {
-      top: 735px;
-      left: 45%;
-    }
-
-    .button[data-exercise="9"] {
-      top: 850px;
-      left: 40%;
-    }
-
-    .button[data-exercise="10"] {
-      top: 950px;
-      left: 45%;
-    }
-
-    .button[data-exercise="11"] {
-      top: 1050px;
-      left: 50%;
-    }
-
-    .button[data-exercise="12"] {
-      top: 1150px;
-      left: 55%;
-    }
-
-    .button[data-exercise="13"] {
-      top: 1270px;
-      left: 60%;
-    }
-
-    .button[data-exercise="14"] {
-      top: 1350px;
-      left: 55%;
-    }
-
-    .button[data-exercise="15"] {
-      top: 1450px;
-      left: 50%;
-    }
-
-    .button[data-exercise="16"] {
-      top: 1530px;
-      left: 45%;
-    }
-
-    .button[data-exercise="17"] {
-      top: 1670px;
-      left: 40%;
-    }
-
-    .button[data-exercise="18"] {
-      top: 1750px;
-      left: 35%;
-    }
-
-    .button[data-exercise="19"] {
-      top: 1850px;
-      left: 40%;
-    }
-
-    .button[data-exercise="20"] {
-      top: 1950px;
-      left: 45%;
     }
   </style>
 </head>
 
 <body>
   <div class="container">
-    <!-- Unit Titles -->
-    <h2 class="unit-title" data-unit="1">
-      ---------------------------------------------------------------------------------- Introduction
-      -----------------------------------------------------------------------</h2>
-    <h2 class="unit-title" data-unit="2">
-      ---------------------------------------------------------------------------------- Beginner
-      ---------------------------------------------------------------------------</h2>
-    <h2 class="unit-title" data-unit="3">
-      ---------------------------------------------------------------------------------- Intermediate
-      -----------------------------------------------------------------------</h2>
-    <h2 class="unit-title" data-unit="4">
-      ---------------------------------------------------------------------------------- Advanced
-      ---------------------------------------------------------------------------</h2>
-    <h2 class="unit-title" data-unit="5">
-      ---------------------------------------------------------------------------------- Mastery
-      ----------------------------------------------------------------------------</h2>
+    <!-- New Home Button -->
+    <button class="home-button" id="homeButton">🏠</button>
 
-    <!-- Buttons -->
-    <!-- First Unit -->
-    <button class="button" data-exercise="1">1</button>
-    <button class="button" data-exercise="2">2</button>
-    <button class="button" data-exercise="3">3</button>
-    <button class="button" data-exercise="4">4</button>
+    <!-- Unit 1 -->
+    <section class="unit">
+      <h2 class="unit-title">Introduction</h2>
+      <div class="button-container">
+        <button class="button" data-exercise="1">1</button>
+        <button class="button" data-exercise="2">2</button>
+        <button class="button" data-exercise="3">3</button>
+        <button class="button" data-exercise="4">4</button>
+      </div>
+    </section>
 
-    <!-- Second Unit -->
-    <button class="button" data-exercise="5">5</button>
-    <button class="button" data-exercise="6">6</button>
-    <button class="button" data-exercise="7">7</button>
-    <button class="button" data-exercise="8">8</button>
+    <!-- Unit 2 -->
+    <section class="unit">
+      <h2 class="unit-title">Beginner</h2>
+      <div class="button-container">
+        <button class="button" data-exercise="5">5</button>
+        <button class="button" data-exercise="6">6</button>
+        <button class="button" data-exercise="7">7</button>
+        <button class="button" data-exercise="8">8</button>
+      </div>
+    </section>
 
-    <!-- Third Unit -->
-    <button class="button" data-exercise="9">9</button>
-    <button class="button" data-exercise="10">10</button>
-    <button class="button" data-exercise="11">11</button>
-    <button class="button" data-exercise="12">12</button>
+    <!-- Unit 3 -->
+    <section class="unit">
+      <h2 class="unit-title">Intermediate</h2>
+      <div class="button-container">
+        <button class="button" data-exercise="9">9</button>
+        <button class="button" data-exercise="10">10</button>
+        <button class="button" data-exercise="11">11</button>
+        <button class="button" data-exercise="12">12</button>
+      </div>
+    </section>
 
-    <!-- Fourth Unit -->
-    <button class="button" data-exercise="13">13</button>
-    <button class="button" data-exercise="14">14</button>
-    <button class="button" data-exercise="15">15</button>
-    <button class="button" data-exercise="16">16</button>
+    <!-- Unit 4 -->
+    <section class="unit">
+      <h2 class="unit-title">Advanced</h2>
+      <div class="button-container">
+        <button class="button" data-exercise="13">13</button>
+        <button class="button" data-exercise="14">14</button>
+        <button class="button" data-exercise="15">15</button>
+        <button class="button" data-exercise="16">16</button>
+      </div>
+    </section>
 
-    <!-- Fifth Unit -->
-    <button class="button" data-exercise="17">17</button>
-    <button class="button" data-exercise="18">18</button>
-    <button class="button" data-exercise="19">19</button>
-    <button class="button" data-exercise="20">20</button>
+    <!-- Unit 5 -->
+    <section class="unit">
+      <h2 class="unit-title">Mastery</h2>
+      <div class="button-container">
+        <button class="button" data-exercise="17">17</button>
+        <button class="button" data-exercise="18">18</button>
+        <button class="button" data-exercise="19">19</button>
+        <button class="button" data-exercise="20">20</button>
+      </div>
+    </section>
   </div>
 
   <script>
@@ -265,22 +191,28 @@
 
       // Add click event listeners to buttons
       buttons.forEach((button) => {
+
         button.addEventListener('click', function () {
           const exerciseNumber = parseInt(button.getAttribute('data-exercise'));
+          localStorage.setItem("currentStepNumber", exerciseNumber);
 
-          // Mark the exercise as completed
-          if (!completedExercises.includes(exerciseNumber)) {
-            completedExercises.push(exerciseNumber);
-            localStorage.setItem(subjectKey, JSON.stringify(completedExercises));
-          }
+
 
           // Update button states
           updateButtonStates();
 
           // Navigate to the exercise page
-          window.location.href = "../" + currentFlag + "/" + currentSubject + "/" + capitalizeFirstLetter(currentFlag) + exerciseNumber + ".html";
+          window.location.href = "../" + currentFlag + "/" + currentSubject + capitalizeFirstLetter(currentFlag) + ".html";
         });
       });
+    });
+
+    // Add click event listener to the Home button
+    const homeButton = document.getElementById('homeButton');
+    homeButton.addEventListener('click', function () {
+      // Define the URL to navigate to when Home button is clicked
+      // For example, navigate to the main page
+      window.location.href = "../../../index.html"; // Update this path as needed
     });
   </script>
 </body>

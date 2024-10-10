@@ -1,0 +1,122 @@
+[
+    {
+        "french": "salaires",
+        "english": "salaries"
+    },
+    {
+        "french": "contrat à durée déterminée",
+        "english": "fixed-term contract"
+    },
+    {
+        "french": "contrat à durée indéterminée",
+        "english": "permanent contract"
+    },
+    {
+        "french": "bénéfice",
+        "english": "benefit"
+    },
+    {
+        "french": "temps plein",
+        "english": "full-time"
+    },
+    {
+        "french": "temps partiel",
+        "english": "part-time"
+    },
+    {
+        "french": "stage",
+        "english": "internship"
+    },
+    {
+        "french": "formation continue",
+        "english": "continuing education"
+    },
+    {
+        "french": "compétence",
+        "english": "skill"
+    },
+    {
+        "french": "qualification",
+        "english": "qualification"
+    },
+    {
+        "french": "promotion interne",
+        "english": "internal promotion"
+    },
+    {
+        "french": "promotion externe",
+        "english": "external promotion"
+    },
+    {
+        "french": "licenciement économique",
+        "english": "economic layoff"
+    },
+    {
+        "french": "retraite",
+        "english": "retirement"
+    },
+    {
+        "french": "retraite anticipée",
+        "english": "early retirement"
+    },
+    {
+        "french": "emploi à temps partiel",
+        "english": "part-time job"
+    },
+    {
+        "french": "emploi à temps plein",
+        "english": "full-time job"
+    },
+    {
+        "french": "poste vacant",
+        "english": "vacant position"
+    },
+    {
+        "french": "offre d'emploi",
+        "english": "job offer"
+    },
+    {
+        "french": "candidature",
+        "english": "application"
+    },
+    {
+        "french": "entretien d'embauche",
+        "english": "job interview"
+    },
+    {
+        "french": "CV",
+        "english": "resume"
+    },
+    {
+        "french": "lettre de motivation",
+        "english": "cover letter"
+    },
+    {
+        "french": "réseau professionnel",
+        "english": "professional network"
+    },
+    {
+        "french": "références",
+        "english": "references"
+    },
+    {
+        "french": "bureau",
+        "english": "office"
+    },
+    {
+        "french": "espace de travail",
+        "english": "workspace"
+    },
+    {
+        "french": "bureau à domicile",
+        "english": "home office"
+    },
+    {
+        "french": "outil",
+        "english": "tool"
+    },
+    {
+        "french": "logiciel",
+        "english": "software"
+    }
+]

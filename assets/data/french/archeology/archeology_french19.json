@@ -1,0 +1,42 @@
+[
+    {
+        "french": "spectrométrie",
+        "english": "spectrometry"
+    },
+    {
+        "french": "microscopie",
+        "english": "microscopy"
+    },
+    {
+        "french": "analyses isotopiques",
+        "english": "isotopic analyses"
+    },
+    {
+        "french": "paléoanthropologie",
+        "english": "paleoanthropology"
+    },
+    {
+        "french": "paléohydrologie",
+        "english": "paleo-hydrology"
+    },
+    {
+        "french": "archéostratigraphie",
+        "english": "archaeostratigraphy"
+    },
+    {
+        "french": "archéogenétique",
+        "english": "archaeogenetics"
+    },
+    {
+        "french": "géochimie",
+        "english": "geochemistry"
+    },
+    {
+        "french": "paléoclimatologie",
+        "english": "paleoclimatology"
+    },
+    {
+        "french": "archéoécologie",
+        "english": "archaeoecology"
+    }
+]

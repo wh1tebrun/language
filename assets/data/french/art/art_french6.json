@@ -1,0 +1,82 @@
+[
+    {
+        "french": "crayon",
+        "english": "pencil"
+    },
+    {
+        "french": "papier",
+        "english": "paper"
+    },
+    {
+        "french": "gomme",
+        "english": "eraser"
+    },
+    {
+        "french": "règle",
+        "english": "ruler"
+    },
+    {
+        "french": "compas",
+        "english": "compass"
+    },
+    {
+        "french": "marqueur",
+        "english": "marker"
+    },
+    {
+        "french": "feutre",
+        "english": "felt-tip pen"
+    },
+    {
+        "french": "ciseaux",
+        "english": "scissors"
+    },
+    {
+        "french": "colle",
+        "english": "glue"
+    },
+    {
+        "french": "papier cartonné",
+        "english": "cardboard"
+    },
+    {
+        "french": "craie",
+        "english": "chalk"
+    },
+    {
+        "french": "pastel sec",
+        "english": "dry pastel"
+    },
+    {
+        "french": "pastel huile",
+        "english": "oil pastel"
+    },
+    {
+        "french": "aquarelle",
+        "english": "watercolor"
+    },
+    {
+        "french": "peinture à l'huile",
+        "english": "oil painting"
+    },
+    {
+        "french": "peinture acrylique",
+        "english": "acrylic painting"
+    },
+    {
+        "french": "gouache",
+        "english": "gouache"
+    },
+    {
+        "french": "tempera",
+        "english": "tempera"
+    },
+    {
+        "french": "encaustique",
+        "english": "encaustic"
+    },
+    {
+        "french": "pâte à modeler",
+        "english": "modeling clay"
+    }
+]

@@ -4,6 +4,15 @@ let wrongWords = []; // Yanlış yapılan kelimeleri tutan array
 let questionType;
 let chosenWordPair;
 const totalRounds = 12; // Sabit 12 soru
+// Retrieve the existing array from localStorage, or initialize as empty array
+// Retrieve and set defaults
+let currentSubject = localStorage.getItem('currentSubject') || 'psychology';
+let exerciseNumber = parseInt(localStorage.getItem('currentStepNumber') || '1', 10);
+let subjectKey = 'completedExercises' + currentSubject;
+
+// Retrieve the array and ensure elements are numbers
+let completedExercises = JSON.parse(localStorage.getItem(subjectKey)) || [];
+completedExercises = completedExercises.map(Number); // Convert all elements to numbers
 
 function updateHighscore(newScore) {
     const oldHighscore = parseInt(localStorage.getItem('bestScore')) || 0;
@@ -26,6 +35,10 @@ function openResult() {
     document.getElementById("menu").style.display = "flex"; // Sonuç ekranını göster
     document.body.classList.add('menu-active'); // Oyun içeriğini gizlemek için sınıf ekliyoruz
     showWrongWords(); // Yanlış kelimeleri göster
+    if (!completedExercises.includes(exerciseNumber)) {
+        completedExercises.push(exerciseNumber);
+        localStorage.setItem(subjectKey, JSON.stringify(completedExercises));
+    }
 }
 
 function randomizer(...options) {

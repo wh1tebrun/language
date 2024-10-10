@@ -1,0 +1,82 @@
+[
+    {
+        "french": "monomère",
+        "english": "monomer"
+    },
+    {
+        "french": "polysaccharide",
+        "english": "polysaccharide"
+    },
+    {
+        "french": "oligosaccharide",
+        "english": "oligosaccharide"
+    },
+    {
+        "french": "carbohydrate",
+        "english": "carbohydrate"
+    },
+    {
+        "french": "liposome",
+        "english": "liposome"
+    },
+    {
+        "french": "nanoparticule",
+        "english": "nanoparticle"
+    },
+    {
+        "french": "chromatographie",
+        "english": "chromatography"
+    },
+    {
+        "french": "spectroscopie",
+        "english": "spectroscopy"
+    },
+    {
+        "french": "titrage",
+        "english": "titration"
+    },
+    {
+        "french": "filtration",
+        "english": "filtration"
+    },
+    {
+        "french": "distillation",
+        "english": "distillation"
+    },
+    {
+        "french": "extraction",
+        "english": "extraction"
+    },
+    {
+        "french": "séparation",
+        "english": "separation"
+    },
+    {
+        "french": "cristallisation",
+        "english": "crystallization"
+    },
+    {
+        "french": "catalyse",
+        "english": "catalysis"
+    },
+    {
+        "french": "électrolyse",
+        "english": "electrolysis"
+    },
+    {
+        "french": "réacteur chimique",
+        "english": "chemical reactor"
+    },
+    {
+        "french": "balance",
+        "english": "balance"
+    },
+    {
+        "french": "balance électronique",
+        "english": "electronic balance"
+    },
+    {
+        "french": "bécher",
+        "english": "beaker"
+    }
+]

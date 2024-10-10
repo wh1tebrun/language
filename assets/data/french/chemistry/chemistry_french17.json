@@ -1,0 +1,78 @@
+[
+    {
+        "french": "indice de réfraction",
+        "english": "refractive index"
+    },
+    {
+        "french": "masse molaire",
+        "english": "molar mass"
+    },
+    {
+        "french": "constante d'équilibre",
+        "english": "equilibrium constant"
+    },
+    {
+        "french": "solide amorphe",
+        "english": "amorphous solid"
+    },
+    {
+        "french": "solide cristallin",
+        "english": "crystalline solid"
+    },
+    {
+        "french": "polymérisation",
+        "english": "polymerization"
+    },
+    {
+        "french": "réacteur",
+        "english": "reactor"
+    },
+    {
+        "french": "gaz inerte",
+        "english": "inert gas"
+    },
+    {
+        "french": "gaz réactif",
+        "english": "reactive gas"
+    },
+    {
+        "french": "électronégativité",
+        "english": "electronegativity"
+    },
+    {
+        "french": "affinité électronique",
+        "english": "electron affinity"
+    },
+    {
+        "french": "ionisation",
+        "english": "ionization"
+    },
+    {
+        "french": "énergie d'ionisation",
+        "english": "ionization energy"
+    },
+    {
+        "french": "affinité électronegativity",
+        "english": "electronegativity affinity"
+    },
+    {
+        "french": "énergie de liaison",
+        "english": "bond energy"
+    },
+    {
+        "french": "lien simple",
+        "english": "single bond"
+    },
+    {
+        "french": "lien double",
+        "english": "double bond"
+    },
+    {
+        "french": "lien triple",
+        "english": "triple bond"
+    },
+    {
+        "french": "lien sigma",
+        "english": "sigma bond"
+    }
+]

@@ -1,0 +1,170 @@
+[
+    {
+        "french": "réaction de formation",
+        "english": "formation reaction"
+    },
+    {
+        "french": "réaction de décomposition",
+        "english": "decomposition reaction"
+    },
+    {
+        "french": "réaction de substitution",
+        "english": "substitution reaction"
+    },
+    {
+        "french": "réaction d'addition",
+        "english": "addition reaction"
+    },
+    {
+        "french": "réaction d'élimination",
+        "english": "elimination reaction"
+    },
+    {
+        "french": "réaction de polymérisation",
+        "english": "polymerization reaction"
+    },
+    {
+        "french": "réaction d'hydrolyse",
+        "english": "hydrolysis reaction"
+    },
+    {
+        "french": "réaction de condensation",
+        "english": "condensation reaction"
+    },
+    {
+        "french": "réaction de réarrangement",
+        "english": "rearrangement reaction"
+    },
+    {
+        "french": "réaction de disproportionnement",
+        "english": "disproportionation reaction"
+    },
+    {
+        "french": "réaction de disproportionation",
+        "english": "disproportionation reaction"
+    },
+    {
+        "french": "catalyseurs homogènes",
+        "english": "homogeneous catalysts"
+    },
+    {
+        "french": "catalyseurs hétérogènes",
+        "english": "heterogeneous catalysts"
+    },
+    {
+        "french": "réactif limitant",
+        "english": "limiting reactant"
+    },
+    {
+        "french": "rendement théorique",
+        "english": "theoretical yield"
+    },
+    {
+        "french": "rendement réel",
+        "english": "actual yield"
+    },
+    {
+        "french": "rendement global",
+        "english": "overall yield"
+    },
+    {
+        "french": "constante d'équilibre",
+        "english": "equilibrium constant"
+    },
+    {
+        "french": "constantion de vitesse",
+        "english": "rate constant"
+    },
+    {
+        "french": "ordre de réaction",
+        "english": "reaction order"
+    },
+    {
+        "french": "mécanisme réactionnel",
+        "english": "reaction mechanism"
+    },
+    {
+        "french": "état de transition",
+        "english": "transition state"
+    },
+    {
+        "french": "intermédiaire réactionnel",
+        "english": "reaction intermediate"
+    },
+    {
+        "french": "diagramme de réaction",
+        "english": "reaction diagram"
+    },
+    {
+        "french": "catalyse enzymatique",
+        "english": "enzymatic catalysis"
+    },
+    {
+        "french": "catalyse photochemique",
+        "english": "photochemical catalysis"
+    },
+    {
+        "french": "catalyse électrochimique",
+        "english": "electrochemical catalysis"
+    },
+    {
+        "french": "catalyse organique",
+        "english": "organic catalysis"
+    },
+    {
+        "french": "catalyse inorganique",
+        "english": "inorganic catalysis"
+    },
+    {
+        "french": "catalyse biologique",
+        "english": "biological catalysis"
+    },
+    {
+        "french": "catalyse de Lewis",
+        "english": "Lewis catalysis"
+    },
+    {
+        "french": "catalyse de Bronsted-Lowry",
+        "english": "Bronsted-Lowry catalysis"
+    },
+    {
+        "french": "catalyse hétérogène",
+        "english": "heterogeneous catalysis"
+    },
+    {
+        "french": "catalyse homogène",
+        "english": "homogeneous catalysis"
+    },
+    {
+        "french": "catalyseurs enzymatiques",
+        "english": "enzymatic catalysts"
+    },
+    {
+        "french": "catalyseurs photochimiques",
+        "english": "photochemical catalysts"
+    },
+    {
+        "french": "catalyseurs électrochimiques",
+        "english": "electrochemical catalysts"
+    },
+    {
+        "french": "catalyseurs organiques",
+        "english": "organic catalysts"
+    },
+    {
+        "french": "catalyseurs inorganiques",
+        "english": "inorganic catalysts"
+    },
+    {
+        "french": "catalyseurs biologiques",
+        "english": "biological catalysts"
+    },
+    {
+        "french": "catalyse de Lewis",
+        "english": "Lewis catalysis"
+    },
+    {
+        "french": "catalyse de Bronsted-Lowry",
+        "english": "Bronsted-Lowry catalysis"
+    }
+]

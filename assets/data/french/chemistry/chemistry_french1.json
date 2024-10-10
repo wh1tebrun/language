@@ -1,0 +1,74 @@
+[
+    {
+        "french": "chimie",
+        "english": "chemistry"
+    },
+    {
+        "french": "atome",
+        "english": "atom"
+    },
+    {
+        "french": "élément",
+        "english": "element"
+    },
+    {
+        "french": "molécule",
+        "english": "molecule"
+    },
+    {
+        "french": "réaction",
+        "english": "reaction"
+    },
+    {
+        "french": "ion",
+        "english": "ion"
+    },
+    {
+        "french": "électron",
+        "english": "electron"
+    },
+    {
+        "french": "proton",
+        "english": "proton"
+    },
+    {
+        "french": "neutron",
+        "english": "neutron"
+    },
+    {
+        "french": "isotope",
+        "english": "isotope"
+    },
+    {
+        "french": "valence",
+        "english": "valence"
+    },
+    {
+        "french": "lien chimique",
+        "english": "chemical bond"
+    },
+    {
+        "french": "acide",
+        "english": "acid"
+    },
+    {
+        "french": "base",
+        "english": "base"
+    },
+    {
+        "french": "sel",
+        "english": "salt"
+    },
+    {
+        "french": "solvant",
+        "english": "solvent"
+    },
+    {
+        "french": "solution",
+        "english": "solution"
+    },
+    {
+        "french": "concentration",
+        "english": "concentration"
+    }
+]

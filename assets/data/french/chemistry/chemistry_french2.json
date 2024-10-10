@@ -1,0 +1,82 @@
+[
+    {
+        "french": "pH",
+        "english": "pH"
+    },
+    {
+        "french": "mélange",
+        "english": "mixture"
+    },
+    {
+        "french": "pur",
+        "english": "pure"
+    },
+    {
+        "french": "réactif",
+        "english": "reactant"
+    },
+    {
+        "french": "produit",
+        "english": "product"
+    },
+    {
+        "french": "équilibre",
+        "english": "equilibrium"
+    },
+    {
+        "french": "catalyseur",
+        "english": "catalyst"
+    },
+    {
+        "french": "thermodynamique",
+        "english": "thermodynamics"
+    },
+    {
+        "french": "enthalpie",
+        "english": "enthalpy"
+    },
+    {
+        "french": "entropie",
+        "english": "entropy"
+    },
+    {
+        "french": "enthalpique",
+        "english": "enthalpic"
+    },
+    {
+        "french": "exothermique",
+        "english": "exothermic"
+    },
+    {
+        "french": "endothermique",
+        "english": "endothermic"
+    },
+    {
+        "french": "oxydation",
+        "english": "oxidation"
+    },
+    {
+        "french": "réduction",
+        "english": "reduction"
+    },
+    {
+        "french": "réaction d'oxydoréduction",
+        "english": "redox reaction"
+    },
+    {
+        "french": "valence électronique",
+        "english": "valence electron"
+    },
+    {
+        "french": "orbital",
+        "english": "orbital"
+    },
+    {
+        "french": "configuration électronique",
+        "english": "electron configuration"
+    },
+    {
+        "french": "force ionique",
+        "english": "ionic bond"
+    }
+]

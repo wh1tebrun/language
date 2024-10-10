@@ -1,0 +1,42 @@
+[
+    {
+        "french": "la vallée",
+        "english": "valley"
+    },
+    {
+        "french": "la colline",
+        "english": "hill"
+    },
+    {
+        "french": "la montagne",
+        "english": "mountain"
+    },
+    {
+        "french": "la rivière",
+        "english": "river"
+    },
+    {
+        "french": "le lac",
+        "english": "lake"
+    },
+    {
+        "french": "la mer",
+        "english": "sea"
+    },
+    {
+        "french": "l'océan",
+        "english": "ocean"
+    },
+    {
+        "french": "le désert",
+        "english": "desert"
+    },
+    {
+        "french": "la forêt",
+        "english": "forest"
+    },
+    {
+        "french": "le camp",
+        "english": "camp"
+    }
+]

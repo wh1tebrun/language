@@ -1,0 +1,122 @@
+[
+    {
+        "french": "affaires",
+        "english": "business"
+    },
+    {
+        "french": "entreprise",
+        "english": "company"
+    },
+    {
+        "french": "gestion",
+        "english": "management"
+    },
+    {
+        "french": "employé",
+        "english": "employee"
+    },
+    {
+        "french": "patron",
+        "english": "boss"
+    },
+    {
+        "french": "marché",
+        "english": "market"
+    },
+    {
+        "french": "profit",
+        "english": "profit"
+    },
+    {
+        "french": "perte",
+        "english": "loss"
+    },
+    {
+        "french": "revenu",
+        "english": "income"
+    },
+    {
+        "french": "dépense",
+        "english": "expense"
+    },
+    {
+        "french": "budget",
+        "english": "budget"
+    },
+    {
+        "french": "investissement",
+        "english": "investment"
+    },
+    {
+        "french": "action",
+        "english": "share"
+    },
+    {
+        "french": "actionnaire",
+        "english": "shareholder"
+    },
+    {
+        "french": "bilan",
+        "english": "balance sheet"
+    },
+    {
+        "french": "comptabilité",
+        "english": "accounting"
+    },
+    {
+        "french": "facture",
+        "english": "invoice"
+    },
+    {
+        "french": "contrat",
+        "english": "contract"
+    },
+    {
+        "french": "accord",
+        "english": "agreement"
+    },
+    {
+        "french": "stratégie",
+        "english": "strategy"
+    },
+    {
+        "french": "plan d'affaires",
+        "english": "business plan"
+    },
+    {
+        "french": "marketing",
+        "english": "marketing"
+    },
+    {
+        "french": "publicité",
+        "english": "advertising"
+    },
+    {
+        "french": "vente",
+        "english": "sale"
+    },
+    {
+        "french": "client",
+        "english": "customer"
+    },
+    {
+        "french": "fournisseur",
+        "english": "supplier"
+    },
+    {
+        "french": "produit",
+        "english": "product"
+    },
+    {
+        "french": "service",
+        "english": "service"
+    },
+    {
+        "french": "innovation",
+        "english": "innovation"
+    },
+    {
+        "french": "technologie",
+        "english": "technology"
+    }
+]

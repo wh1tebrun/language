@@ -1,0 +1,150 @@
+[
+    {
+        "french": "équilibre acido-basique",
+        "english": "acid-base equilibrium"
+    },
+    {
+        "french": "pKa",
+        "english": "pKa"
+    },
+    {
+        "french": "titrage acide-base",
+        "english": "acid-base titration"
+    },
+    {
+        "french": "équilibre ionique",
+        "english": "ionic equilibrium"
+    },
+    {
+        "french": "solubilité des sels",
+        "english": "salt solubility"
+    },
+    {
+        "french": "catalyse homogène",
+        "english": "homogeneous catalysis"
+    },
+    {
+        "french": "catalyse hétérogène",
+        "english": "heterogeneous catalysis"
+    },
+    {
+        "french": "catalyse enzymatique",
+        "english": "enzymatic catalysis"
+    },
+    {
+        "french": "catalyse photochimique",
+        "english": "photochemical catalysis"
+    },
+    {
+        "french": "catalyse électrochimique",
+        "english": "electrochemical catalysis"
+    },
+    {
+        "french": "cinétique chimique",
+        "english": "chemical kinetics"
+    },
+    {
+        "french": "ordre de réaction",
+        "english": "reaction order"
+    },
+    {
+        "french": "constante de vitesse",
+        "english": "rate constant"
+    },
+    {
+        "french": "mécanisme de réaction",
+        "english": "reaction mechanism"
+    },
+    {
+        "french": "intermédiaire réactionnel",
+        "english": "reaction intermediate"
+    },
+    {
+        "french": "état de transition",
+        "english": "transition state"
+    },
+    {
+        "french": "théorie de l'activation",
+        "english": "activation theory"
+    },
+    {
+        "french": "énergie d'activation",
+        "english": "activation energy"
+    },
+    {
+        "french": "réacteur chimique",
+        "english": "chemical reactor"
+    },
+    {
+        "french": "réaction exothermique",
+        "english": "exothermic reaction"
+    },
+    {
+        "french": "réaction endothermique",
+        "english": "endothermic reaction"
+    },
+    {
+        "french": "enthalpie standard de formation",
+        "english": "standard enthalpy of formation"
+    },
+    {
+        "french": "enthalpie standard de combustion",
+        "english": "standard enthalpy of combustion"
+    },
+    {
+        "french": "enthalpie standard de fusion",
+        "english": "standard enthalpy of fusion"
+    },
+    {
+        "french": "enthalpie standard de vaporisation",
+        "english": "standard enthalpy of vaporization"
+    },
+    {
+        "french": "enthalpie standard de sublimation",
+        "english": "standard enthalpy of sublimation"
+    },
+    {
+        "french": "enthalpie standard de solution",
+        "english": "standard enthalpy of solution"
+    },
+    {
+        "french": "enthalpie standard de neutralisation",
+        "english": "standard enthalpy of neutralization"
+    },
+    {
+        "french": "enthalpie standard de dilution",
+        "english": "standard enthalpy of dilution"
+    },
+    {
+        "french": "enthalpie standard de polymérisation",
+        "english": "standard enthalpy of polymerization"
+    },
+    {
+        "french": "enthalpie standard de réaction exothermique",
+        "english": "standard enthalpy of exothermic reaction"
+    },
+    {
+        "french": "enthalpie standard de réaction endothermique",
+        "english": "standard enthalpy of endothermic reaction"
+    },
+    {
+        "french": "enthalpie de liaison",
+        "english": "bond enthalpy"
+    },
+    {
+        "french": "affinité électronique",
+        "english": "electron affinity"
+    },
+    {
+        "french": "électronégativité",
+        "english": "electronegativity"
+    },
+    {
+        "french": "affinité ionique",
+        "english": "ionic affinity"
+    },
+    {
+        "french": "énergie de liaison",
+        "english": "bond energy"
+    }
+]

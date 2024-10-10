@@ -1,0 +1,78 @@
+[
+    {
+        "french": "système d'information",
+        "english": "information system"
+    },
+    {
+        "french": "base de données",
+        "english": "database"
+    },
+    {
+        "french": "informatique décisionnelle",
+        "english": "business intelligence"
+    },
+    {
+        "french": "data mining",
+        "english": "data mining"
+    },
+    {
+        "french": "tableau de bord",
+        "english": "dashboard"
+    },
+    {
+        "french": "reporting",
+        "english": "reporting"
+    },
+    {
+        "french": "gestion de projet",
+        "english": "project management"
+    },
+    {
+        "french": "méthodologie",
+        "english": "methodology"
+    },
+    {
+        "french": "agilité",
+        "english": "agility"
+    },
+    {
+        "french": "scrum",
+        "english": "scrum"
+    },
+    {
+        "french": "kanban",
+        "english": "kanban"
+    },
+    {
+        "french": "cycle de vie",
+        "english": "lifecycle"
+    },
+    {
+        "french": "itération",
+        "english": "iteration"
+    },
+    {
+        "french": "livrable",
+        "english": "deliverable"
+    },
+    {
+        "french": "gestion des ressources",
+        "english": "resource management"
+    },
+    {
+        "french": "allocation des ressources",
+        "english": "resource allocation"
+    },
+    {
+        "french": "gestion des coûts",
+        "english": "cost management"
+    },
+    {
+        "french": "gestion des risques",
+        "english": "risk management"
+    },
+    {
+        "french": "plan de contingence",
+        "english": "contingency plan"
+    }
+]

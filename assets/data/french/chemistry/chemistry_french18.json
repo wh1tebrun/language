@@ -1,0 +1,110 @@
+[
+    {
+        "french": "lien pi",
+        "english": "pi bond"
+    },
+    {
+        "french": "structure de Lewis",
+        "english": "Lewis structure"
+    },
+    {
+        "french": "géométrie moléculaire",
+        "english": "molecular geometry"
+    },
+    {
+        "french": "théorie VSEPR",
+        "english": "VSEPR theory"
+    },
+    {
+        "french": "hybridation",
+        "english": "hybridization"
+    },
+    {
+        "french": "sp³",
+        "english": "sp³"
+    },
+    {
+        "french": "sp²",
+        "english": "sp²"
+    },
+    {
+        "french": "sp",
+        "english": "sp"
+    },
+    {
+        "french": "orbital",
+        "english": "orbital"
+    },
+    {
+        "french": "orbital s",
+        "english": "s orbital"
+    },
+    {
+        "french": "orbital p",
+        "english": "p orbital"
+    },
+    {
+        "french": "orbital d",
+        "english": "d orbital"
+    },
+    {
+        "french": "orbital f",
+        "english": "f orbital"
+    },
+    {
+        "french": "réaction de substitution",
+        "english": "substitution reaction"
+    },
+    {
+        "french": "réaction d'addition",
+        "english": "addition reaction"
+    },
+    {
+        "french": "réaction d'élimination",
+        "english": "elimination reaction"
+    },
+    {
+        "french": "réaction de polymérisation",
+        "english": "polymerization reaction"
+    },
+    {
+        "french": "catalyse hétérogène",
+        "english": "heterogeneous catalysis"
+    },
+    {
+        "french": "catalyse homogène",
+        "english": "homogeneous catalysis"
+    },
+    {
+        "french": "catalyse enzymatique",
+        "english": "enzymatic catalysis"
+    },
+    {
+        "french": "catalyse photochimique",
+        "english": "photochemical catalysis"
+    },
+    {
+        "french": "catalyse électrochimique",
+        "english": "electrochemical catalysis"
+    },
+    {
+        "french": "catalyse organique",
+        "english": "organic catalysis"
+    },
+    {
+        "french": "catalyse inorganique",
+        "english": "inorganic catalysis"
+    },
+    {
+        "french": "catalyse biologique",
+        "english": "biological catalysis"
+    },
+    {
+        "french": "catalyse de Lewis",
+        "english": "Lewis catalysis"
+    },
+    {
+        "french": "catalyse de Bronsted-Lowry",
+        "english": "Bronsted-Lowry catalysis"
+    }
+]

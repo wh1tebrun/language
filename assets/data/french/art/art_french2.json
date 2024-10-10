@@ -1,0 +1,82 @@
+[
+    {
+        "french": "lumière",
+        "english": "light"
+    },
+    {
+        "french": "composition",
+        "english": "composition"
+    },
+    {
+        "french": "espace",
+        "english": "space"
+    },
+    {
+        "french": "proportion",
+        "english": "proportion"
+    },
+    {
+        "french": "perspective",
+        "english": "perspective"
+    },
+    {
+        "french": "abstrait",
+        "english": "abstract"
+    },
+    {
+        "french": "réalisme",
+        "english": "realism"
+    },
+    {
+        "french": "impressionnisme",
+        "english": "impressionism"
+    },
+    {
+        "french": "expressionnisme",
+        "english": "expressionism"
+    },
+    {
+        "french": "cubisme",
+        "english": "cubism"
+    },
+    {
+        "french": "surréalisme",
+        "english": "surrealism"
+    },
+    {
+        "french": "baroque",
+        "english": "baroque"
+    },
+    {
+        "french": "rococo",
+        "english": "rococo"
+    },
+    {
+        "french": "renaissance",
+        "english": "renaissance"
+    },
+    {
+        "french": "gothique",
+        "english": "gothic"
+    },
+    {
+        "french": "moderne",
+        "english": "modern"
+    },
+    {
+        "french": "contemporain",
+        "english": "contemporary"
+    },
+    {
+        "french": "fresque",
+        "english": "fresco"
+    },
+    {
+        "french": "murale",
+        "english": "mural"
+    },
+    {
+        "french": "aquarelle",
+        "english": "watercolor"
+    }
+]

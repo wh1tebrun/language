@@ -1,0 +1,82 @@
+[
+    {
+        "french": "force covalente",
+        "english": "covalent bond"
+    },
+    {
+        "french": "force métallique",
+        "english": "metallic bond"
+    },
+    {
+        "french": "réseau cristallin",
+        "english": "crystalline lattice"
+    },
+    {
+        "french": "solide",
+        "english": "solid"
+    },
+    {
+        "french": "liquide",
+        "english": "liquid"
+    },
+    {
+        "french": "gaz",
+        "english": "gas"
+    },
+    {
+        "french": "sublimation",
+        "english": "sublimation"
+    },
+    {
+        "french": "fusion",
+        "english": "fusion"
+    },
+    {
+        "french": "vaporisation",
+        "english": "vaporization"
+    },
+    {
+        "french": "solidification",
+        "english": "solidification"
+    },
+    {
+        "french": "ébullition",
+        "english": "boiling"
+    },
+    {
+        "french": "condensation",
+        "english": "condensation"
+    },
+    {
+        "french": "dissolution",
+        "english": "dissolution"
+    },
+    {
+        "french": "solubilité",
+        "english": "solubility"
+    },
+    {
+        "french": "mélange homogène",
+        "english": "homogeneous mixture"
+    },
+    {
+        "french": "mélange hétérogène",
+        "english": "heterogeneous mixture"
+    },
+    {
+        "french": "réaction chimique",
+        "english": "chemical reaction"
+    },
+    {
+        "french": "équation chimique",
+        "english": "chemical equation"
+    },
+    {
+        "french": "réactif limitant",
+        "english": "limiting reactant"
+    },
+    {
+        "french": "rendement",
+        "english": "yield"
+    }
+]

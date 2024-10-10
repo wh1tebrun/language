@@ -1,0 +1,82 @@
+[
+    {
+        "french": "réaction acide-base",
+        "english": "acid-base reaction"
+    },
+    {
+        "french": "réaction de combustion",
+        "english": "combustion reaction"
+    },
+    {
+        "french": "réaction de synthèse",
+        "english": "synthesis reaction"
+    },
+    {
+        "french": "réaction de décomposition",
+        "english": "decomposition reaction"
+    },
+    {
+        "french": "réaction de substitution",
+        "english": "substitution reaction"
+    },
+    {
+        "french": "réaction d'addition",
+        "english": "addition reaction"
+    },
+    {
+        "french": "réaction d'élimination",
+        "english": "elimination reaction"
+    },
+    {
+        "french": "réaction de polymérisation",
+        "english": "polymerization reaction"
+    },
+    {
+        "french": "catalyse",
+        "english": "catalysis"
+    },
+    {
+        "french": "cinétique chimique",
+        "english": "chemical kinetics"
+    },
+    {
+        "french": "équilibre chimique",
+        "english": "chemical equilibrium"
+    },
+    {
+        "french": "thermochimie",
+        "english": "thermochemistry"
+    },
+    {
+        "french": "enthalpie de réaction",
+        "english": "enthalpy of reaction"
+    },
+    {
+        "french": "enthalpie standard",
+        "english": "standard enthalpy"
+    },
+    {
+        "french": "enthalpie de liaison",
+        "english": "bond enthalpy"
+    },
+    {
+        "french": "enthalpie de formation",
+        "english": "enthalpy of formation"
+    },
+    {
+        "french": "enthalpie de combustion",
+        "english": "enthalpy of combustion"
+    },
+    {
+        "french": "enthalpie de fusion",
+        "english": "enthalpy of fusion"
+    },
+    {
+        "french": "enthalpie de vaporisation",
+        "english": "enthalpy of vaporization"
+    },
+    {
+        "french": "enthalpie de sublimation",
+        "english": "enthalpy of sublimation"
+    }
+]

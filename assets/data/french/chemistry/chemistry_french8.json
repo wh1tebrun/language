@@ -1,0 +1,82 @@
+[
+    {
+        "french": "fluor",
+        "english": "fluorine"
+    },
+    {
+        "french": "brome",
+        "english": "bromine"
+    },
+    {
+        "french": "iodure",
+        "english": "iodide"
+    },
+    {
+        "french": "sulfate",
+        "english": "sulfate"
+    },
+    {
+        "french": "nitrate",
+        "english": "nitrate"
+    },
+    {
+        "french": "carbonate",
+        "english": "carbonate"
+    },
+    {
+        "french": "phosphate",
+        "english": "phosphate"
+    },
+    {
+        "french": "carbonate de sodium",
+        "english": "sodium carbonate"
+    },
+    {
+        "french": "hydroxyde de potassium",
+        "english": "potassium hydroxide"
+    },
+    {
+        "french": "ammoniaque",
+        "english": "ammonia"
+    },
+    {
+        "french": "sulfure",
+        "english": "sulfide"
+    },
+    {
+        "french": "oxyde",
+        "english": "oxide"
+    },
+    {
+        "french": "peroxyde",
+        "english": "peroxide"
+    },
+    {
+        "french": "hydrogène peroxyde",
+        "english": "hydrogen peroxide"
+    },
+    {
+        "french": "alcool éthylique",
+        "english": "ethyl alcohol"
+    },
+    {
+        "french": "alcool isopropylique",
+        "english": "isopropyl alcohol"
+    },
+    {
+        "french": "éthanol pur",
+        "english": "pure ethanol"
+    },
+    {
+        "french": "acétone",
+        "english": "acetone"
+    },
+    {
+        "french": "glycérine",
+        "english": "glycerin"
+    },
+    {
+        "french": "glycol",
+        "english": "glycol"
+    }
+]

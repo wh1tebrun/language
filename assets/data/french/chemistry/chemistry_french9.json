@@ -1,0 +1,82 @@
+[
+    {
+        "french": "acide citrique",
+        "english": "citric acid"
+    },
+    {
+        "french": "acide acétique",
+        "english": "acetic acid"
+    },
+    {
+        "french": "acide nitrique",
+        "english": "nitric acid"
+    },
+    {
+        "french": "acide phosphorique",
+        "english": "phosphoric acid"
+    },
+    {
+        "french": "hydroxyde de sodium",
+        "english": "sodium hydroxide"
+    },
+    {
+        "french": "hydroxyde de calcium",
+        "english": "calcium hydroxide"
+    },
+    {
+        "french": "hydroxyde de magnésium",
+        "english": "magnesium hydroxide"
+    },
+    {
+        "french": "hydroxyde de fer",
+        "english": "iron hydroxide"
+    },
+    {
+        "french": "carbonate de potassium",
+        "english": "potassium carbonate"
+    },
+    {
+        "french": "carbonate de magnésium",
+        "english": "magnesium carbonate"
+    },
+    {
+        "french": "carbonate de fer",
+        "english": "iron carbonate"
+    },
+    {
+        "french": "sulfate de sodium",
+        "english": "sodium sulfate"
+    },
+    {
+        "french": "sulfate de calcium",
+        "english": "calcium sulfate"
+    },
+    {
+        "french": "sulfate de magnésium",
+        "english": "magnesium sulfate"
+    },
+    {
+        "french": "nitrate de sodium",
+        "english": "sodium nitrate"
+    },
+    {
+        "french": "nitrate de potassium",
+        "english": "potassium nitrate"
+    },
+    {
+        "french": "nitrate de calcium",
+        "english": "calcium nitrate"
+    },
+    {
+        "french": "phosphate de sodium",
+        "english": "sodium phosphate"
+    },
+    {
+        "french": "phosphate de potassium",
+        "english": "potassium phosphate"
+    },
+    {
+        "french": "phosphate de calcium",
+        "english": "calcium phosphate"
+    }
+]
