@@ -132,7 +132,7 @@ h3 {
     display: flex;
     align-items: center;
     text-decoration: none;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: #000000;
     transition: background-color 0.3s, color 0.3s;
     font-family: 'Fredoka One', sans-serif;
@@ -146,8 +146,8 @@ h3 {
 }
 
 .menu-icon {
-    width: 48px;
-    height: 48px;
+    width: 60px;
+    height: 60px;
     margin-right: 10px;
 }
 
@@ -280,7 +280,6 @@ img {
     max-width: 300px;
     height: auto;
     object-fit: fill;
-    border: 1px solid black;
 }
 
 /* Küçük Bayraklar */
@@ -578,8 +577,8 @@ body.menu-active .game-content {
         height: auto;
     }
     .streak-icon{
-        max-width: 40px;
-        max-height: 30px;
+        max-width: 50px;
+        max-height: 50px;
 
     }
     .lesson-card{
@@ -726,8 +725,8 @@ body.menu-active .game-content {
 }
 
 .streak-icon {
-    width: 48px;
-    height: 48px;
+    width: 70px;
+    height: 70px;
     margin-right: 5px;
 }
 
@@ -1176,6 +1175,7 @@ body.menu-active .game-content {
 .learn-selection h2 {
     font-size: 28px;
     color: #333333;
+    margin-top: 40px;
     margin-bottom: 30px;
 }
 
