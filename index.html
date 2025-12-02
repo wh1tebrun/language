@@ -179,6 +179,30 @@
       window.location.href = lessonPage;
     }
   </script>
+
+  FROM centos:centos7.9.2009
+
+# CentOS 7 EOL olduğu için eski yum repo'larını vault'a yönlendiriyoruz
+RUN sed -i -e "s|enabled=1|enabled=0|g" \
+           -e "s|mirrorlist=|#mirrorlist=|g" \
+           -e "s|#\\s*baseurl=http://mirror.|baseurl=https://vault.|g" \
+    /etc/yum/pluginconf.d/* /etc/yum.repos.d/*
+
+# Uygulamanın ihtiyaç duyduğu ek sistem kütüphanesi
+RUN yum install --setopt=skip_missing_names_on_install=False -y \
+        libicu
+
+WORKDIR /work
+
+# Ödev arşivinden gelen lib klasörünü ve binary'yi container'a kopyalıyoruz
+COPY lib/ /work/lib/
+COPY app /work/app
+
+# Özel boost ve tbb kütüphanelerini linker'ın bulabilmesi için
+ENV LD_LIBRARY_PATH=/work/lib/
+
+# Varsayılan komut: app. Öğrenci numarasını docker run ile argüman olarak vereceğiz
+CMD ["/work/app"]
 </body>
 
 </html>
